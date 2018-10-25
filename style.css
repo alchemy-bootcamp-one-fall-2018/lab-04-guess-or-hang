@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+#guessLetterCenter {
+    text-align: center;
+}
+#submitButton {
+    margin: 20px;
+}
+#submit {
+    padding: 10px 30px;
+    font-size: 15px; 
+}
