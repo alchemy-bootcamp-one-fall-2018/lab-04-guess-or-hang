@@ -1,11 +1,15 @@
+/* global words */
 //placeholder for building hangman
 
 //building guessing game
-    //function to pick word
+    //function to pick word and bring to DOM
+var words = document.getElementById('words');
+words.textContent = words.length;
         //randomly select index
         //get word corresponding to index
     //set placeholder for letters
         //evaluate word for number of letters
+var length = words.length;
         //display number of dashes corresponding to number of letters
     //program to call letters
         //form for user to enter letter
@@ -17,5 +21,3 @@
         //if word completed successfully, "you win!"
         //if man hung, "you lose!"
         //reset to play again
-
-        //test
