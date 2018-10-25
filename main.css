@@ -55,3 +55,26 @@ h2{
     margin: auto;
     margin-top: 2%;
 }
+
+@media only screen and (min-width: 1024px) {
+
+    #stuff {
+        float: left;
+        border: 5px solid red;
+        margin-left: 15%;
+        margin-top: 2%;
+    }
+
+    #image {
+        float: right;
+        border: 5px solid red;
+        margin-right: 10%;
+    }
+
+    button, #guesses {
+        clear: both;
+        border: 5px solid red;
+
+    }
+
+}

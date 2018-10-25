@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>GUESS or HANG</h1>
-
-    <section>
+    
+    <section id="guesses">
+        <h1>GUESS or HANG</h1>
         <p id="correctGuesses"></p>
     </section>
 
@@ -18,23 +18,26 @@
         <img id="gallows" src="placeholder.png">
     </section>
 
-    <form>
-        <h2>Guess a Letter</h2>
-        <label for="guessLetter"></label>
-        <input type="text" name="guessLetter" id="guessLetter" maxlength="1">
-    </form>
+    <div id="stuff">
+        <form>
+            <h2>Guess a Letter</h2>
+            <label for="guessLetter"></label>
+            <input type="text" name="guessLetter" id="guessLetter" maxlength="1">
+        </form>
+    
+        <section>
+            <p id="message"></p>
+        </section>
+    
+        <section>
+            <h3>Incorrect Guesses:</h3>
+            <p id="incorrectGuesses"></p>
+        </section>
+    </div>
 
-    <section>
-        <p id="message"></p>
-    </section>
-
-    <section>
-        <h3>Incorrect Guesses:</h3>
-        <p id="incorrectGuesses"></p>
-    </section>
     
     <section>
-        <button id="go" class="go green">Go!</button>
+        <button class="go green">Go!</button>
     </section>
 
 </body>
