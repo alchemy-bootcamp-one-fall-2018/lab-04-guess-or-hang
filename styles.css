@@ -6,10 +6,15 @@
 #column-two{
     width: 50%;
     background-color: cyan;
+    float: right;
 }
 
 #letter-display{
     background-color: blue;
+}
+
+#guessed-display{
+    background-color: purple;
 }
 
 h1{
