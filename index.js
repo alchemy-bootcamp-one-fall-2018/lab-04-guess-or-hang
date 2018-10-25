@@ -19,6 +19,7 @@
             // display 'you win'
             // reveal reset button
             // hide submit button
+            // code-spell-checker:disable-next-line
             // hide textbox entry
 
 
@@ -33,5 +34,4 @@
         // hide submit button
         // reveal reset button
         //continueGame = 'false'
-
 
