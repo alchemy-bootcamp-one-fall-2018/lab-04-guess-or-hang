@@ -1,0 +1,18 @@
+
+#column-one{
+    width: 50%;
+    background-color: red;
+}
+#column-two{
+    width: 50%;
+    background-color: cyan;
+}
+
+#letter-display{
+    background-color: blue;
+}
+
+h1{
+    text-align: center;
+}
+
