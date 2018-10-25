@@ -60,21 +60,17 @@ h2{
 
     #stuff {
         float: left;
-        border: 5px solid red;
         margin-left: 15%;
         margin-top: 2%;
     }
 
     #image {
         float: right;
-        border: 5px solid red;
         margin-right: 10%;
     }
 
-    button, #guesses {
+    #goButton, #guesses {
         clear: both;
-        border: 5px solid red;
-
     }
 
 }
