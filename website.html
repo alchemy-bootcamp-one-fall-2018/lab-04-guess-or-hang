@@ -6,31 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
     
 </head>
-<body>
-    <h1>HANGMAN</h1>
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <p>
-        _ _ _ _ _ _
-    </p>
-    <div id="guessLetterCenter">
-        <form id="guess-letter-form" onsubmit="event.preventDefault();">
-            <label for="guessLetter">Guess Letter:</label>
-            <input type="text" id="guessLetter" name="guessLetter" placeholder="Enter a letter">
-            <br>
-            <button id="submit" onclick="tryButton()">Submit Letter</button>
+<div id="everything">
+
+    <body>
+        <h1>~ HANGMAN ~</h1>
+        
+        <div id="divCanvas" style="text-align: center;">
+                <canvas id="myCanvas" height="500" width="500">
+                </canvas>
+            </div>
             
-        </form>
-
-        <!-- give an id like letter-0, letter-1, letter-2, etc. -->
-
-    </div>
-    <script src="functionality.js"></script>
-</body>
+            <p>
+                _ _ _ _ _ _
+            </p>
+            <div id="guessLetterCenter">
+                <form id="guess-letter-form" onsubmit="event.preventDefault();">
+                    <label id="guessText" for="guessLetter">Guess Letter:</label>
+                    <input type="text" id="guessLetter" name="guessLetter" placeholder="Enter a letter">
+                    <br>
+                    <button id="submit" onclick="tryButton()">Submit Letter</button>
+                    
+                </form>
+                
+                <!-- give an id like letter-0, letter-1, letter-2, etc. -->
+                
+            </div>
+        <script src="functionality.js"></script>
+    </body>
 </html>
+</div>
