@@ -25,6 +25,7 @@ spaces.innerHTML = dashes;
 function play() {
     var input = document.getElementById('guessLetter').value;
     console.log('input:', input);
+    var message = document.getElementById('message');
     //keep track of all letters guessed
     
     //clear text input
@@ -42,11 +43,12 @@ function play() {
             correctGuesses.innerHTML = correctLetter;
 
             //send message to message
+            //place input in lettersGuessed
         } else {
             guessCount++;
-            //place input in lettersGuessed
             //add body part to person
             //send message to message
+            message.innerHTML = '<p class="red">Guess Again</p>';
         }
         if(correctLetter.length === word.length) {
             //button displays "You Win! - New Game". Reset game
