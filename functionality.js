@@ -25,8 +25,12 @@ function tryButton() {
     // Number of Guesses - Shows how many total guesses have been made
     
     // Message - A place to show messages (like win or lose)
-var circle = document.getElementById("myCanvas");
-var ctx = circle.getContext("2d");
+
+
+
+//Body Parts
+var head = document.getElementById("myCanvas");
+var ctx = head.getContext("2d");
 ctx.beginPath();
 ctx.arc(250, 100, 30, 0, 7);
 ctx.stroke();
@@ -59,4 +63,36 @@ var rightLeg = document.getElementById("myCanvas");
 var ctx = rightLeg.getContext("2d");
 ctx.moveTo(250, 250);
 ctx.lineTo(320, 350);
+ctx.stroke();
+
+
+// Gallows
+var rope = document.getElementById("myCanvas");
+var ctx = rope.getContext("2d");
+ctx.moveTo(250, 70);
+ctx.lineTo(250, 30);
+ctx.stroke();
+
+var topPart = document.getElementById("myCanvas");
+var ctx = topPart.getContext("2d");
+ctx.moveTo(250, 30);
+ctx.lineTo(100, 30);
+ctx.stroke();
+
+var sidePart = document.getElementById("myCanvas");
+var ctx = sidePart.getContext("2d");
+ctx.moveTo(100, 30);
+ctx.lineTo(100, 400);
+ctx.stroke();
+
+var cornerPiece = document.getElementById("myCanvas");
+var ctx = cornerPiece.getContext("2d");
+ctx.moveTo(150, 30);
+ctx.lineTo(100, 80);
+ctx.stroke();
+
+var bottomPart = document.getElementById("myCanvas");
+var ctx = bottomPart.getContext("2d");
+ctx.moveTo(50, 400);
+ctx.lineTo(320, 400);
 ctx.stroke();
