@@ -43,7 +43,7 @@
 <!-- Form to enter letter and button -->
     <section>
         <form>
-            <input type="text" name="guess-letter" maxlength="1" required placeholder="Enter letter" />
+            <input type="text" name="guessed-letters" maxlength="1" required placeholder="Enter letter" />
             <button onclick="guessLetter()"> Guess </button>
         </form>
     </section>
@@ -69,13 +69,14 @@
 
 <!-- Message - pick another letter/win/loose -->
     <section>
-        <p>Pick Another Letter/ You Win </p>
+        <p id="game-response">Pick Another Letter/ You Win </p>
     </section>
 
 <!-- Message - guesses remaining -->
     <section>
-        <pre id="element-counter-response">Guesses Remaining:</pre>
+        <p id="guesses-remaining">Guesses Remaining:</p>
     </section>
-<script src="app.js"></script>
+    <script src="words.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
