@@ -38,8 +38,7 @@ function handleGuess() {
     var guessedLetter = input.value.toLowerCase();
     console.log('letter guessed was', guessedLetter);
         
-    //blanks[i] = guessedLetter;
-    // var wrongLetters = [];
+    var wrongLetters = [];
 
     var tries = 0;
     
@@ -63,15 +62,13 @@ function handleGuess() {
             console.log(display);
         }
 
-
-
-
-        // else {
-        //     console.log('wrong');
-        //     wrongLetters.push(guessedLetter);
-        //     incorrectLetters.textContent += wrongLetters[i];
-        // }
+        else {
+            console.log('wrong');
+            wrongLetters.push(guessedLetter);
+            incorrectLetters.textContent = wrongLetters[i];
+        }
     }
+
 }
 
 // loop for guess until the word is complete
