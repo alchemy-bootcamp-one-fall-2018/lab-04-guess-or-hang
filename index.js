@@ -1,3 +1,8 @@
+/* exported submitLetter */
+
+function submitLetter() {
+    console.log('it worked');
+}
 //initialize
 // generate random word
 //display number '_' for every letter in random word on screen
@@ -34,4 +39,3 @@
         // hide submit button
         // reveal reset button
         //continueGame = 'false'
-

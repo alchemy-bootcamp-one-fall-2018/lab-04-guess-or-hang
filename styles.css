@@ -17,6 +17,10 @@
     background-color: purple;
 }
 
+#guesses-remaining-container{
+    background-color: green;
+}
+
 h1{
     text-align: center;
 }
