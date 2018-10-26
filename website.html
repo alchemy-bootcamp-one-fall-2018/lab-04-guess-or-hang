@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="functionality.js">
+    
 </head>
 <body>
     <h1>HANGMAN</h1>
@@ -20,16 +20,17 @@
         _ _ _ _ _ _
     </p>
     <div id="guessLetterCenter">
-        <form>
+        <form id="guess-letter-form">
             <label for="guessLetter">Guess Letter:</label>
             <input type="text" id="guessLetter" name="guessLetter" placeholder="Enter a letter">
+            <br>
+            <button id="submit" type="submit" name="submit" onclick="getElementById('guessLetter')">Submit Letter</button>
+            
         </form>
 
         <!-- give an id like letter-0, letter-1, letter-2, etc. -->
 
-        <div id="submitButton">
-            <button id="submit" type="submit">Submit Letter</button>
-        </div>
     </div>
+    <script src="functionality.js"></script>
 </body>
 </html>
