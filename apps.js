@@ -1,51 +1,61 @@
 // word bank
 var words = ["cheese", "coffee", "park", "flower", "book"]; 
-
+var wordArray = [];
+var letterDisplay = document.getElementById('blank-spaces');
+var image = document.getElementById('gallows');
+var incorrectLetters = document.getElementById('letters-guessed');
 //load word randomly
-
-var letter0 = document.getElementById('letter-0');
-var letter1 = document.getElementById('letter-1');
-var letter2 = document.getElementById('letter-2');
-var letter3 = document.getElementById('letter-3');
-var letter4 = document.getElementById('letter-4');
-var letter5 = document.getElementById('letter-5');
 
 function loadWord() {
     var copy = words.slice();
-    
     var index = Math.floor(Math.random() * 4)
-    console.log(index);
-
-    function getRandomWord() {
-        var word = copy[index];
-        copy.slice(index, 1);
-        return word;
-        console.log(word);
-
-    }
-
+    var blanks = [];
     var selectedWord = getRandomWord();
-    //console.log(selectedWord);
-    var wordArray = selectedWord.split('');
+    var letters = selectedWord.split('');
+    wordArray = letters;
     console.log(wordArray);
 
-    var test = wordArray.join('');
-    var test2 = wordArray.join('-');
+    console.log('word is ', selectedWord);
+    function getRandomWord() {
+    var word = copy[index];
+        copy.slice(index, 1);
+        return word;
+    }
+    for(var i = 0; i < letters.length; i++) {
+        blanks.push('_');
+    }
 
-    console.log(test2);
-
-//     for (var i = 0; i < wordArray.length; i++) {
-//         letter[i].classList.add('blank-spaces');
-//    }
+    blanks = blanks.join(' ');
+    letterDisplay.textContent = blanks; 
 }
 
 loadWord();
 
+
+function handleGuess() {
+    var input = document.getElementById('guess');
+    var guessedLetter = input.value.toLowerCase();
+    console.log('letter guessed was', guessedLetter);
+
+    var wrongLetters = [];
+
+    for (var i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === guessedLetter) {
+            
+            console.log('match');
+        }
+        else {
+            console.log('wrong');
+            wrongLetters.push(guessedLetter);
+            incorrectLetters.textContent += wrongLetters[i];
+        }
+    }
+}
 // choose a random word
 
 // make an array for the word
 
-// loop for guess until the word in complete
+// loop for guess until the word is complete
 
 // show answer until complete
     //show congrats or lose banner
