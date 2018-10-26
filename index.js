@@ -1,12 +1,21 @@
-/* exported submitLetter */
+var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
+var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
+var wordLength = randomWord.length;
 
-function submitLetter() {
-    var form = document.getElementById('guess-letters');
-    var textField = form.textinput.value;
-    console.log(textField);
+function numberOfLetters() {
+    console.log(wordLength);
 }
+
+
+
+
+
+
+
+
+
 //initialize
-// generate random word
+// generate random word   DONE
 //display number '_' for every letter in random word on screen
 //var continueGame = 'true'
 
