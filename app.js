@@ -26,9 +26,19 @@ function randomWord() {
     console.log('selected index', index);
     var selectedWord = words[index];
     console.log('selected word', selectedWord);
+    // var selectedWordLength = selectedWord.length;
+    // var display = substring.selectedWord(0,)
+
+    for(var i = 0; i < selectedWord.length; i++) {
+    //      grab span by id
+        var span = document.getElementById('letter-' + i);
+    //       change text content of the span
+        span.textContent = selectedWord[i];
+        console.log('selected word letter ', selectedWord[i]);
+    /* Set the visibility on the letters of the "Word to Guess" to hidden and fully hide (no line blank) any unused letter spaces. (You might not hide them initially during development so you can "see" that word is loading correctly. Otherwise, you will need to inspect with the Dev Tools) */
+    }
 }
 
-/* Set the visibility on the letters of the "Word to Guess" to hidden and fully hide (no line blank) any unused letter spaces. (You might not hide them initially during development so you can "see" that word is loading correctly. Otherwise, you will need to inspect with the Dev Tools) */
 
 
 
