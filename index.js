@@ -3,44 +3,60 @@
 
 'use strict';
 
+//put this in a function to call it once on page load, and on New Game button click.
 var randomMax = words.length - 1;
 var word = words[Math.floor(Math.random() * randomMax)].toLowerCase();
 console.log(word);
+var correctLetter = '    ___      ';
+var guessCount = 0;
+var dashes = '';
+var correctGuesses = document.getElementById('correctGuesses');
+var spaces = document.getElementById('spaces');
+var lettersGuessed = document.getElementById('lettersGuessed');
 
-// var c = document.getElementById('correctGuesses');
-// var x = '<div class="correctBlock"> H </div>';
-// //x.classList.add('correctBlock');
-// c.innerHTML = x;
+for(var i = 0; i < word.length; i++){
+    dashes += '___      ';
+}
 
-// function to launch onclick that compares input to word
+spaces.innerHTML = dashes;
+
+//Display line blanks for each letter of the word
+//change incorrectLetter to lettersGuessed?
+
 function play() {
     var input = document.getElementById('guessLetter').value;
-    console.log(input);
-    var guessCount = 0;
-    var correctLetter = [];
-    var correctGuesses = document.getElementById('correctGuesses');
+    console.log('input:', input);
+    //keep track of all letters guessed
+    
     //clear text input
+    console.log('hello');
+    if(guessCount < 6) {
 
-    while(guessCount < 6) {
+        //add input to lettersGuessed var
+        //add input to lettersGuessed html
         
-        if(word.includes(input)) {
-            //add input to correctLetter array
-            correctLetter.push(input);
-            input.classList.add('correctBlock');
-            correctGuesses.textContent = input;
+        //place input in lettersGuessed
+        lettersGuessed.innerHTML = input;
+        console.log(input);
 
-            //place input in correct spot of correctLetter
+
+        if(word.includes(input)) {
+
+            //show all occurances of letter, in the right place.
+            correctLetter += '<span>' + input + '</span>';
+            console.log('correctLetter', correctLetter);
+            correctGuesses.innerHTML = correctLetter;
+
             //send message to message
-            //Give letter class of correctBlock
         } else {
             guessCount++;
-            //place input in incorrectLetter and 
+            //add body part to person
             //send message to message
-            // if incorrect, add body part to person
         }
         if(correctLetter.length === word.length) {
             //button displays "You Win! - New Game". Reset game
         } 
+        console.log('guessCount:', guessCount);
     }
     
     // change button to a restart, button becomes "You Lose - New Game". Display "The word was --".
