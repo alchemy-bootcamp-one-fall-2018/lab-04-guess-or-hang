@@ -20,11 +20,11 @@
         _ _ _ _ _ _
     </p>
     <div id="guessLetterCenter">
-        <form id="guess-letter-form">
+        <form id="guess-letter-form" onsubmit="event.preventDefault();">
             <label for="guessLetter">Guess Letter:</label>
             <input type="text" id="guessLetter" name="guessLetter" placeholder="Enter a letter">
             <br>
-            <button id="submit" type="submit" name="submit" onclick="getElementById('guessLetter')">Submit Letter</button>
+            <button id="submit" onclick="tryButton()">Submit Letter</button>
             
         </form>
 
