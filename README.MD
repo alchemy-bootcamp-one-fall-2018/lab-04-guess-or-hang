@@ -5,31 +5,32 @@ Guess or Hang Code Planning Steps
 Note: I did not add any CSS steps in here because styling can come after the functionality works.
 
 Header: Guess or Hang
-	HTML/CSS to display/style
+	HTML/CSS to display/style: unneeded; this is complete
 
 10 boxes to display correctly guessed letters 
 	HTML to display on page: index.html-line 29, ui class=”pairs”
 	JS to get random word: app.js-line 23, getRandomStudent()
 	JS to count letters in word []: index.HTML-line 16 & JS line 7, <span id…>, var studentCount…
-	JS to hide unused <li>: 
+	JS to hide unused <li>: preflight.js-line 40
 
 Image replaced: 7 images
-	HTML/CSS to display image:
-	JS to replace image when incorrect letter guess:
+	HTML/CSS to display image: ???
+	JS to replace image when incorrect letter guess:???
 
 Guessed letter input
-	HTML/CSS to create field: 
-	JS to link to other displays: 
-	JS to compare to word: 
-	JS to populate letter to corresponding display: 
+	HTML/CSS to create field: ???
+	JS to link to other displays: app.js-line 65
+	JS to compare to word: app.js-line 65
+	JS to populate letter to corresponding display: app.js-line 65
 
 Display 1 of 2 messages: Correct! Or Guess Again
-	HTML/CSS to display on page: 
-	JS to choose message based on comparison to word: 
+	HTML/CSS to display on page: index.html-line13-24
+	JS to choose message based on comparison to word: app.js-line6-13
 
 6 boxes to display incorrect letter guesses
 	HTML to display on page: index.html-line 29, ui class=”pairs”
 
 Button to PLAY and to display message: You Win! Or You Lose
-	HTML/CSS to display button: 
-	JS to compare correct guesses to word fully matched OR incorrect guess limit reached: 
+	HTML/CSS to display button: index.html-line13-24
+	JS to compare correct guesses to word fully matched OR incorrect guess limit reached:  
+	app.js-line6-13
