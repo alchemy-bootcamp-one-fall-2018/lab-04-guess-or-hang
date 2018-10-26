@@ -8,19 +8,17 @@
 var randomMax = words.length - 1;
 var word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
 console.log(word);
-var correctLetter = '    ___      ';
 var guessCount = 0;
-var dashes = '';
+var dashes = ['___'];
 var correctGuesses = document.getElementById('correctGuesses');
-var spaces = document.getElementById('spaces');
 var lettersGuessed = document.getElementById('lettersGuessed');
 var letters = '';
 
-for(var i = 0; i < word.length; i++){
-    dashes += '___      ';
+for(var i = 0; i < word.length - 1; i++){
+    dashes.push('___');
 }
 
-spaces.innerHTML = dashes;
+correctGuesses.innerHTML = dashes.join(' ');
 
 //Display line blanks for each letter of the word
 //change incorrectLetter to lettersGuessed?
@@ -42,11 +40,16 @@ function play() {
         letters += '     ' + input;
         lettersGuessed.innerHTML = letters;
 
+        
         if(word.includes(input)) {
-
-            //show all occurances of letter, in the right place.
-            correctLetter += '<span>' + input + '</span>';
-            correctGuesses.innerHTML = correctLetter;
+            
+            for(var j = 0; j < word.length; j++) {
+                if(input === word[j]) {
+                    dashes[j] = input;
+                }
+            }
+           
+            correctGuesses.innerHTML = dashes.join(' ');
             message.innerHTML = '<p class="green">Correct!</p>';
 
             //send message to message
@@ -57,12 +60,13 @@ function play() {
             //send message to message
             message.innerHTML = '<p class="red">Guess Again</p>';
         }
-        if(correctLetter.length === word.length) {
+        if(dashes.join() === word) {
             //button displays "You Win! - New Game". Reset game
         } 
+    } else {
+        // change button to a restart, button becomes "You Lose - New Game". Display "The word was --".
     }
     
-    // change button to a restart, button becomes "You Lose - New Game". Display "The word was --".
 }
 
 var g = document.getElementById('gallows');
