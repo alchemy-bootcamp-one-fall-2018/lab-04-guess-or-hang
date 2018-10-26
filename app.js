@@ -8,6 +8,8 @@ function getRandomWord(max) {
     return Math.floor(Math.random() * max); 
 }
 
+
+
 function loadWord() {
     var copy = words.slice();   
     console.log('random word', getRandomWord(14));
@@ -21,6 +23,7 @@ function loadWord() {
         return word;
     }
 
+
     var selectedWord = generateWord();
     console.log(selectedWord);
 
@@ -29,15 +32,16 @@ function loadWord() {
         selectedWord.push(copy[0]);
     
     }
-    for(var i = 0; i < 9; i++) {
-        var linesToHide = answerLines[i];
-        var display = '';
-        if(linesToHide) {
-            display = linesToHide();
-        }
-        console.log(answerLines);
+
+    // for(var i = (wordLength; i < 9; i++) {
+    //     var linesToHide = answerLines[i];
+    //     var display = '';
+    //     if(linesToHide) {
+    //         display = linesToHide();
+        // }
+        // console.log(answerLines);
         
-    }
+    // }
 
 } 
 loadWord();
