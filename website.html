@@ -23,7 +23,7 @@
                 _ _ _ _ _ _
             </p>
             <div id="guessLetterCenter">
-                <form id="guess-letter-form" onsubmit="event.preventDefault();">
+                <form id="guess-letter-form" onsubmit="event.preventDefault(); checkGuessLetter();">
                     <label id="guessText" for="guessLetter">Guess Letter:</label>
                     <input type="text" id="guessLetter" name="guessLetter" placeholder="Enter a letter">
                     <br>

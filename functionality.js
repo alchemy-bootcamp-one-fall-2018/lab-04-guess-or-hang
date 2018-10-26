@@ -25,7 +25,15 @@ function tryButton() {
     // Number of Guesses - Shows how many total guesses have been made
     
     // Message - A place to show messages (like win or lose)
+var guessLetterForm = document.getElementById('guess-letter-form');
 
+function checkGuessLetter() {
+    var elements = guessLetterForm.elements;
+    var guess = elements.guessLetter.value;
+    var submit = elements.guess;
+
+    console.log(guess);
+}
 
 
 //Body Parts
