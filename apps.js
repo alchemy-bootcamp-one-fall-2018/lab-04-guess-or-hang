@@ -49,7 +49,9 @@ function handleGuess() {
     
     for (var i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === guessedLetter) {
-            
+            //letter needs in replace the blank space 
+
+            //blanks[i] this will go through each blank space 
             console.log('match');
         }
         // else {
