@@ -34,5 +34,15 @@
             letter = '<li class="letter letter' + currentWord.charAt(i).toUpperCase() + '">' + currentWord.charAt(i).toUpperCase() + '</li>';
             letters.insertAdjacentHTML('beforeend', letter);
         }
+    }
+        var likesCats = confirm("Do you like cats?");
+if (likesCats) {
+ console.log("You're a cool cat!");
+
+
+
+
+
+
 
     }
