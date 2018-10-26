@@ -1,4 +1,6 @@
 .container {
-    flex-direction: row | ltr | rtl;
-
+    display: flex; 
+}
+.container {
+    flex-direction: row;
 } 
