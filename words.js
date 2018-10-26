@@ -1,31 +1,39 @@
+/* exported enterGuess */
+
 var words = ['skiing', 'jogging', 'aerobics', 'cycling', 'paddling'];
 
+var rand = words[Math.floor(Math.random() * words.length)].split('');
+console.log('random word-', rand);
+
+
 function tryRandomWord() {
-
-    var rand = words[Math.floor(Math.random() * words.length)].split('');
-    console.log('random word-', rand);
-
+    var emptyBlanks = [];
     var wordLength = rand.length;
     console.log('word length-', wordLength);
 
-    var blanks = [];
-    for(var i = 0; i < rand.length; i++) {
-        blanks.push('__');
-        console.log(blanks);
+    for(var i = 0; i < wordLength; i++) {
+        emptyBlanks.push('__');
+        console.log(emptyBlanks);
+
+        console.log("your word is " + wordLength + " long");
     }
-    var guessInputs = document.getElementById('input[name="letter"]');
+    return emptyBlanks;
+}
+var blanks = tryRandomWord();
+
+function enterGuess() {
+    console.log(blanks);
+    var guessInputs = document.getElementById('userGuess').value;
     for(var i = 0; i < rand.length; i++) {
-        if(guessInputs === rand[i]); 
-         blanks.splice(i, 1, rand[i]);
-        console.log(blanks);
-
-
+        if(guessInputs === rand[i]) {
+            var userWord = blanks.splice(i, 1, rand[i]);
+            console.log(blanks);
+        }
     }
-
-
-
 
 }
+    
+
 
 
 

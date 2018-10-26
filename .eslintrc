@@ -5,7 +5,7 @@
         "ecmaFeatures": {
             "impliedStrict": true
         },
-        "sourceType": "script"
+        "sourceType": "module"
     },
     "env": {
         "browser": true,
