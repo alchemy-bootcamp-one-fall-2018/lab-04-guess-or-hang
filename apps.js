@@ -26,21 +26,24 @@ function loadWord() {
     for(var i = 0; i < letters.length; i++) {
         blanks.push('_');
     }
-    blanks = blanks.join(' ');
-    letterDisplay.textContent = blanks; 
+    var blankJoin = blanks.join(' ');
+    letterDisplay.textContent = blankJoin; 
 
 }
 
 loadWord();
-split('');
-console.log(blanks[1]);
+// split('');
+// console.log(blanks[1]);
+
+console.log(blanks);
+console.log(blankJoin);
 
 function handleGuess() {
     var input = document.getElementById('guess');
     var guessedLetter = input.value.toLowerCase();
     console.log('letter guessed was', guessedLetter);
 
-    var wrongLetters = [];
+    // var wrongLetters = [];
 
     var tries = 0;
     
