@@ -6,31 +6,34 @@ var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
 //load word randomly
 
+var blanks = [];
+
+
 function loadWord() {
     var copy = words.slice();
     var index = Math.floor(Math.random() * 4)
-    var blanks = [];
     var selectedWord = getRandomWord();
     var letters = selectedWord.split('');
     wordArray = letters;
     console.log(wordArray);
-
+    
     console.log('word is ', selectedWord);
     function getRandomWord() {
-    var word = copy[index];
+        var word = copy[index];
         copy.slice(index, 1);
         return word;
     }
     for(var i = 0; i < letters.length; i++) {
         blanks.push('_');
     }
-
     blanks = blanks.join(' ');
     letterDisplay.textContent = blanks; 
+
 }
 
 loadWord();
-
+split('');
+console.log(blanks[1]);
 
 function handleGuess() {
     var input = document.getElementById('guess');
