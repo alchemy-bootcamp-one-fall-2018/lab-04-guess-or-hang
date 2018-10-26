@@ -2,55 +2,32 @@
 /* eslint-disable no-console*/
 'use strict'; 
 
-var blankLines = document.getElementById('blank-lines');
+// var blankLines = document.getElementById('blank-lines');
+
+function getRandomWord(max) {
+    return Math.floor(Math.random() * max); 
+}
 
 function loadWord() {
-    var copy = words.slice();
+    var copy = words.slice();   
+    console.log('random word', getRandomWord(13));
 
-    var index = Math.floor(Math.random() * 14); 
-    // console.log(index);
     
-    function getRandomWord() {
-        
-        var word = copy[index];
-
-        copy.slice(index, 1);
-
+    function generateWord() {
+        var randomWord = getRandomWord(copy.length);
+        var word = copy[randomWord];
+        copy.splice(randomWord, 1);
         return word;
-        // console.log(word);
-
+ 
     }
 
-    var selectedWord = getRandomWord();
+    var selectedWord = generateWord();
+    console.log(selectedWord);
 
 
+    var wordLength = selectedWord.length();
+    console.log(wordLength);
 
-    // console.log(selectedWord);
-    var wordLength = selectedWord.length;
-
-//     if(wordLength === 3) {
-//         blankLines.textContent = 
-        }
-    
-// }
+} 
 // loadWord();
 
-// function maxWordLength() {
-    // for(var i = 0; i < words.length; i++) {
-        //determine amount of letters
-        //hide all boxes 9 minus however many letters
-        //hide extra lines
-//        repeat('____', 9)
-//     }
-
-//     .textContent = '___' + '____' + 
-// }
-
-
-
-// array[''___ ', ' ____', '______']
-
-
-// replace array[1] with 
-
-// array[1].textContent = "a"
