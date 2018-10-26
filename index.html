@@ -41,13 +41,34 @@
             ></form>
 
             <label for="guess-box"> Please put in your guess </label>
-            <input type="text" name="guess" id="guess" placeholder="A-Z">
+            <input type="text" maxlength="1" name="guess" id="guess" placeholder="A-Z">
         </p>
+    </form>
+        <p id="win-lose"></p>
     </section>
+    <!-- ids for the blank-spaces -->
+        <section id="blank-spaces">
+            <div>
+                <p id="letter-0"></p>
+                <p id="letter-1"></p>
+                <p id="letter-2"></p>
+                <p id="letter-3"></p>
+                <p id="letter-4"></p>
+                <p id="letter-5"></p>
+            </div>
+        </section>
     <div>
-            <button type="submit" name="guess">Guess</button>
-            <button type="reset" name="play-again">Play Again</button>
+    <div>   <button id="click" onclick="tryQuerySelector()">Submit</button>
+            <button id="click" onclick="tryQuerySelector()">Play Again</button>
     </div>
+
+    <section>
+            <p id="letters-guessed"></p>
+    </section>
+    <section>
+            <p id="number-of-guesses"></p>
+    </section>
+
 </body>
 
 <script src="apps.js"></script>
