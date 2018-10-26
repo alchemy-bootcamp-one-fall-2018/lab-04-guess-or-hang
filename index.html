@@ -1,0 +1,61 @@
+<!-- // put in gallows
+
+// insert the pictures and make sure that they are hidden until they are called
+
+// word spaces need to show at all times
+    // put an id i.e. letter-0, letter-1, letter-2 
+
+// make sure to connect the letter from the index i.e (document.getElementByID('letter-' + 1))
+
+// insert word form label 
+    //put a max length as a placeholder
+
+// put a notification bar
+    // guess left
+    // letters already guessed
+    // message to say if you win or lose
+
+// submit button and play again button  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hang or Die Game</title>
+</head>
+    <header> Hang or Die Game </header>
+<body>
+    <section id="gallows"> 
+        <p>
+            <div>
+            <img src="picture 1.png" alt="empty gallows">
+            </div>
+        </p>
+
+        <p>
+            <form id="button"
+            onsubmit="event.preventDefault(); gameStart();"
+            onreset="resetGameStart()"
+            ></form>
+
+            <label for="guess-box"> Please put in your guess </label>
+            <input type="text" name="guess" id="guess" placeholder="A-Z">
+        </p>
+    </section>
+    <div>
+            <button type="submit" name="guess">Guess</button>
+            <button type="reset" name="play-again">Play Again</button>
+    </div>
+</body>
+
+<script src="apps.js"></script>
+<script src="works.js"></script>
+
+</html>
+
+
+
+
+
