@@ -41,5 +41,5 @@ var words = [
     'Washington',
     'Wisconsin',
     'Wyoming'
-]
+];
 
