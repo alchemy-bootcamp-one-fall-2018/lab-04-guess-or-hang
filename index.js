@@ -3,14 +3,22 @@ var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 var wordLength = randomWord.length;
 var randomWordArray = randomWord.split("");
 // var userGuesses = wordLength * '_'.parseInt();
+var displayGuesses = [];
+var guessedLetter = 'i';
+for(var i = 0; i < wordLength; i++) {
+    displayGuesses.push('_');
+}
 
-function numberOfLetters() {
-    var displayGuesses = [];
-    for(var i = 0; i < wordLength; i++) {
-        displayGuesses.push('_');
+
+
+function clickButton() {
+    
+    function arrayContainsGuessedLetter(guess) {
+        var letterIsInWord = false;
+        letterIsInWord = (randomWordArray.indexOf(guess) > -1);
+        console.log(letterIsInWord, randomWord);
     }
-    console.log(displayGuesses);
-    console.log(randomWordArray);
+    arrayContainsGuessedLetter(guessedLetter)
 }
 
 
@@ -19,9 +27,12 @@ function numberOfLetters() {
 
 
 
-//initialize
+
+
+
+//initialize DONE
 // generate random word   DONE
-//display number '_' for every letter in random word on screen
+//display number '_' for every letter in random word on screen DONE
 //var continueGame = 'true'
 
 //while(continueGame === 'true')
