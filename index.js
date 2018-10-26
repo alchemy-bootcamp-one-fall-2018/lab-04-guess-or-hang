@@ -1,12 +1,17 @@
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
 var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 var wordLength = randomWord.length;
+var randomWordArray = randomWord.split("");
+// var userGuesses = wordLength * '_'.parseInt();
 
 function numberOfLetters() {
-    console.log(wordLength);
+    var displayGuesses = [];
+    for(var i = 0; i < wordLength; i++) {
+        displayGuesses.push('_');
+    }
+    console.log(displayGuesses);
+    console.log(randomWordArray);
 }
-
-
 
 
 
