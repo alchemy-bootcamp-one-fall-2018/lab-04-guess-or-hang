@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Guess or Hang</title>
 </head>
 
 <body>
@@ -12,71 +13,69 @@
         <h1>Guess or Hang</h1>
     </header>
     <section>
-        <img src="" alt="Gallows/Body Picture">
+        <img src="" alt="Gallows/Body Picture" />
     </section>
 
 <!-- Button> -->
-    <button type="submit" name="start">Click to Start</button>
-
-
-
-
+    <section>
+        <button onclick="wordGame()">Click to Start</button>
+    </section>
 
 
 <!-- Word Population -->
-<section>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</section>
-
-
+    <section>
+        <span id="letter-0"></span>
+        <span id="letter-1"></span>
+        <span id="letter-2"></span>
+        <span id="letter-3"></span>
+        <span id="letter-4"></span>
+        <span id="letter-5"></span>
+        <span id="letter-6"></span>
+        <span id="letter-7"></span>
+        <span id="letter-8"></span>
+        <span id="letter-9"></span>
+        <span id="letter-10"></span>
+        <span id="letter-11"></span>
+        <span id="letter-12"></span>
+    </section>
 
 
 <!-- Form to enter letter and button -->
-<form>
-    <input type="text" name="guess-letter" placeholder="Enter letter">
-    <button type="submit"> Guess </button>
-</form>
-
+    <section>
+        <form>
+            <input type="text" name="guess-letter" maxlength="1" required placeholder="Enter letter" />
+            <button onclick="guessLetter()"> Guess </button>
+        </form>
+    </section>
 
 
 <!-- List of letters guessed -->
-<section>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</section>
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
 
 
 <!-- Message - pick another letter/win/loose -->
-
-<p>Pick Another Letter/ You Win </p>
+    <section>
+        <p>Pick Another Letter/ You Win </p>
+    </section>
 
 <!-- Message - guesses remaining -->
-
-
-<pre id="element-counter-response">Guesses Remaining:</pre>  
+    <section>
+        <pre id="element-counter-response">Guesses Remaining:</pre>
+    </section>
 
 </body>
 </html>
