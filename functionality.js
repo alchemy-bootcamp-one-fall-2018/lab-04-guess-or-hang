@@ -29,10 +29,11 @@ var guessLetterForm = document.getElementById('guess-letter-form');
 
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
-    var guess = elements.guessLetter.value;
-    var submit = elements.guess;
+    var guess = elements['guess-letter-id'].value;
 
-    console.log(guess);
+    console.log('var guess', guess);
+   // console.log('var direct line', document.getElementById('guessLetter').value);
+
 }
 
 
