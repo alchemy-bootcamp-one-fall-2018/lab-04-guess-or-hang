@@ -28,18 +28,18 @@ function loadWord() {
     // console.log(selectedWord);
     var wordLength = selectedWord.length;
 
-    if(wordLength === 3) {
-        blankLines.textContent = 
-
-    }
+//     if(wordLength === 3) {
+//         blankLines.textContent = 
+        }
     
-}
-loadWord();
+// }
+// loadWord();
 
-function maxWordLength() {
-    for(var i = 0; i < words.length; i++) {
-        //sort smallest to biggest
-        //length of last index[i]
+// function maxWordLength() {
+    // for(var i = 0; i < words.length; i++) {
+        //determine amount of letters
+        //hide all boxes 9 minus however many letters
+        //hide extra lines
 //        repeat('____', 9)
 //     }
 
