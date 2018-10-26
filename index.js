@@ -1,4 +1,5 @@
 /* globals words */
+/* globals imageSources */
 /* exported play */
 
 'use strict';
@@ -27,6 +28,7 @@ spaces.innerHTML = dashes;
 function play() {
     var input = document.getElementById('guessLetter').value.toUpperCase();
     var message = document.getElementById('message');
+    var gallows = document.getElementById('gallows');
     //keep track of all letters guessed
     
     //clear text input
@@ -49,6 +51,7 @@ function play() {
 
             //send message to message
         } else {
+            gallows.innerHTML = imageSources[guessCount];
             guessCount++;
             //add body part to person
             //send message to message
@@ -61,5 +64,8 @@ function play() {
     
     // change button to a restart, button becomes "You Lose - New Game". Display "The word was --".
 }
+
+var g = document.getElementById('gallows');
+g.innerHTML = '<img id="gallows" src="1gallows.jpg">';
 
 //more vertical spacing for desktop version
