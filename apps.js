@@ -7,7 +7,7 @@ var incorrectLetters = document.getElementById('letters-guessed');
 //load word randomly
 
 var blanks = [];
-
+var blankJoin;
 
 function loadWord() {
     var copy = words.slice();
@@ -26,34 +26,48 @@ function loadWord() {
     for(var i = 0; i < letters.length; i++) {
         blanks.push('_');
     }
-    var blankJoin = blanks.join(' ');
+    blankJoin = blanks.join(' ');
     letterDisplay.textContent = blankJoin; 
 
 }
 
 loadWord();
-// split('');
-// console.log(blanks[1]);
-
-console.log(blanks);
-console.log(blankJoin);
 
 function handleGuess() {
     var input = document.getElementById('guess');
     var guessedLetter = input.value.toLowerCase();
     console.log('letter guessed was', guessedLetter);
-
+        
+    //blanks[i] = guessedLetter;
     // var wrongLetters = [];
 
     var tries = 0;
     
+    var letterInWord = false; 
+
     for (var i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === guessedLetter) {
-            //letter needs in replace the blank space 
-
-            //blanks[i] this will go through each blank space 
             console.log('match');
+            letterInWord = true;
+            // var array = blankJoin.split(' ');
+            // //console.log(array);
+            // array.splice(i, 1, guessedLetter);
+            // //letter needs in replace the blank space 
+            // //blanks[i] this will go through each blank space   
         }
+
+        if(letterInWord) {
+            for (var k = 0; k < wordArray.length; k++) {
+                if (wordArray[k] === guessedLetter) {
+                     blanks[k] = guessedLetter;
+                }
+            }
+            console.log(blanks);
+        }
+
+
+
+
         // else {
         //     console.log('wrong');
         //     wrongLetters.push(guessedLetter);
