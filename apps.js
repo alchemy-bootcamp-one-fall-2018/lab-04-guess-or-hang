@@ -44,11 +44,11 @@ function handleGuess() {
             
             console.log('match');
         }
-        else {
-            console.log('wrong');
-            wrongLetters.push(guessedLetter);
-            incorrectLetters.textContent += wrongLetters[i];
-        }
+        // else {
+        //     console.log('wrong');
+        //     wrongLetters.push(guessedLetter);
+        //     incorrectLetters.textContent += wrongLetters[i];
+        // }
     }
 }
 // choose a random word
