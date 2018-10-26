@@ -26,4 +26,6 @@ body {
     color: red;
     opacity: 1;
 }
-
+img {
+    visibility: hidden;
+}

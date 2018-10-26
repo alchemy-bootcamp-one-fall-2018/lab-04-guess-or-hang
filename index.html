@@ -13,20 +13,23 @@
     <form id="halloween-hangman">
         <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter"/>
         <input id="Guess" name="Guess" type="submit" value="Guess"/>
-        <button id="Restart" name="Restart" type="button">Restart</button>
+        <button id="Restart" name="Restart" type="button" onclick="showImage()">Restart</button>
     </form>
 
     <ul id="letters"></ul>
     <p id="man"></p>
     <p id="output" class="output"></p>
 
-    <img src="img/beg.png" alt="beginning"/>
-    <img src="img/head.png" alt="beginning"/>
-    <img src="img/one-arm.png" alt="beginning"/>
-    <img src="img/no-body.png" alt="beginning"/>
-    <img src="img/no-leg.png" alt="beginning"/>
-    <img src="img/one-leg.png" alt="beginning"/>
-    <img src="img/dead.png" alt="beginning"/>
+    
+<div class="image">
+    <img id="beg" src="img/beg.png" alt="beginning"/>
+    <img id="head" src="img/head.png" alt="beginning"/>
+    <img id="one-arm" src="img/one-arm.png" alt="beginning"/>
+    <img id="no-body" src="img/no-body.png" alt="beginning"/>
+    <img id="no-leg" src="img/no-leg.png" alt="beginning"/>
+    <img id="one-leg" src="img/one-leg.png" alt="beginning"/>
+    <img id="dead" src="img/dead.png" alt="beginning"/>
+</div>
 
 
 
