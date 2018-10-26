@@ -48,12 +48,7 @@ function handleGuess() {
     for (var i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === guessedLetter) {
             console.log('match');
-            letterInWord = true;
-            // var array = blankJoin.split(' ');
-            // //console.log(array);
-            // array.splice(i, 1, guessedLetter);
-            // //letter needs in replace the blank space 
-            // //blanks[i] this will go through each blank space   
+            letterInWord = true;  
         }
 
         if(letterInWord) {
@@ -63,6 +58,9 @@ function handleGuess() {
                 }
             }
             console.log(blanks);
+            var display = blanks.join(' ');
+            letterDisplay.textContent = display;
+            console.log(display);
         }
 
 
@@ -75,9 +73,6 @@ function handleGuess() {
         // }
     }
 }
-// choose a random word
-
-// make an array for the word
 
 // loop for guess until the word is complete
 
