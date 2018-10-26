@@ -2,7 +2,9 @@ OPEN IN RAW - I am not up to speed on markdown so this is not displaying properl
 
 Guess or Hang Code Planning Steps
 
-Note: I did not add any CSS steps in here because styling can come after the functionality works.
+Note 1: I did not add any CSS steps in here because styling can come after the functionality works.
+
+Note 2: Refer to Marty's lab notes for some hints. 
 
 Header: Guess or Hang
 	HTML/CSS to display/style: unneeded; this is complete
