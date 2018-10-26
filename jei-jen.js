@@ -1,9 +1,4 @@
-(function () {
-    "use strict";
-    var availableLetters, words, guessInput, guess, guessButton, lettersGuessed, 
-    lettersMatched, messages, currentWord;
-
-    function setup() {
+function setup() {
         availableLetters = "abcdefghijklmnopqrstuvwxyz";
         lives = 6;
         words = ["witch", "candy", "curse", "spell", "zombie", "costume"];
@@ -58,6 +53,10 @@
         guessInput.onclick = function () {
             this.value = '';
         };
+
+        guessInput.onClick = function () {
+
+        }
     
         /* main guess function when user clicks #guess */
         document.getElementById('hangman').onsubmit = function (e) {
@@ -118,4 +117,3 @@
             }
             return false;
         }
-}
