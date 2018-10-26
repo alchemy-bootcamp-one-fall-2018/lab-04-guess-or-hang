@@ -2,7 +2,6 @@ var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'g
 var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 var wordLength = randomWord.length;
 var randomWordArray = randomWord.split("");
-// var userGuesses = wordLength * '_'.parseInt();
 var displayGuesses = [];
 var guessedLetter = 'i';
 for(var i = 0; i < wordLength; i++) {
@@ -11,14 +10,29 @@ for(var i = 0; i < wordLength; i++) {
 
 
 
-function clickButton() {
-    
+function clickButton() { 
     function arrayContainsGuessedLetter(guess) {
         var letterIsInWord = false;
         letterIsInWord = (randomWordArray.indexOf(guess) > -1);
-        console.log(letterIsInWord, randomWord);
+        return letterIsInWord;
     }
-    arrayContainsGuessedLetter(guessedLetter)
+    var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
+
+    if(letterIsInWord === true){
+        function getAllIndexes(array, value) {
+            var indexes = []; 
+
+            for(var i = 0; i < array.length; i++) {
+                if(array[i] === value) {
+                    indexes.push(i);
+                }
+            }
+            return indexes;
+        }
+
+        var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
+        console.log(letterLocations, randomWord);
+    }
 }
 
 
