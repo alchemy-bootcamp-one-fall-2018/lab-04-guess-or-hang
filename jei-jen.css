@@ -1,13 +1,10 @@
-*{
-
 .container {
     display: flex; 
-}
-.container {
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-font-family: 'Butcherman', cursive;
-
-
+body {
+    font-family: 'Butcherman', cursive;
+    font-size: 28px;
 }
+
