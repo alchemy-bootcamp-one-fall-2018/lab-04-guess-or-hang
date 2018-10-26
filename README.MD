@@ -11,9 +11,9 @@ Guess or Hang Code Planning Steps
     b. JS to count letters in word []: index.HTML-line 16 & JS line 7, <span id…>, var studentCount…
     c. JS to hide unused <li>: 
   
-3. Image replaced: 7 images
-    a. HTML to display image:
-    b. JS to replace image when incorrect letter guess: 
+3. Picture replaced: 7 pics
+    a. HTML to display pic:
+    b. JS to replace pic when incorrect letter guess: 
   
 4. Guessed letter input
     a. HTML to create field: 
