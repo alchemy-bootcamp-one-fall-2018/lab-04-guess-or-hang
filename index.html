@@ -35,8 +35,11 @@
         <h4>You win!</h4>
     </section>
 
-    <form id="guess-letters">
-        <input type="text" id="text-input">
+    <form id="guess-letters"
+    onsubmit="event.preventDefault(); submitLetter();"
+    >
+        <label for="text-input">Guess a letter</label>
+        <input type="text" id="text-input" name="text-input">
     </form>
     <button onclick="submitLetter()">Guess</button>
 <script src="index.js"></script>

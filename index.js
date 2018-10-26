@@ -1,7 +1,9 @@
 /* exported submitLetter */
 
 function submitLetter() {
-    console.log('it worked');
+    var form = document.getElementById('guess-letters');
+    var textField = form.textinput.value;
+    console.log(textField);
 }
 //initialize
 // generate random word
