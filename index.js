@@ -6,6 +6,7 @@
 
 
 var word;
+var inputBox = document.getElementById('guessLetter');
 var correctGuesses = document.getElementById('correctGuesses');
 var lettersGuessed = document.getElementById('lettersGuessed');
 var message = document.getElementById('message');
@@ -19,7 +20,6 @@ var dashes;
 reset();
 
 function reset() {
-    //change button back to go on reset
     var randomMax = words.length - 1;
     word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
     console.log(word);
@@ -36,11 +36,12 @@ function reset() {
     gallows.innerHTML = '<img id="gallows" src="0gallows.jpg">';
     message.innerHTML = '';
     lettersGuessed.innerHTML = '';
+    inputBox.value = '';
     goButton.innerHTML = '<button class="go green" onclick="event.preventDefault(); play()">Go!</button>';
 }
 
 function play() {
-    var input = document.getElementById('guessLetter').value.toUpperCase();
+    var input = inputBox.value.toUpperCase();
     
     //clear text input
     if(guessCount < 5) {
