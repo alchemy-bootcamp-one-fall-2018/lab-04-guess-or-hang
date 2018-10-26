@@ -39,6 +39,8 @@ function handleGuess() {
 
     var wrongLetters = [];
 
+    var tries = 0;
+    
     for (var i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === guessedLetter) {
             
