@@ -4,15 +4,13 @@
 
 'use strict';
 
-//change button back to go on reset
-//reset to first image
-//reset message
-//reset lettersGuessed
-//game does not end after correct
 
 var word;
 var correctGuesses = document.getElementById('correctGuesses');
 var lettersGuessed = document.getElementById('lettersGuessed');
+var message = document.getElementById('message');
+var gallows = document.getElementById('image');
+var goButton = document.getElementById('goButton');
 var guessCount;
 var correctGuessCount;
 var letters;
@@ -20,8 +18,8 @@ var dashes;
 
 reset();
 
-//put this in a function to call it once on page load, and on New Game button click.
 function reset() {
+    //change button back to go on reset
     var randomMax = words.length - 1;
     word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
     console.log(word);
@@ -29,20 +27,20 @@ function reset() {
     correctGuessCount = 0;
     dashes = ['___'];
     letters = '';
-
     
     for(var i = 0; i < word.length - 1; i++){
         dashes.push('___');
     }
     
     correctGuesses.innerHTML = dashes.join(' ');
+    gallows.innerHTML = '<img id="gallows" src="0gallows.jpg">';
+    message.innerHTML = '';
+    lettersGuessed.innerHTML = '';
+    goButton.innerHTML = '<button class="go green" onclick="event.preventDefault(); play()">Go!</button>';
 }
 
 function play() {
     var input = document.getElementById('guessLetter').value.toUpperCase();
-    var message = document.getElementById('message');
-    var gallows = document.getElementById('image');
-    var goButton = document.getElementById('goButton');
     
     //clear text input
     if(guessCount < 5) {
