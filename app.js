@@ -3,26 +3,22 @@
 
 //building guessing game
     //function to pick word and bring to DOM
-
-console.log('words', words);
         
     //randomly select index
-    var word = words[Math.floor(Math.random() * words.length)];
-    console.log(word);
-    var answerDisplay = [];        
+    var word = words[Math.floor(Math.random() * words.length)];        
+    
     //set placeholder for letters
-    answerDisplay = word.split("");
+    var answerDisplay = word.split("");
     console.log(answerDisplay);
 
     //display number of dashes corresponding to number of letters
-
     var selectedLetter = [];
     for (var i = 0; i < word.length; i++) {
     selectedLetter[i] = "_";
     console.log(selectedLetter);
     }
-    var wordLength = document.getElementById('word-length');
-    wordLength.textContent = words.length;
+    var selectedWord = document.getElementById('selected-letter');
+    selectedWord.textContent = selectedLetter.join(' ');
     
     //evaluate word for number of letters
 //    var remainingGuesses = word.length;
