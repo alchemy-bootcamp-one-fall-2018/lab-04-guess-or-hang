@@ -9,6 +9,7 @@ var randomMax = words.length - 1;
 var word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
 console.log(word);
 var guessCount = 0;
+var correctGuessCount = 0;
 var dashes = ['___'];
 var correctGuesses = document.getElementById('correctGuesses');
 var lettersGuessed = document.getElementById('lettersGuessed');
@@ -23,7 +24,8 @@ correctGuesses.innerHTML = dashes.join(' ');
 function play() {
     var input = document.getElementById('guessLetter').value.toUpperCase();
     var message = document.getElementById('message');
-    var gallows = document.getElementById('gallows');
+    var gallows = document.getElementById('image');
+    var goButton = document.getElementById('goButton');
     
     //clear text input
     if(guessCount < 6) {
@@ -31,6 +33,7 @@ function play() {
         lettersGuessed.innerHTML = letters;
 
         if(word.includes(input)) {
+            correctGuessCount++;
             for(var j = 0; j < word.length; j++) {
                 if(input === word[j]) {
                     dashes[j] = input;
@@ -43,11 +46,12 @@ function play() {
         } else {
             gallows.innerHTML = imageSources[guessCount];
             guessCount++;
-            //add body part to person
             message.innerHTML = '<p class="red">Guess Again</p>';
         }
-        if(dashes.join() === word) {
+        if(correctGuessCount === word.length) {
+            console.log("reached end");
             //button displays "You Win! - New Game". Reset game
+            goButton.innerHTML = '<button class="go green" onclick="reset()">You Win! - New Game</button>';
         } 
     } else {
         // change button to a restart, button becomes "You Lose - New Game". Display "The word was --".
@@ -57,3 +61,5 @@ function play() {
 
 var g = document.getElementById('gallows');
 g.innerHTML = '<img id="gallows" src="1gallows.jpg">';
+
+//fix empty input 'Correct!' message 
