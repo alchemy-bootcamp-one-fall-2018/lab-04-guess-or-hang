@@ -6,8 +6,8 @@ body {
 #correctGuesses, #message, #incorrectGuesses {
     background-color: white;
     border: 2px solid black;
-    height: 5vh;
-    width: 50vw;
+    height: 30px;
+    width: 300px;
     margin: auto;
 }
 
@@ -15,7 +15,7 @@ h2{
     display: inline-block;
 }
 
-#guessLetter {
+#guessLetter, .correctBlock {
     background-color: white;
     border: 2px solid black;
     width: 40px;
@@ -56,17 +56,21 @@ h2{
     margin-top: 2%;
 }
 
+.correctBlock {
+    background-color: pink;
+}
+
 @media only screen and (min-width: 1024px) {
 
     #stuff {
         float: left;
-        margin-left: 15%;
+        margin-left: 25%;
         margin-top: 2%;
     }
 
     #image {
         float: right;
-        margin-right: 10%;
+        margin-right: 25%;
     }
 
     #goButton, #guesses {
