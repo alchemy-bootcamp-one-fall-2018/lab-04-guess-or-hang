@@ -42,13 +42,13 @@ function reset() {
 
 function play() {
     var input = inputBox.value.toUpperCase();
-    
+    console.log("input:", input);
     //clear text input
     if(guessCount < 5) {
         letters += '     ' + input;
         lettersGuessed.innerHTML = letters;
 
-        if(word.includes(input)) {
+        if(word.includes(input) && input !== '') {
             correctGuessCount++;
             for(var j = 0; j < word.length; j++) {
                 if(input === word[j]) {
@@ -58,7 +58,7 @@ function play() {
            
             correctGuesses.innerHTML = dashes.join(' ');
             message.innerHTML = '<p class="green">Correct!</p>';
-
+            
         } else {
             gallows.innerHTML = imageSources[guessCount];
             guessCount++;
