@@ -17,23 +17,25 @@ for(var i = 0; i < word.length; i++) {
     selectedLetter[i] = '_';
     console.log(selectedLetter);
 }
+
 var selectedWord = document.getElementById('selected-letter');
 selectedWord.textContent = selectedLetter.join(' ');
-
-
-//holds a mix of blank and solved letters
-var accurateGuesses = [];
-//holds all wrong guesses
-var nope = [];
-//holds the letters guessed
-var lettersGuessed = '';
-
+    
 //evaluate word for number of letters
 var numBlanks = 0;
 numBlanks = selectedWord.length;
+// initiates array for chosen word
+var pickedWord = 'answerDisplay';
+console.log(answerDisplay)
 
+//array for accurate guesses
+var accurateGuesses = [];
+//array for incorrect guesses
+ var nope = [];
+//array for all letters guessed
+var lettersGuessed = '';
 
-function checkLetters(letter) {
+function checkLetters() {
     var letterInWord = false;
 
     for(var j = 0; j < numBlanks; j++) {
@@ -77,4 +79,5 @@ function checkLetters(letter) {
 // function getRandomIndex(length) {
 //     //The maximum is exclusive and the minimum (0) is inclusive
 //     return Math.floor(Math.random() * length); 
+
 //images: -absolute positioning, flex box, Change img src (paint animator)
