@@ -1,12 +1,13 @@
 /* exported loadWord handleGuess */
 /* eslint-disable no-console */
+'use strict';
 
 var words = ['cheese', 'coffee', 'park', 'flower', 'book', 'sky', 'courier', 'soup', 'water', 'greenery', 'spoon', 'school', 'lab', 'shade', 'window']; 
+
 var wordArray = [];
 var letterDisplay = document.getElementById('blank-spaces');
 var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
-//load word randomly
 
 var blanks = [];
 var blankJoin;
@@ -30,7 +31,6 @@ function loadWord() {
     }
     blankJoin = blanks.join(' ');
     letterDisplay.textContent = blankJoin; 
-
 }
 
 loadWord();
@@ -42,17 +42,16 @@ function handleGuess() {
         
     var wrongLetters = [];
 
-    var tries = 0;
+    var guessWork = false;
     
-    var letterInWord = false; 
-
+    var wrongTries = 0;
     for(var i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === guessedLetter) {
             console.log('match');
-            letterInWord = true;  
+            guessWork = true;  
         }
 
-        if(letterInWord) {
+        if(guessWork) {
             for(var k = 0; k < wordArray.length; k++) {
                 if(wordArray[k] === guessedLetter) {
                     blanks[k] = guessedLetter;
@@ -66,13 +65,20 @@ function handleGuess() {
 
         else {
             console.log('wrong');
-            wrongLetters.push(guessedLetter);
-            incorrectLetters.textContent = wrongLetters[i];
-            tries += 1;
-            image.src = 'pic' + tries + '.png';
-
-            
+            if(i === (wordArray.length - 1)) {
+                wrongLetters.push(guessedLetter);
+                incorrectLetters.textContent += wrongLetters;
+                
+            }
+            wrongTries += 1;
+            console.log('number of wrong tries is ', wrongTries);
+        
         }
+
+        
+        // while(tries < 6) {
+            // image.src = 'pic' + tries + '.png';
+        // }
     }
 
 }
