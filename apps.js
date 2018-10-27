@@ -4,6 +4,7 @@
 var words = ['cheese', 'coffee', 'park', 'flower', 'book', 'sky', 'courier', 'soup', 'water', 'greenery', 'spoon', 'school', 'lab', 'shade', 'window']; 
 var wordArray = [];
 var letterDisplay = document.getElementById('blank-spaces');
+var input = document.getElementById('guess');
 var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
 //load word randomly
@@ -36,13 +37,12 @@ function loadWord() {
 loadWord();
 
 function handleGuess() {
-    var input = document.getElementById('guess');
     var guessedLetter = input.value.toLowerCase();
     console.log('letter guessed was', guessedLetter);
         
     var wrongLetters = [];
 
-    var tries = 0;
+    var wrongTries = 0;
     
     var letterInWord = false; 
 
@@ -62,17 +62,22 @@ function handleGuess() {
             var display = blanks.join(' ');
             letterDisplay.textContent = display;
             console.log(display);
+
         }
 
         else {
             console.log('wrong');
             if(i === (wordArray.length - 1)) {
                 wrongLetters.push(guessedLetter);
+
             }
             
-            incorrectLetters.textContent += wrongLetters;
+            incorrectLetters.textContent += (wrongLetters + ' ');
+
         }
-            //tries += 1;
+        input.value = ' ';
+
+            //wrongTries += 1;
             //image.src = 'pic' + tries + '.png';
     }
 }
