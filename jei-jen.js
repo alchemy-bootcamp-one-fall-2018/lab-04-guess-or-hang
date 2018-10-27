@@ -1,37 +1,32 @@
-lives = 6;
+var lives = 6;
+
 function setup() {
-    availableLetters = "abcdefghijklmnopqrstuvwxyz";
-    words = ["witch", "candy", "curse", "spell", "zombie", "costume"];
-    messages = {
-        win: "Great Job!",
-        lose: "You lose!"
+    availableLetters = 'abcdefghijklmnopqrstuvwxyz';
+    var words = ['witch', 'candy', 'curse', 'spell', 'zombie', 'costume'];
+    var messages = {
+        win: 'Great Job!',
+        lose: 'You lose!'
     };
     
-    lettersGuessed = lettersMatched = ' ';
-    numLettersMatched = 0;
-    currentWord = words[Math.floor(Math.random() * words.length)];
-    output = document.getElementById("output");
-    man = document.getElementById("man");
-    guessInput = document.getElementById("letter");
+    var lettersGuessed = ' ';
+    var numLettersMatched = 0;
+    var currentWord = words[Math.floor(Math.random() * words.length)];
+    var output = document.getElementById('output');
+    var man = document.getElementById('man');
+    var guessInput = document.getElementById('letter');
 
-    man.innerHTML = 'You have ' + lives + ' lives remaining';
+    man.innerHTML = ' You have ' + lives + ' lives remaining';
     output.innerHTML = '';
 
-    document.getElementById("letter").value = '';
-    guessButton = document.getElementById("guess");
+    var currentGuess = document.getElementById('letter').value = '';
+    var guessButton = document.getElementById('guess');
 
     /* display letters in current word */
-    letters = document.getElementById("letters");
+    var letters = document.getElementById('letters');
     letters.innerHTML = '<li class="current-word">Current word:</li>';
 
-    var letter, i;
-    for (i = 0; i < currentWord.length; i++) {
-        letter = '<li class="letter letter' + currentWord.charAt(i).toUpperCase() + '">' + currentWord.charAt(i).toUpperCase() + '</li>';
-        letters.insertAdjacentHTML('beforeend', letter);
-    }
-
     function gameOver(win) {
-        if (win) {
+        if(win) {
             output.innerHTML = messages.win;
             output.classList.add('win');
         } else {
@@ -47,51 +42,45 @@ function setup() {
     window.onload = setup();
 
     /* buttons */
-    document.getElementById("restart").onclick = setup;
+    
 
     /* reset letter to guess on click */
-    guessInput.onclick = function () {
-        this.value = '';
-    };
-
-    guessInput.onClick = function () {
-
-    }
+   
 
     /* main guess function when user clicks #guess */
-    document.getElementById('hangman').onsubmit = function (e) {
-        if (e.preventDefault) e.preventDefault();
+    document.getElementById('hangman').onsubmit = function(e) {
+        if(e.preventDefault) e.preventDefault();
         output.innerHTML = '';
         output.classList.remove('error', 'warning');
-        guess = guessInput.value;
+        var guess = guessInput.value;
 
         /* does guess have a value? if yes continue, if no, error */
-        if (guess) {
+        if(guess) {
             /* is guess a valid letter? if so carry on, else error */
-            if (availableLetters.indexOf(guess) > -1) {
+            if(availableLetters.indexOf(guess) > -1) {
                 /* has it been guessed (missed or matched) already? if so, abandon & add notice */
-                if ((lettersMatched && lettersMatched.indexOf(guess) > -1) || (lettersGuessed && lettersGuessed.indexOf(guess) > -1)) {
+                if((lettersMatched && lettersMatched.indexOf(guess) > -1) || (lettersGuessed && lettersGuessed.indexOf(guess) > -1)) {
                     output.innerHTML = '"' + guess.toUpperCase() + '"' + messages.guessed;
-                    output.classList.add("warning");
+                    output.classList.add('warning');
                 }
                 /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
-                else if (currentWord.indexOf(guess) > -1) {
+                else if(currentWord.indexOf(guess) > -1) {
                     var lettersToShow;
-                    lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
+                    lettersToShow = document.querySelectorAll('letter' + guess.toUpperCase());
 
-                    for (var i = 0; i < lettersToShow.length; i++) {
-                        lettersToShow[i].classList.add("correct");
+                    for(var i = 0; i < lettersToShow.length; i++) {
+                        lettersToShow[i].classList.add('correct');
                     }
 
                     /* check to see if letter appears multiple times */
-                    for (var j = 0; j < currentWord.length; j++) {
-                        if (currentWord.charAt(j) === guess) {
+                    for(var j = 0; j < currentWord.length; j++) {
+                        if(currentWord.charAt(j) === guess) {
                             numLettersMatched += 1;
                         }
                     }
 
-                    lettersMatched += guess;
-                    if (numLettersMatched === currentWord.length) {
+                    currentGuess += guess;
+                    if(numLettersMatched === currentWord.length) {
                         gameOver(true);
                     }
                 }
@@ -101,7 +90,7 @@ function setup() {
                     lettersGuessed += guess;
                     lives--;
                     man.innerHTML = 'You have ' + lives + ' lives remaining';
-                    if (lives === 0) gameOver();
+                    if(lives === 0) gameOver();
                 }
             }
             /* not a valid letter, error */
@@ -116,16 +105,19 @@ function setup() {
             output.innerHTML = messages.validLetter;
         }
         return false;
-    }
+    };
 }    
 function showImage() {
+    var image= ['dead', 'one-leg', 'no-leg', 'no-body', 'one-arm', 'head', 'beg'];
+    console.log('lives are', lives);
     lives--;
-    var img1 = document.getElementById('beg.png');
-    var img2 = document.getElementById('head.png');
+    var img1 = document.getElementById('beg');
+    console.log('img1', img1);
+    var img2 = document.getElementById('head');
     if(lives < 6){
         img1.style.visibility = 'visible';
     }
     if(lives < 5){
-        img1.style.visibility = 'visible';
+        img2.style.visibility = 'visible';
     }
 }
