@@ -51,8 +51,7 @@ h2{
 .go {
     background-color: lightblue;
     box-shadow: 3px 3px rgb(48, 43, 43);
-    width: 100px;
-    height: 33px;
+    padding: .5%;
     font-weight: bold;
     font-size: 25px;
     margin-top: 2%;
