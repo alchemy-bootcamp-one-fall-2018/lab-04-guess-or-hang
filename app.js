@@ -31,12 +31,15 @@ var lettersGuessed = '';
 //evaluate word for number of letters
 var numBlanks = 0;
 numBlanks = selectedWord.length;
+
+
 function checkLetters(letter) {
     var letterInWord = false;
 
     for(var j = 0; j < numBlanks; j++) {
         if(selectedWord[j] === letter) {
             letterInWord = true;
+            console.log('gothere');
         }
     }
     if(letterInWord) {
@@ -45,7 +48,7 @@ function checkLetters(letter) {
                 accurateGuesses[k] = letter;
             }
         }
-        console.log('gothere');
+        
     }
 }
 

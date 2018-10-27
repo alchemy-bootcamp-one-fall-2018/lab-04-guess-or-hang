@@ -14,11 +14,11 @@
     </section>
     <section>
         <!-- Placeholder for word entry -->
-        <form >
+        <form  onsubmit="event.preventDefault()">
             Guess a letter:<br>
             <input type="text" name="letter">
             <br>
-            <input type="submit" name="submit">
+            <button onclick = "checkLetters()">Check letters</button>
         </form>
         <!-- Form and button to submit choice -->
         <!-- Reset button -->
