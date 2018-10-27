@@ -69,17 +69,17 @@ function handleGuess() {
                 wrongLetters.push(guessedLetter);
                 var tryIncrease = true;
                 if(tryIncrease === true) {
-                    wrongTries += 1;
+                    if(i === (wordArray.length - 1)) {
+                        wrongTries += 1;
+                        console.log(wrongTries);
+                    }  
                 }
-                    //console.log(wrongTries.length);
-                
+                var imageNumber = wrongTries + 1;
+                incorrectLetters.textContent += (wrongLetters + ' '); 
+                image.src = 'pic' + imageNumber + '.png';
             }
-            
-            incorrectLetters.textContent += (wrongLetters + ' '); 
-            console.log(wrongTries);
+            input.value = ' ';
         }
-        input.value = ' ';
     }
 }
 
-//image.src = 'pic' + tries + '.png';
