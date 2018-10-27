@@ -1,4 +1,4 @@
-/* exported loadWord handleGuess */
+/* exported loadWord handleGuess toClear */
 /* eslint-disable no-console */
 
 var words = ['cheese', 'coffee', 'park', 'flower', 'book', 'sky', 'courier', 'soup', 'water', 'greenery', 'spoon', 'school', 'lab', 'shade', 'window']; 
@@ -35,7 +35,6 @@ function loadWord() {
     }
     blankJoin = blanks.join(' ');
     letterDisplay.textContent = blankJoin; 
-
 }
 
 loadWord();
@@ -46,8 +45,6 @@ function handleGuess() {
         
     var wrongLetters = [];    
     var letterInWord = false; 
-    
-    
     
     for(var i = 0; i < wordArray.length; i++) {
         if(guessedLetter === wordArray[i]) {
@@ -92,4 +89,13 @@ function handleGuess() {
     if(correctGuess === wordArray.length) {
         gameResult.textContent = 'You win!';
     }
+}
+
+function toClear() {
+    image.src = 'pic1.png';
+    letterDisplay.textContent = '';
+    gameResult.textContent = '';
+    guessNumber = 7;
+    loadWord();
+
 }
