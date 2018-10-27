@@ -66,16 +66,18 @@ function handleGuess() {
 
         else {
             console.log('wrong');
-            wrongLetters.push(guessedLetter);
-            incorrectLetters.textContent = wrongLetters[i];
-            tries += 1;
-            image.src = 'pic' + tries + '.png';
-
+            if(i === (wordArray.length - 1)) {
+                wrongLetters.push(guessedLetter);
+            }
             
+            incorrectLetters.textContent += wrongLetters;
         }
+            //tries += 1;
+            //image.src = 'pic' + tries + '.png';
     }
-
 }
+
+
 
 
 
