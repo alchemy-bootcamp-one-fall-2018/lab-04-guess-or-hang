@@ -6,24 +6,26 @@
         
 //randomly select index
 var word = words[Math.floor(Math.random() * words.length)];        
-    
+console.log(word)    
+
 //set placeholder for letters
 var answerDisplay = word.split('');
 console.log(answerDisplay);
 
 //display number of dashes corresponding to number of letters
-var selectedLetter = [];
+var letterBlanks = [];
 for(var i = 0; i < word.length; i++) {
-    selectedLetter[i] = '_';
-    console.log(selectedLetter);
+    letterBlanks[i] = '_';
+    console.log(letterBlanks);
 }
 
 var selectedWord = document.getElementById('selected-letter');
-selectedWord.textContent = selectedLetter.join(' ');
+selectedWord.textContent = letterBlanks.join(' ');
     
 //evaluate word for number of letters
-var numBlanks = 0;
+// var numBlanks = 0;
 numBlanks = selectedWord.length;
+console.log(selectedWord)
 // initiates array for chosen word
 var pickedWord = 'answerDisplay';
 console.log(answerDisplay)
@@ -35,23 +37,28 @@ var accurateGuesses = [];
 //array for all letters guessed
 var lettersGuessed = '';
 
-function checkLetters() {
-    var letterInWord = false;
+function validateLetters() {
+    
+    
+    
+    
+    
+    // var letterInWord = false;
 
-    for(var j = 0; j < numBlanks; j++) {
-        if(selectedWord[j] === letter) {
-            letterInWord = true;
-            console.log('gothere');
-        }
-    }
-    if(letterInWord) {
-        for(var k = 0; k < numBlanks; k++) {
-            if(chosenWord[k] === letter) {
-                accurateGuesses[k] = letter;
-            }
-        }
+    // for(var j = 0; j < numBlanks; j++) {
+    //     if(answerDisplay[j] === letter) {
+    //         // letterInWord = true; 
+    //     }
+    //     console.log(answerDisplay[j])
+    // }
+    // if(answerDisplay) {
+    //     for(var k = 0; k < numBlanks; k++) {
+    //         if(chosenWord[k] === letter) {
+    //             accurateGuesses[k] = letter;
+    //         }
+    //     }
         
-    }
+    // }
 }
 
 //     console.log("There are " + word.length + " letters in the word");
