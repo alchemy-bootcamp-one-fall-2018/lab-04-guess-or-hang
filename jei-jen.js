@@ -108,16 +108,19 @@ function setup() {
     };
 }    
 function showImage() {
-    var image= ['dead', 'one-leg', 'no-leg', 'no-body', 'one-arm', 'head', 'beg'];
+    var image = ['dead.png', 'one-leg.png', 'no-leg.png', 'no-body.png', 'one-arm.png', 'head.png', 'beg.png'];
+    var arrayLength = image.length;
     console.log('lives are', lives);
     lives--;
-    var img1 = document.getElementById('beg');
+    var img1 = document.getElementById('image');
+    image.src.innerHTML = image[3];
+/*
     console.log('img1', img1);
     var img2 = document.getElementById('head');
     if(lives < 6){
         img1.style.visibility = 'visible';
     }
     if(lives < 5){
-        img2.style.visibility = 'visible';
-    }
+        img1.style.visibility = 'visible';
+    }*/
 }
