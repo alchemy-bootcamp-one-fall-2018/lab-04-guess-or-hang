@@ -7,13 +7,14 @@ var letterDisplay = document.getElementById('blank-spaces');
 var input = document.getElementById('guess');
 var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
-var guessNumber = document.getElementById('guess-number');
+var guessNumber = document.getElementById('number-of-guesses');
 var gameResult = document.getElementById('win-lose');
 //load word randomly
 
 var blanks = [];
 var blankJoin;
 var wrongTries = 0;
+var correctTries = 0;
 
 function loadWord() {
     var copy = words.slice();
@@ -45,6 +46,7 @@ function handleGuess() {
         
     var wrongLetters = [];    
     var letterInWord = false; 
+    var correctGuess = false;
     
     
     for(var i = 0; i < wordArray.length; i++) {
@@ -57,13 +59,19 @@ function handleGuess() {
             for(var k = 0; k < wordArray.length; k++) {
                 if(wordArray[k] === guessedLetter) {
                     blanks[k] = guessedLetter;
+                    correctGuess = true;
                 }
+            }
+            if(correctGuess === true) {
+                correctTries += 1;
+            }
+            
+            if(correctTries === wordArray.length) {
+                gameResult.textContent = 'You win!';
             }
             var display = blanks.join(' ');
             letterDisplay.textContent = display;
-            console.log(display);
         }
-        
 
         else {
             if(i === (wordArray.length - 1)) {
@@ -72,7 +80,8 @@ function handleGuess() {
                 if(tryIncrease === true) {
                     if(i === (wordArray.length - 1)) {
                         wrongTries += 1;
-                        console.log(wrongTries);
+                        var guessesLeft = 7 - wrongTries;
+                        guessNumber.textContent = ' ' + guessesLeft + ' ';
                     }  
                 }
                 var imageNumber = wrongTries + 1;
