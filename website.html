@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <div id="everything">
@@ -19,17 +19,19 @@
                 </canvas>
             </div>
             
-            <p>
-                _ _ _ _ _ _
+            <p  style="text-align: center;">
+                <div id="blanks" class="blanks">
+                </div>
             </p>
             <div id="guessLetterCenter">
                 <form id="guess-letter-form" onsubmit="event.preventDefault(); checkGuessLetter();">
                     <label id="guess-text-id" for="guess-letter-for">Guess Letter:</label>
-                    <input type="text" id="guess-letter-id" maxlength="1" placeholder="Enter a letter">
+                    <input type="text" id="guess-letter-id" maxlength="1" name="guess" placeholder="Enter a letter">
                     <br>
                     <button id="submit" onclick="tryButton()">Submit Letter</button>
                     
                 </form>
+                <button id="submit" onclick="startGame()">Start Game</button>
                 
                 <!-- give an id like letter-0, letter-1, letter-2, etc. -->
                 

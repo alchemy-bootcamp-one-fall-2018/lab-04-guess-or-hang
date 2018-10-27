@@ -1,7 +1,9 @@
 
 function tryButton() {
-    console.log('hello');
+
 }
+
+var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft']
 
 // address by index, i.e. document.getElementById('letter-' + i)
 
@@ -26,15 +28,49 @@ function tryButton() {
     
     // Message - A place to show messages (like win or lose)
 var guessLetterForm = document.getElementById('guess-letter-form');
+var firstLetter = document.getElementById('letter-0');
+
+function getRandomWord(words) {
+    var wordIndex = Math.floor(Math.random() * words.length)
+    return words[wordIndex];
+}
+
+function startGame() {
+    var word = getRandomWord(wordList);
+    var blanks = document.getElementById('blanks')
+    for(var i = 0; i < word.length; i++) {
+        var letter = document.createElement("div");
+        letter.className = 'letter';
+        letter.textContent = '__';
+        blanks.appendChild(letter);
+    }
+}
 
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
     var guess = elements['guess-letter-id'].value;
+    firstLetter.textContent = guess;
 
-    console.log('var guess', guess);
-   // console.log('var direct line', document.getElementById('guessLetter').value);
-
+    console.log(guess);
+    // console.log('var direct line', document.getElementById('guessLetter').value);
+    resetGuessLetter();
 }
+
+
+
+function resetGuessLetter() {
+    var elements = guessLetterForm.elements;
+    var submit = elements['guess-letter-id'];
+    submit.value = '';
+}
+
+
+
+// if letter is submitted
+// then display submitted letter
+// if() {
+
+// }
 
 
 //Body Parts

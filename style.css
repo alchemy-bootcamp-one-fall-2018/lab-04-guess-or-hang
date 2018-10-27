@@ -16,7 +16,7 @@ p {
     text-align: center;
     color: white;
 }
-#guessText {
+#guess-text-id {
     font-family: 'Kalam', cursive;
 }
 #submit {
@@ -45,4 +45,19 @@ p {
     #myCanvas {
         width: 90%;
     }
+}
+/* #letter-0 {
+    color: white;
+    text-align: center
+} */
+.blanks {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: ;
+    text-align: center;
+    margin: 50px; 
+}
+.letter {
+    margin: 0 5px;
 }
