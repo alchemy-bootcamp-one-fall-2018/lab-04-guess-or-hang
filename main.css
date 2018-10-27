@@ -3,12 +3,22 @@ body {
     text-align: center;
 }
 
-#correctGuesses, #message, #lettersGuessed {
+#correctGuesses, #lettersGuessed {
     background-color: white;
     border: 2px solid black;
     height: 30px;
     width: 300px;
     margin: auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#message {
+    height: 30px;
+    width: 300px;
+    margin: auto;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 h2{
@@ -34,8 +44,8 @@ h2{
     color: red;
 }
 
-#message {
-    background-color: lightgray;
+.blue {
+    color: blue;
 }
 
 .go {

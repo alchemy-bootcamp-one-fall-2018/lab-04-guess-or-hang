@@ -57,12 +57,12 @@ function play() {
             }
            
             correctGuesses.innerHTML = dashes.join(' ');
-            message.innerHTML = '<p class="green">Correct!</p>';
+            message.innerHTML = '<p class="blue">Correct!</p>';
             
         } else {
             gallows.innerHTML = imageSources[guessCount];
             guessCount++;
-            message.innerHTML = '<p class="red">Guess Again</p>';
+            message.innerHTML = '<p class="blue">Guess Again</p>';
         }
         if(correctGuessCount === word.length - 1) {
             goButton.innerHTML = '<button class="go green" onclick="reset()">You Win! - New Game</button>';
@@ -70,7 +70,7 @@ function play() {
     } else {
         gallows.innerHTML = imageSources[5];
         goButton.innerHTML = '<button class="go red" onclick="reset()">You Lose! - New Game</button>';
-        message.textContent = 'The word is ' + word;
+        message.innerHTML = '<p class="blue">The word is ' + word + '</p>';
     }
     
 }
