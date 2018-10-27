@@ -14,7 +14,7 @@ var gameResult = document.getElementById('win-lose');
 var blanks = [];
 var blankJoin;
 var wrongTries = 0;
-var correctTries = 0;
+var correctGuess = 0;
 
 function loadWord() {
     var copy = words.slice();
@@ -46,31 +46,25 @@ function handleGuess() {
         
     var wrongLetters = [];    
     var letterInWord = false; 
-    var correctGuess = false;
+    
     
     
     for(var i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === guessedLetter) {
+        if(guessedLetter === wordArray[i]) {
             console.log('match');
-            letterInWord = true;  
+            letterInWord = true;
+            correctGuess += (wordArray.length - (wordArray.length - 1));
         }
-        
+
         if(letterInWord) {
             for(var k = 0; k < wordArray.length; k++) {
-                if(wordArray[k] === guessedLetter) {
+                if(guessedLetter === wordArray[k]) {
                     blanks[k] = guessedLetter;
-                    correctGuess = true;
                 }
-            }
-            if(correctGuess === true) {
-                correctTries += 1;
-            }
-            
-            if(correctTries === wordArray.length) {
-                gameResult.textContent = 'You win!';
             }
             var display = blanks.join(' ');
             letterDisplay.textContent = display;
+            input.value = ' ';
         }
 
         else {
@@ -94,5 +88,8 @@ function handleGuess() {
             }
         }
     }
+    console.log(correctGuess);
+    if(correctGuess === wordArray.length) {
+        gameResult.textContent = 'You win!';
+    }
 }
-

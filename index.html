@@ -14,13 +14,13 @@
         <h1> Hang or Die Game </h1>
     </header>
     <section class="gallows"> 
-        <img src="pic1.png" alt="empty gallows" id = "gallows">
+        <img src="pic1.png" alt="gallows" id = "gallows">
         <p id="win-lose"></p>
         <form id="button"
         onsubmit="event.preventDefault(); gameStart();"
         onreset="resetGameStart()">
             <label for="guess-box" class="label">Please put in your guess:</label>
-            <input type="text" name="guess" id="guess" placeholder="A-Z">
+            <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z">
         </form>
     </section>
 
