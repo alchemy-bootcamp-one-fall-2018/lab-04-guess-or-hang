@@ -22,7 +22,7 @@ reset();
 function reset() {
     var randomMax = words.length - 1;
     word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
-    console.log(word);
+    // console.log(word);
     guessCount = 1;
     correctGuessCount = 0;
     dashes = ['___'];
@@ -42,8 +42,6 @@ function reset() {
 
 function play() {
     var input = inputBox.value.toUpperCase();
-    console.log("input:", input);
-    //clear text input
     if(guessCount < 6) {
         letters += '     ' + input;
         lettersGuessed.innerHTML = letters;
@@ -77,5 +75,3 @@ function play() {
 
 var g = document.getElementById('gallows');
 g.innerHTML = '<img id="gallows" src="1gallows.jpg">';
-
-//fix empty input 'Correct!' message 
