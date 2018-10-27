@@ -8,6 +8,7 @@ var input = document.getElementById('guess');
 var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
 var guessNumber = document.getElementById('guess-number');
+var gameResult = document.getElementById('win-lose');
 //load word randomly
 
 var blanks = [];
@@ -79,6 +80,9 @@ function handleGuess() {
                 image.src = 'pic' + imageNumber + '.png';
             }
             input.value = ' ';
+            if(wrongTries === 6) {
+                gameResult.textContent = 'You lose!';
+            }
         }
     }
 }
