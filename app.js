@@ -2,47 +2,26 @@
 /* eslint-disable no-console*/
 'use strict'; 
 
-// var blankLines = document.getElementById('blank-lines');
-
 function getRandomWord(max) {
     return Math.floor(Math.random() * max); 
 }
 
-
-
-function loadWord() {
+function generateWord() {
     var copy = words.slice();   
-    console.log('random word', getRandomWord(14));
+    var randomWord = getRandomWord(copy.length);
+    var word = copy[randomWord];
+    //console.log below is showing the item in the arry
+    console.log(randomWord);
+    return word;
+}
 
-    
-    function generateWord() {
-        var randomWord = getRandomWord(copy.length);
-        var word = copy[randomWord];
-        copy.splice(randomWord, 1);
-        
-        return word;
-    }
+//This line actually calling the function and determining the word
+var selectedWord = generateWord();
+//This line is showing the word determined in the array by console.log(randomWord);
+console.log(selectedWord);
 
+var wordArray = selectedWord.split('');
+console.log(wordArray);
 
-    var selectedWord = generateWord();
-    console.log(selectedWord);
-
-    var answerLines = [];
-    if(copy.length === 9) {
-        selectedWord.push(copy[0]);
-    
-    }
-
-    // for(var i = (wordLength; i < 9; i++) {
-    //     var linesToHide = answerLines[i];
-    //     var display = '';
-    //     if(linesToHide) {
-    //         display = linesToHide();
-        // }
-        // console.log(answerLines);
-        
-    // }
-
-} 
-loadWord();
+//generateWord();
 
