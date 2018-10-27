@@ -11,6 +11,7 @@ var incorrectLetters = document.getElementById('letters-guessed');
 
 var blanks = [];
 var blankJoin;
+var wrongTries = 0;
 
 function loadWord() {
     var copy = words.slice();
@@ -57,7 +58,7 @@ function handleGuess() {
                     blanks[k] = guessedLetter;
                 }
             }
-            console.log(blanks);
+            console.log(blanks); 
             var display = blanks.join(' ');
             letterDisplay.textContent = display;
             console.log(display);
@@ -73,6 +74,25 @@ function handleGuess() {
             wrongTries += 1;
             console.log('number of wrong tries is ', wrongTries);
         
+            wrongLetters.push(guessedLetter);
+            incorrectLetters.textContent = wrongLetters[i];
+            wrongTries += 1;
+            image.src = 'pic' + wrongTries + '.png';
+       
+            incorrectLetters.textContent += wrongLetters;
+        
+    
+        // for(var j = 0; j < wordArray.length; j++) {
+        //     if(wrongLetters[j] !== wordArray.length) {
+        //         console.log('false');
+        //         var condition = false;
+        //         if(condition === false) {
+        //             wrongTries += 1;
+        //             image.src = 'pic' + wrongTries + '.png';
+        //         }
+
+        //     }
+        //}
         }
 
         
@@ -80,15 +100,4 @@ function handleGuess() {
             // image.src = 'pic' + tries + '.png';
         // }
     }
-
 }
-
-
-
-        
-// loop for guess until the word is complete
-
-// show answer until complete
-    //show congrats or lose banner
-
-// restart the game 
