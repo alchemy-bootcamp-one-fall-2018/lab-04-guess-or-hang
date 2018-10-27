@@ -23,7 +23,7 @@ function reset() {
     var randomMax = words.length - 1;
     word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
     console.log(word);
-    guessCount = 0;
+    guessCount = 1;
     correctGuessCount = 0;
     dashes = ['___'];
     letters = '';
@@ -44,15 +44,15 @@ function play() {
     var input = inputBox.value.toUpperCase();
     console.log("input:", input);
     //clear text input
-    if(guessCount < 5) {
+    if(guessCount < 6) {
         letters += '     ' + input;
         lettersGuessed.innerHTML = letters;
 
         if(word.includes(input) && input !== '') {
-            correctGuessCount++;
             for(var j = 0; j < word.length; j++) {
                 if(input === word[j]) {
                     dashes[j] = input;
+                    correctGuessCount++;
                 }
             }
            
@@ -60,11 +60,11 @@ function play() {
             message.innerHTML = '<p class="blue">Correct!</p>';
             
         } else {
-            gallows.innerHTML = imageSources[guessCount];
+            gallows.innerHTML = imageSources[guessCount - 1];
             guessCount++;
             message.innerHTML = '<p class="blue">Guess Again</p>';
         }
-        if(correctGuessCount === word.length - 1) {
+        if(correctGuessCount === word.length) {
             goButton.innerHTML = '<button class="go green" onclick="reset()">You Win! - New Game</button>';
         } 
     } else {
