@@ -1,9 +1,15 @@
+var winLoseContainer = document.getElementById('win-lose-container');
+
+
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
-var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
+var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 var wordLength = randomWord.length;
 var randomWordArray = randomWord.split("");
 var displayGuesses = [];
 var guessedLetter = 'i';
+var guessCount = 6;
+var gameIsDone = false;
+
 for(var i = 0; i < wordLength; i++) {
     displayGuesses.push('_');
 }
@@ -16,8 +22,6 @@ function clickButton() {
         letterIsInWord = (randomWordArray.indexOf(guess) > -1);
         return letterIsInWord;
     }
-    var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
-
     function getAllIndexes(array, value) {
         var indexes = []; 
         for(var i = 0; i < array.length; i++) {
@@ -27,13 +31,28 @@ function clickButton() {
         }
         return indexes;
     }
+    while(gameIsDone === false) {
+        var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
 
-    if(letterIsInWord === true){
-        var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
-        for(var i = 0; i < letterLocations.length; i++) {
-            displayGuesses[letterLocations[i]] = guessedLetter;
+
+        if(letterIsInWord === true){
+            var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
+            for(var i = 0; i < letterLocations.length; i++) {
+                displayGuesses[letterLocations[i]] = guessedLetter;
+            }
+            if(letterLocations === displayGuesses) {
+                gameIsDone = true;
+                winLoseContainer.textContent = 'You win!';
+            }
         }
-        console.log(displayGuesses, randomWord);
+        if(letterIsInWord === false) {
+            guessCount = guessCount - 1;
+            if(guessCount === 0) {
+                gameIsDone = true;
+                winLoseContainer.textContent = 'You lose!';
+            }
+        }
+
     }
 }
 
