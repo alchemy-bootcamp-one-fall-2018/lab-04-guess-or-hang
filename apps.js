@@ -48,7 +48,8 @@ function handleGuess() {
             console.log('match');
             guessWork = true;  
         }
-
+        // if the guessedLetter is the wrongLetters[i] array, disable submit button 
+        
         if(guessWork) {
             for(var k = 0; k < wordArray.length; k++) {
                 if(wordArray[k] === guessedLetter) {
