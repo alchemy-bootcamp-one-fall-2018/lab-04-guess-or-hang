@@ -1,7 +1,7 @@
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
 var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 var wordLength = randomWord.length;
-var randomWordArray = randomWord.split("");
+var randomWordArray = randomWord.split('');
 var displayGuesses = [];
 var guessedLetter = 'i';
 for(var i = 0; i < wordLength; i++) {

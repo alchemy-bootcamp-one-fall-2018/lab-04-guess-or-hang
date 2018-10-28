@@ -10,7 +10,7 @@
 }
 
 #letter-display{
-    background-color: blue;
+    background-color: rgb(127, 127, 192);
 }
 
 #guessed-display{
@@ -25,4 +25,23 @@ h1{
     text-align: center;
 }
 
+#head{
+    display: hidden;
+}
+
+#body{
+    display: hidden;
+}
+
+#left-leg{
+    display: hidden;
+}
+
+#both-legs{
+    display: hidden;
+}
+
+#one-arm-with-legs{
+    display: hidden;
+}
 
