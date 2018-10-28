@@ -39,6 +39,8 @@ var accurateGuesses = [];
 //array for all letters guessed
 var lettersGuessed = '';
 
+var letter = document.getElementById('choice');
+
 //setting allowed number of guesses
 numGuesses = 6;
 
@@ -50,10 +52,11 @@ function validateLetters() {
     
     var letterInWord = false;
 
-    for (var j = 0; j < letterBlanks; j++) {
-        if (word [i] === letter) {
+    for (var j = 0; j < letterBlanks.length; j++) {
+        if (word [j] === letter) {
             letterInWord = true;
         }
+        console.log(letter);
     }
 
     if (letterInWord) {
@@ -61,6 +64,7 @@ function validateLetters() {
             if (letterInWord[j] === letter) {
                 validateLetters[j] = letter;
             }
+            
         }
     }
     console.log(letterInWord);
