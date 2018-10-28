@@ -23,14 +23,17 @@ console.log(selectedWord);
 var wordArray = selectedWord.split('');
 console.log(wordArray);
 
-for(var i = 0; randomWord > i; i++) {
-    var randomWord = wordArray[i];
-    var display = '__';
-    if(randomWord) {
-        display = randomWord.join('');
+var hideLine = document.querySelectorAll('.wordArray');
+for(var i = 0; i < hideLine.length; i++) {
+    var li = hideLine[i];
+    var linesToDisplay = wordArray[i];
+    if(i < wordArray.length) {
+        li.textContent = linesToDisplay;
+        li.classList.remove('guess');
     }
-    document.getElementById('letter-' + i).innerText = display;
+    else {
+        li.classList.add('guess');
+    }
 }
 
-//generateWord();
 
