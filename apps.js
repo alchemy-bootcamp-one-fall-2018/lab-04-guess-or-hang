@@ -1,4 +1,4 @@
-/* exported handleGuess loadWord */
+/* exported handleGuess loadWord validate */
 /* eslint-disable no-console */
 'use strict'; 
 
@@ -39,16 +39,23 @@ function validate() {
     if(input.value === '') {
         alert('You must input a letter in the box');
         submitButton.disabled = true;
+        wrongTries = wrongTries + 0;
+
+        // wrongInput = true;
+    
     }
     if(input.value.charCodeAt(0)) {
         alert('You must input a letter');
         submitButton.disabled = true;
+        wrongTries = wrongTries + 0;
+
+        // wrongInput = true;
     }
     submitButton.disabled = false;
 }
+// var wrongInput = false;
 
 function handleGuess() {
-    validate();
     var guessedLetter = input.value.toLowerCase();  
     var wrongLetters = [];    
     var letterInWord = false; 
@@ -72,6 +79,9 @@ function handleGuess() {
             if(i === (wordArray.length - 1)) {
                 wrongLetters.push(guessedLetter);
                 var tryIncrease = true;
+                // if(wrongInput === true) {
+                //     wrongTries = wrongTries + 0;
+                // }
                 if(tryIncrease === true) {
                     if(i === (wordArray.length - 1)) {
                         wrongTries += 1;
