@@ -44,6 +44,7 @@ function wordGame() {
 
 
     checkWin = '';
+    guessedLetter = '';
 
     // get random word from words array
     selectedWord = randomWord();
@@ -68,9 +69,25 @@ function guessLetter() {
     var letterGuess = document.getElementById('guess-input').value;
     console.log ('From guess input box:', letterGuess);
     
-
+    // Alert user to enter a letter
     if(letterGuess.length !== 1) {
         response.textContent = 'Pls enter a letter';
+    }
+
+    // Check if letter is duplicate
+    else if(guessedLetter.includes(letterGuess) === true) {
+        response.textContent = 'Letter already guessed. Pls pick another letter';
+    }
+    // Guessed letter is correct
+    else if(selectedWord.include(letterGuess) === true) {
+        //  Display correct letter to page and put to Check Win
+        for(var i = 0; i < stateLength; i++) {
+            if(letterGuess === selectedState[i]) {
+                document.getElementById('letter-' + i).textContent = letterGuess;
+                checkWin[i] = letterGuess;
+                console.log('correct guessed letter ', checkWin[i]);
+            }
+        }
     }
 }
 
