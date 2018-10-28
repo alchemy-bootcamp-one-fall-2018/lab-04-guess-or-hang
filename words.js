@@ -1,16 +1,11 @@
 /*exported enterGuess*/
 
 var words = ['skiing', 'jogging', 'aerobics', 'cycling', 'paddling'];
-
 var rand = words[Math.floor(Math.random() * words.length)].split('');
-//console.log('random word-', rand);
-
 
 function tryRandomWord() {
     var emptyBlanks = [];
     var wordLength = rand.length;
-    //console.log('word length-', wordLength);
-
     for(var i = 0; i < wordLength; i++) {
         emptyBlanks.push('__');
     }
@@ -19,6 +14,8 @@ function tryRandomWord() {
     return emptyBlanks;
 }
 var blanks = tryRandomWord();
+var wrongGuesses = 0;
+
 
 function enterGuess() {
     var guessInputs = document.getElementById('userGuess').value;
@@ -26,22 +23,20 @@ function enterGuess() {
         blanks.splice(rand.indexOf(guessInputs), 1, guessInputs);
         console.log('you guessed correctly! Enter your next guess');
         console.log(blanks);
+    
+    } else {
+        console.log('Try again!');
+        wrongGuesses++;
+        if(wrongGuesses === 6) {
+            console.log('GAME OVER!!!');
+        } else {
+            var gallows = document.getElementById('firstMan');
+            var drawStick = ['Images/StickMan1.png', 'Images/StickMan2.png', 'Images/StickMan3.png', 'Images/StickMan4.png', 'Images/StickMan5.png', 'Images/StickMan6.png'];
+            gallows.src = drawStick[wrongGuesses];
+        }
     }
+       
 }
-
-
-
-    /*for(var i = 0; i < rand.length; i++) {
-        
-        if(guessInputs === rand[i]) {
-            blanks.splice(i, 1, rand[i]);
-            console.log('you guessed correctly! Enter your next guess');
-            console.log(blanks);
-        }
-        if(guessInputs != rand[i]) {
-            console.log('TRY AGAIN!');
-        }
-    }*/
 
 
     
@@ -58,9 +53,3 @@ function enterGuess() {
 
 
 
-
-//    return rand;
-// var rand = tryRandomWord();
-//function getUnderscores(param) {
-//}
-// getUnderscores(rand);
