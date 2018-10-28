@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Guess or Hang</title>
+</head>
+
+<body>
+
+    <h1>Guess or Perish</h1>
+
+
+    <section>
+        <p id="result"></p>
+    </section>
+
+    <section>
+        <img src="cup-of-coffee-800x462.jpg" alt="cup of coffee placeholder for gallows">
+    </section>
+
+    <section>
+        <div id="hold">
+            <ul id="my-word">
+                <li class="guess" id="letter-0">__</li>
+                <li class="guess" id="letter-1">__</li>
+                <li class="guess" id="letter-2">__</li>
+                <li class="guess" id="letter-3">__</li>
+                <li class="guess" id="letter-4">__</li>
+                <li class="guess" id="letter-5">__</li>
+                <li class="guess" id="letter-6">__</li>
+                <li class="guess" id="letter-7">__</li>
+                <li class="guess" id="letter-8">__</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <form>
+            <label for="guessed-letter"></label>
+            <input type="text" id="guessed-letter">
+        </form>
+
+       <button type="submit" onclick="">Submit</button>
+    </section>
+
+    <section>
+        <div class="container">
+            <p>Incorrect Letters</p>
+
+            <p id="incorrect-guesses"></p>
+        </div>
+    </section>
+
+    <section>
+        <p>You have <span id="guess-left"></span> guesses left.</p>
+    </section>
+
+
+
+    
+
+
+
+
+
+
+
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
