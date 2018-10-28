@@ -43,7 +43,6 @@ function handleGuess() {
 
     var guessWork = false;
     
-    var wrongTries = 0;
     for(var i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === guessedLetter) {
             console.log('match');
@@ -78,24 +77,6 @@ function handleGuess() {
             image.src = 'pic' + wrongTries + '.png';
        
             incorrectLetters.textContent += wrongLetters;
-        
-    
-        // for(var j = 0; j < wordArray.length; j++) {
-        //     if(wrongLetters[j] !== wordArray.length) {
-        //         console.log('false');
-        //         var condition = false;
-        //         if(condition === false) {
-        //             wrongTries += 1;
-        //             image.src = 'pic' + wrongTries + '.png';
-        //         }
-
-        //     }
-        //}
         }
-
-        
-        // while(tries < 6) {
-            // image.src = 'pic' + tries + '.png';
-        // }
     }
 }
