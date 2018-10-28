@@ -1,91 +1,93 @@
 /* globals words */
-/* exported randomWord, wordGame */
+/* exported randomWord, wordGame, guessLetter */
 /* eslint no-console: "off" */
 'use strict';
 
-
-/*
+/*  List of Variables to Used
+var guessNumber = 6;
+var guessedLetter = '';
+var guesses = document.getElementById('guessed-letters');
+var guessesRemaining = document.getElementById('guesses-remaining'); 
 var selectedWord;
-var wordLength;
 var checkWin;
-var guessNum;
-var guessedLetter;
-var guesses; -- Pulled from id="guessed-letters"
-var response; -- Pulled from id="game-response"
-var guessRemaining; -- Pulled from id="guesses-remaining"
+
 */
 
-function wordGame() {
-    randomWord();
-}
+//  Global Variables
 
-/* RANDOM WORD GENERATOR - Selects the word from the array with that index and store in a `word` variable for use by the guess function (`word`) will need to be scoped in way guess function can read. */
+var selectedWord;
+var response = document.getElementById('game-response');
+var guessedLetter = '';
+var selectedState;
+var stateLength;
+var checkWin;
+var guessNumber = 6;
+var guesses = document.getElementById('guessed-letters');
+var guessesRemaining = document.getElementById('guesses-remaining');
+
+
+
 function randomWord() {
     //The maximum is exclusive and the minimum (0) is inclusive
     var index = Math.floor(Math.random() * words.length); 
     console.log('selected index', index);
     var selectedWord = words[index];
     console.log('selected word', selectedWord);
-    // var selectedWordLength = selectedWord.length;
-    // var display = substring.selectedWord(0,)
-
-    for(var i = 0; i < 13; i++) {
-        document.getElementById('letter-' + i).textContent = ' ';
-    }
-    
-    /* Set the visibility on the letters of the "Word to Guess" to hidden and fully hide (no line blank) any unused letter spaces. (You might not hide them initially during development so you can "see" that word is loading correctly. Otherwise, you will need to inspect with the Dev Tools) */
-    for(var j = 0; j < selectedWord.length; j++) {
-        // Grab span by id
-        var span = document.getElementById('letter-' + j);
-        // Change text content of the span
-        // span.textContent = selectedWord[i];
-        // console.log('selected word letter ', selectedWord[i]);
-        span.textContent = '_';
-    }
-
-    
+    return words[index];
 }
 
 
 
 
+function wordGame() {
+ 
 
 
+    checkWin = '';
+    guessedLetter = '';
 
+    // get random word from words array
+    selectedWord = randomWord();
+    console.log(selectedWord);
 
-// CREATE A 'GUESS' FUNCTION THAT:
+    // Hide word and display '_' for each letter on page
+    for(var i = 0; i < selectedWord.length; i++) {
+        // Grab span by id
+        var span = document.getElementById('letter-' + i);
+        // Change text content of the span
+        // span.textContent = selectedWord[i];
+        console.log('selected word letter ', selectedWord[i]);
+        span.textContent = '_';
+        checkWin += '_';
+    }
+    checkWin = checkWin.split('');
+    document.getElementById('guess-button').disabled = false;
+    console.log(checkWin);
+}
 
-    // Is called by the submit of the Guess Letter form
+function guessLetter() {
+    var letterGuess = document.getElementById('guess-input').value;
+    console.log ('From guess input box:', letterGuess);
+    
+    // Alert user to enter a letter
+    if(letterGuess.length !== 1) {
+        response.textContent = 'Pls enter a letter';
+    }
 
+    // Check if letter is duplicate
+    else if(guessedLetter.includes(letterGuess) === true) {
+        response.textContent = 'Letter already guessed. Pls pick another letter';
+    }
+    // Guessed letter is correct
+    else if(selectedWord.include(letterGuess) === true) {
+        //  Display correct letter to page and put to Check Win
+        for(var i = 0; i < stateLength; i++) {
+            if(letterGuess === selectedState[i]) {
+                document.getElementById('letter-' + i).textContent = letterGuess;
+                checkWin[i] = letterGuess;
+                console.log('correct guessed letter ', checkWin[i]);
+            }
+        }
+    }
+}
 
-
-
-    /* Reads the letter from the Guess Letter input (either use form.elements, or directly reference the letter input by Id, as that is the only form control we care about). */
-
-
-
-
-    /* If letter guess is not a-z or A-Z, alert or message (via results output) user that letter is required. (Hint: you can use `.charCodeAt(0)` on your string value, or checkout regular expressions) */
-
-
-
-
-    /* Checks against letters already guessed and alerts or messages user that letter has already been guessed */
-
-
-
-
-    // Otherwise:
-    //     1. Letter is added to guessed letters
-    //     1. Guess count is incremented
-    //     1. Guess Letter input is reset to ''
-    //     1. If word includes the letter (hint: string has an `includes` method):
-    //         1. Letter(s) are revealed in Word to Guess
-    //         1. Check for win condition (every letter of word is in guessed letters)
-    //     1. If word does not include the letter:
-    //         1. Add a body part to the gallows
-    //         1. Check for lose condition (guesses count is max number of body parts)
-    //     1. If win or lose condition:
-    //         1. Message the user that they won or ~~died~~ lost
-    //         1. Disable the Guess Letter button (button.disabled = true)
-    // 1. Call 'loadWord()` to start things
