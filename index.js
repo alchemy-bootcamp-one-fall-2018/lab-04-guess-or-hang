@@ -21,10 +21,8 @@ function clickButton() {
     function getGuess() {
         var elements = guessLettersForm.elements;
         var guess = elements.textinput.value;
-        console.log(guess);
+        return guess;
     }
-    getGuess();
-/*
     function arrayContainsGuessedLetter(guess) {
         var letterIsInWord = false;
         letterIsInWord = (randomWordArray.indexOf(guess) > -1);
@@ -41,8 +39,7 @@ function clickButton() {
     }
     while(gameIsDone === false) {
         var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
-
-
+        guessedLetter = getGuess();
         if(letterIsInWord === true){
             var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
             for(var i = 0; i < letterLocations.length; i++) {
@@ -60,8 +57,9 @@ function clickButton() {
                 winLoseContainer.textContent = 'You lose!';
             }
         }
+        
 
-    } */
+    } 
 }
 
 
