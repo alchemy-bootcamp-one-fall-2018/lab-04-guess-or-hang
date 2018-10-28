@@ -1,15 +1,20 @@
-/* exported loadWord handleGuess */
+/* exported handleGuess loadWord */
 /* eslint-disable no-console */
 'use strict'; 
 
-var wordArray = [];
 var letterDisplay = document.getElementById('blank-spaces');
+var input = document.getElementById('guess');
 var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
+var guessNumber = document.getElementById('number-of-guesses');
+var gameResult = document.getElementById('win-lose');
+var submitButton = document.getElementById('click');
 
+var wordArray = [];
 var blanks = [];
 var blankJoin;
 var wrongTries = 0;
+var correctGuess = 0;
 
 function loadWord() {
     var copy = words.slice();
@@ -17,9 +22,7 @@ function loadWord() {
     var selectedWord = getRandomWord();
     var letters = selectedWord.split('');
     wordArray = letters;
-    console.log(wordArray);
-    
-    console.log('word is ', selectedWord);
+
     function getRandomWord() {
         var word = copy[index];
         copy.slice(index, 1);
@@ -32,52 +35,55 @@ function loadWord() {
     letterDisplay.textContent = blankJoin; 
 }
 
-loadWord();
-
 function handleGuess() {
-    var input = document.getElementById('guess');
-    var guessedLetter = input.value.toLowerCase();
-    console.log('letter guessed was', guessedLetter);
-        
-    var wrongLetters = [];
-
-    var guessWork = false;
+    var guessedLetter = input.value.toLowerCase();  
+    var wrongLetters = [];    
+    var letterInWord = false; 
     
     for(var i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === guessedLetter) {
-            console.log('match');
-            guessWork = true;  
+        if(guessedLetter === wordArray[i]) {
+            letterInWord = true;
+            correctGuess += (wordArray.length - (wordArray.length - 1));
         }
-        // if the guessedLetter is the wrongLetters[i] array, disable submit button 
-        
-        if(guessWork) {
+        if(letterInWord) {
             for(var k = 0; k < wordArray.length; k++) {
-                if(wordArray[k] === guessedLetter) {
+                if(guessedLetter === wordArray[k]) {
                     blanks[k] = guessedLetter;
                 }
             }
-            console.log(blanks); 
             var display = blanks.join(' ');
             letterDisplay.textContent = display;
-            console.log(display);
+            input.value = '';
         }
-
         else {
-            console.log('wrong');
             if(i === (wordArray.length - 1)) {
                 wrongLetters.push(guessedLetter);
-                incorrectLetters.textContent += wrongLetters;
-                
+                var tryIncrease = true;
+                if(tryIncrease === true) {
+                    if(i === (wordArray.length - 1)) {
+                        wrongTries += 1;
+                        var guessesLeft = 7 - wrongTries;
+                        guessNumber.textContent = ' ' + guessesLeft + ' ';
+                    }  
+                }
+                var imageNumber = wrongTries + 1;
+                incorrectLetters.textContent += (wrongLetters + ' '); 
+                image.src = 'pic' + imageNumber + '.png';
+                input.value = '';
             }
-            wrongTries += 1;
-            console.log('number of wrong tries is ', wrongTries);
-        
-            wrongLetters.push(guessedLetter);
-            incorrectLetters.textContent = wrongLetters[i];
-            wrongTries += 1;
-            image.src = 'pic' + wrongTries + '.png';
-       
-            incorrectLetters.textContent += wrongLetters;
         }
     }
+    if(correctGuess === wordArray.length) {
+        gameResult.textContent = 'You win!';
+        submitButton.disabled = true;
+    }
+    else if(wrongTries === 6) {
+        gameResult.textContent = 'You lose!';
+        submitButton.disabled = true;
+
+    }
 }
+
+loadWord();
+
+

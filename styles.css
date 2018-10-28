@@ -1,0 +1,62 @@
+body {
+    text-align: center;
+    font-family: Rajdhani;
+    font-size: 2rem;
+    margin: 0;
+    padding-top: 0;
+}
+h1 {
+    font-family: "amatic sc";
+    font-size: 6rem;
+    font-weight: bold;
+    background-color: lightgray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0px;
+}
+
+img {
+    width: 70vp;
+    max-width: 500px;
+}
+
+#guess {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#win-lose {
+    font-size: 8rem;
+    font-family: "amatic sc";
+    font-weight: bold;
+}
+
+#letters-guessed {
+    letter-spacing: 0.2em;
+}
+
+.spaces {
+    font-size: 4.5rem;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: Rajdhani;
+    font-size: 2rem;
+}
+
+input {
+    border: 2px solid black;
+    font-family: Rajdhani;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 500px) {
+    
+}

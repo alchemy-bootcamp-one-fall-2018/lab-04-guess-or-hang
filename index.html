@@ -5,52 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hang or Die Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Rajdhani" rel="stylesheet">
 </head>
-    <header> Hang or Die Game </header>
 <body>
-    <section class="gallows"> 
-        <p>
-            <div>
-            <img src="pic1.png" alt="empty gallows" id = "gallows">
-            </div>
-        </p>
+    <header>
+        <h1>Hang or Die Game</h1>
+    </header>
 
-        <p>
-            <form id="button"
-            onsubmit="event.preventDefault(); gameStart();"
-            onreset="resetGameStart()"
-            ></form>
-
-            <label for="guess-box"> Please put in your guess </label>
-            <input type="text" maxlength="1" name="guess" id="guess" placeholder="A-Z">
-        </p>
-    </form>
+    <section class="gallows-message"> 
+        <img src="pic1.png" alt="gallows" id = "gallows">
         <p id="win-lose"></p>
+    </section> 
+    <section class="input-letters">
+        <form>
+            <label for="guess-box" class="label">Please put in your guess:</label>
+            <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z" required>
+        </form>
+        <p id="blank-spaces" class="spaces"></p>  
+        <button type="submit" id="click" onclick="handleGuess()">Submit</button>
     </section>
-    <!-- ids for the blank-spaces -->
-        <section>
-            <div>
-                <p id="blank-spaces"></p>
-            </div>
-        </section>
-    <div>
-    <div>   
-        <button id="click" type="submit" onclick="handleGuess()">Submit</button>
-        <button id="click" type="reset" onclick="loadWord()">Play Again</button>
-    </div>
-
     <section>
             <p>You have already guessed:</p>
             <p id="letters-guessed"></p>
     </section>
     <section>
         <p>You have<span id="number-of-guesses"></span>guesses left!</p>
+    <section class="guessed-letters">
+        <p>You have already guessed:</p>
+        <p id="letters-guessed"></p>
+        <p>You have <span id="number-of-guesses">7</span> guess(es) left.</p>
     </section>
-
 </body>
-
-<script src="apps.js"></script>
 <script src="words.js"></script>
+<script src="apps.js"></script>
 
 </html>
 
