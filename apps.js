@@ -35,7 +35,6 @@ function loadWord() {
     letterDisplay.textContent = blankJoin; 
 }
 
-//will run when user submits their letter guess
 function handleGuess() {
     var guessedLetter = input.value.toLowerCase();  
     var wrongLetters = [];    
@@ -43,7 +42,6 @@ function handleGuess() {
     
     for(var i = 0; i < wordArray.length; i++) {
         if(guessedLetter === wordArray[i]) {
-            console.log('match');
             letterInWord = true;
             correctGuess += (wordArray.length - (wordArray.length - 1));
         }
@@ -55,7 +53,7 @@ function handleGuess() {
             }
             var display = blanks.join(' ');
             letterDisplay.textContent = display;
-            input.value = ' ';
+            input.value = '';
         }
         else {
             if(i === (wordArray.length - 1)) {
@@ -72,7 +70,7 @@ function handleGuess() {
                 incorrectLetters.textContent += (wrongLetters + ' '); 
                 image.src = 'pic' + imageNumber + '.png';
             }
-            input.value = ' ';
+            input.value = '';
             if(wrongTries === 6) {
                 gameResult.textContent = 'You lose!';
             }
@@ -83,7 +81,6 @@ function handleGuess() {
     }
 }
 
-/* on initialization */
 loadWord();
 
 
