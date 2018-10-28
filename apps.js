@@ -69,15 +69,15 @@ function handleGuess() {
                 var imageNumber = wrongTries + 1;
                 incorrectLetters.textContent += (wrongLetters + ' '); 
                 image.src = 'pic' + imageNumber + '.png';
-            }
-            input.value = '';
-            if(wrongTries === 6) {
-                gameResult.textContent = 'You lose!';
+                input.value = '';
             }
         }
     }
     if(correctGuess === wordArray.length) {
         gameResult.textContent = 'You win!';
+    }
+    else if(wrongTries === 6) {
+        gameResult.textContent = 'You lose!';
     }
 }
 
