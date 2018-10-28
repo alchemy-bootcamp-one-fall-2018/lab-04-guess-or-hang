@@ -35,7 +35,7 @@ console.log(answerDisplay)
 //array for accurate guesses
 var accurateGuesses = [];
 //array for incorrect guesses
- var incorrectGuesses = [];
+var incorrectGuesses = [];
 //array for all letters guessed
 var lettersGuessed = '';
 
@@ -48,15 +48,16 @@ numGuesses = 6;
 accurateGuesses = [];
 incorrectGuesses = [];
 
-function validateLetters() {
+function validateLetters(letter) {
     
-    var letterInWord = false;
+    var letterInWord = letter;
 
-    for (var j = 0; j < letterBlanks.length; j++) {
+    for (var j = 0; j < answerDisplay.length; j++) {
         if (word [j] === letter) {
             letterInWord = true;
-        }
-        console.log(letter);
+        }        
+        else letterInWord = false;
+        console.log(letterInWord);
     }
 
     if (letterInWord) {
