@@ -10,57 +10,62 @@ var displayGuesses = [];
 var guessCount = 6;
 var gameIsDone = false;
 
+
 for(var i = 0; i < wordLength; i++) {
     displayGuesses.push('_');
 }
 
+function getGuess() {
+    var elements = guessLettersForm.elements;
+    var guess = elements.textinput.value;
+    return guess;
+}
+
+function arrayContainsGuessedLetter(guess) {
+    var letterIsInWord = false;
+    letterIsInWord = (randomWordArray.indexOf(guess) > -1);
+    return letterIsInWord;
+}
+
+function getAllIndexes(array, value) {
+    var indexes = []; 
+    for(var i = 0; i < array.length; i++) {
+        if(array[i] === value) {
+            indexes.push(i);
+        }
+    }
+    return indexes;
+}
+
+function checkGuess(guessedLetter) {
+    var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
+    if(letterIsInWord === true){
+        var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
+        for(var i = 0; i < letterLocations.length; i++) {
+            displayGuesses[letterLocations[i]] = guessedLetter;
+        }
+        if(randomWordArray.toString() === displayGuesses.toString()) {
+            gameIsDone = true;
+            winLoseContainer.textContent = 'You win!';
+        }
+    }
+    if(letterIsInWord === false) {
+        guessCount = guessCount - 1;
+        if(guessCount === 0) {
+            gameIsDone = true;
+            winLoseContainer.textContent = 'You lose!';
+        }
+    }
+} 
 
 
 function clickButton() {
-    function getGuess() {
-        var elements = guessLettersForm.elements;
-        var guess = elements.textinput.value;
-        return guess;
+    if(gameIsDone === false) {
+        var guess = getGuess();
+        checkGuess(guess);
+        console.log(guess, randomWordArray, displayGuesses);
     }
-    function arrayContainsGuessedLetter(guess) {
-        var letterIsInWord = false;
-        letterIsInWord = (randomWordArray.indexOf(guess) > -1);
-        return letterIsInWord;
-    }
-    function getAllIndexes(array, value) {
-        var indexes = []; 
-        for(var i = 0; i < array.length; i++) {
-            if(array[i] === value) {
-                indexes.push(i);
-            }
-        }
-        return indexes;
-    }
-    while(gameIsDone === false) {
-        var guessedLetter = getGuess();
-        var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
-        if(letterIsInWord === true){
-            var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
-            for(var i = 0; i < letterLocations.length; i++) {
-                displayGuesses[letterLocations[i]] = guessedLetter;
-            }
-            if(randomWordArray === displayGuesses) {
-                gameIsDone = true;
-                winLoseContainer.textContent = 'You win!';
-            }
-        }
-        if(letterIsInWord === false) {
-            guessCount = guessCount - 1;
-            if(guessCount === 0) {
-                gameIsDone = true;
-                winLoseContainer.textContent = 'You lose!';
-            }
-        }
-        console.log(guessedLetter, displayGuesses, randomWordArray);
-        gameIsDone = true;
-    } 
 }
-
 
 
 
