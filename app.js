@@ -14,9 +14,11 @@ console.log(answerDisplay);
 
 //display number of dashes corresponding to number of letters
 var letterBlanks = [];
+
 for(var i = 0; i < word.length; i++) {
     letterBlanks[i] = '_';
     console.log(letterBlanks);
+    console.log('here')
 }
 
 var selectedWord = document.getElementById('selected-letter');
@@ -25,7 +27,7 @@ selectedWord.textContent = letterBlanks.join(' ');
 //evaluate word for number of letters
 // var numBlanks = 0;
 numBlanks = selectedWord.length;
-console.log(selectedWord)
+
 // initiates array for chosen word
 var pickedWord = 'answerDisplay';
 console.log(answerDisplay)
@@ -33,23 +35,40 @@ console.log(answerDisplay)
 //array for accurate guesses
 var accurateGuesses = [];
 //array for incorrect guesses
- var nope = [];
+ var incorrectGuesses = [];
 //array for all letters guessed
 var lettersGuessed = '';
 
+//setting allowed number of guesses
+numGuesses = 6;
+
+//making sure guesses are at zero
+accurateGuesses = [];
+incorrectGuesses = [];
+
 function validateLetters() {
     
-    
-    
-    
-    
-    // var letterInWord = false;
+    var letterInWord = false;
 
-    // for(var j = 0; j < numBlanks; j++) {
-    //     if(answerDisplay[j] === letter) {
-    //         // letterInWord = true; 
-    //     }
-    //     console.log(answerDisplay[j])
+    for (var j = 0; j < letterBlanks; j++) {
+        if (word [i] === letter) {
+            letterInWord = true;
+        }
+    }
+
+    if (letterInWord) {
+        for (var j = 0; j < numBlanks; j++) {
+            if (letterInWord[j] === letter) {
+                validateLetters[j] = letter;
+            }
+        }
+    }
+    console.log(letterInWord);
+}    
+
+
+    // }
+    // console.log(accurateGuesses)
     // }
     // if(answerDisplay) {
     //     for(var k = 0; k < numBlanks; k++) {
@@ -59,7 +78,7 @@ function validateLetters() {
     //     }
         
     // }
-}
+
 
 //     console.log("There are " + word.length + " letters in the word");
 
