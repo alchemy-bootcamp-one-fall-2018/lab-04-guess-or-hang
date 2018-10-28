@@ -28,7 +28,7 @@ var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft'
     
     // Message - A place to show messages (like win or lose)
 var guessLetterForm = document.getElementById('guess-letter-form');
-var firstLetter = document.getElementById('letter-0');
+var firstLetter = document.getElementById('blanks');
 
 function getRandomWord(words) {
     var wordIndex = Math.floor(Math.random() * words.length)
