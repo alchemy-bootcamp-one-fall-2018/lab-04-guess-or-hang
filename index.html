@@ -42,13 +42,14 @@
 <!-- Form to enter letter and button -->
     <section>
         <form>
-            <input type="text" name="guessed-letters" maxlength="1" required placeholder="Enter letter" />
-            <button onclick="guessLetter()"> Guess </button>
+            <input type="text" id="guess-input" maxlength="1" required placeholder="Enter letter" />
+            <button id="guess-button" onclick="guessLetter()" disabled> Guess </button>
         </form>
     </section>
 
 
 <!-- List of letters guessed -->
+
     <section>
         <span></span>
         <span></span>

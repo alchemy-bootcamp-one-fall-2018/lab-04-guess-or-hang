@@ -1,5 +1,5 @@
 /* globals words */
-/* exported randomWord, wordGame */
+/* exported randomWord, wordGame, guessLetter */
 /* eslint no-console: "off" */
 'use strict';
 
@@ -7,7 +7,6 @@
 var guessNumber = 6;
 var guessedLetter = '';
 var guesses = document.getElementById('guessed-letters');
-var response = document.getElementById('game-end-response');
 var guessesRemaining = document.getElementById('guesses-remaining'); 
 var selectedWord;
 var checkWin;
@@ -17,6 +16,15 @@ var checkWin;
 //  Global Variables
 
 var selectedWord;
+var response = document.getElementById('game-response');
+var guessedLetter = '';
+var selectedState;
+var stateLength;
+var checkWin;
+var guessNumber = 6;
+var guesses = document.getElementById('guessed-letters');
+var guessesRemaining = document.getElementById('guesses-remaining');
+
 
 
 function randomWord() {
@@ -34,6 +42,9 @@ function randomWord() {
 function wordGame() {
  
 
+
+    checkWin = '';
+
     // get random word from words array
     selectedWord = randomWord();
     console.log(selectedWord);
@@ -46,7 +57,20 @@ function wordGame() {
         // span.textContent = selectedWord[i];
         console.log('selected word letter ', selectedWord[i]);
         span.textContent = '_';
-             
+        checkWin += '_';
+    }
+    checkWin = checkWin.split('');
+    document.getElementById('guess-button').disabled = false;
+    console.log(checkWin);
+}
 
+function guessLetter() {
+    var letterGuess = document.getElementById('guess-input').value;
+    console.log ('From guess input box:', letterGuess);
+    
+
+    if(letterGuess.length !== 1) {
+        response.textContent = 'Pls enter a letter';
     }
 }
+
