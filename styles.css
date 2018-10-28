@@ -58,5 +58,11 @@ input {
 }
 
 @media screen and (min-width: 500px) {
+    body {
+        width: 100vw;
+    }
+    img {
+        float: left; 
+    }
     
 }

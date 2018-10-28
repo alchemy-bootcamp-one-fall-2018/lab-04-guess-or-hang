@@ -17,21 +17,24 @@
         <img src="pic1.png" alt="gallows" id = "gallows">
         <p id="win-lose"></p>
     </section> 
-    <section class="input-letters">
-        <form>
-            <label for="guess-box" class="label">Please put in your guess:</label>
-            <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z" required>
-        </form>
-        <p id="blank-spaces" class="spaces"></p>  
-        <button type="submit" id="click" onclick="validate(); handleGuess();">Submit</button>
-    </section>
-    
+    <div>
+        <section class="input-letters">
+            <form>
+                <label for="guess-box" class="label">Please put in your guess:</label>
+                <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z" required>
+            </form>
+            <p id="blank-spaces" class="spaces"></p>  
+            <button type="submit" id="click" onclick="handleGuess()">Submit</button>
+            <!-- validate() does in 'onclick' area  -->
+        </section>
+        
 
-    <section class="guessed-letters">
-        <p>You have already guessed:</p>
-        <p id="letters-guessed"></p>
-        <p>You have <span id="number-of-guesses">7</span> guess(es) left.</p>
-    </section>
+        <section class="guessed-letters">
+            <p>You have already guessed:</p>
+            <p id="letters-guessed"></p>
+            <p>You have <span id="number-of-guesses">7</span> guess(es) left.</p>
+        </section>
+    </div>  
 </body>
 <script src="words.js"></script>
 <script src="apps.js"></script>
