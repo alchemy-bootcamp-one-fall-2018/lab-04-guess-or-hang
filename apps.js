@@ -1,8 +1,6 @@
 /* exported loadWord handleGuess */
 /* eslint-disable no-console */
-'use strict';
-
-var words = ['cheese', 'coffee', 'park', 'flower', 'book', 'sky', 'courier', 'soup', 'water', 'greenery', 'spoon', 'school', 'lab', 'shade', 'window']; 
+'use strict'; 
 
 var wordArray = [];
 var letterDisplay = document.getElementById('blank-spaces');
