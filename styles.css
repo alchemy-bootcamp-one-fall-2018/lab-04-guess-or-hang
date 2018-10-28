@@ -17,7 +17,7 @@ h1 {
 }
 
 img {
-    width: 100vp;
+    width: 90%;
     max-width: 500px;
 }
 
@@ -58,12 +58,25 @@ input {
     margin-top: 20px;
 }
 
-@media screen and (min-width: 375px) {
-    body {
-        width: 100vw;
+ @media screen and (min-width: 500px) {
+     .container {
+        display: flex;
+        width: 100vw; 
+    }  
+    /* img {
+        min-width: 300px;
+    } */
+    .right-side {
+        margin-left: 15%; 
     }
-    img {
+    /* .right-side {
+        display: flex; */
+        /* // orientation: vertical;  */
+    /* } */
+    /* body {
+        width: 100vw; */
+    /* }
+    /* img {
         float: left; 
-    }
-    
-}
+    } */
+ }
