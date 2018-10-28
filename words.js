@@ -24,16 +24,15 @@ function enterGuess() {
         console.log('you guessed correctly! Enter your next guess');
         console.log(blanks);
     
-    } else {
+    } else if(wrongGuesses < 6) {
         console.log('Try again!');
         wrongGuesses++;
-        if(wrongGuesses === 6) {
-            console.log('GAME OVER!!!');
-        } else {
-            var gallows = document.getElementById('firstMan');
-            var drawStick = ['Images/StickMan1.png', 'Images/StickMan2.png', 'Images/StickMan3.png', 'Images/StickMan4.png', 'Images/StickMan5.png', 'Images/StickMan6.png'];
-            gallows.src = drawStick[wrongGuesses];
-        }
+        var gallows = document.getElementById('firstMan');
+        var drawStick = ['Images/StickMan1.png', 'Images/StickMan2.png', 'Images/StickMan3.png', 'Images/StickMan4.png', 'Images/StickMan5.png', 'Images/StickMan6.png'];
+        gallows.src = drawStick[wrongGuesses];
+    } 
+    if(wrongGuesses >= 6) {
+        console.log('GAME OVER!!!');
     }
        
 }
