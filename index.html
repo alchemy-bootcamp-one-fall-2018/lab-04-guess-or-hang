@@ -20,10 +20,10 @@
     <section class="input-letters">
         <form>
             <label for="guess-box" class="label">Please put in your guess:</label>
-            <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z">
+            <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z" required>
         </form>
         <p id="blank-spaces" class="spaces"></p>  
-        <button id="click" onclick="handleGuess()">Submit</button>
+        <button type="submit" id="click" onclick="handleGuess()">Submit</button>
     </section>
     
     <section class="guessed-letters">

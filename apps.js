@@ -9,6 +9,7 @@ var image = document.getElementById('gallows');
 var incorrectLetters = document.getElementById('letters-guessed');
 var guessNumber = document.getElementById('number-of-guesses');
 var gameResult = document.getElementById('win-lose');
+var submitButton = document.getElementById('click');
 
 var wordArray = [];
 var blanks = [];
@@ -75,9 +76,12 @@ function handleGuess() {
     }
     if(correctGuess === wordArray.length) {
         gameResult.textContent = 'You win!';
+        submitButton.disabled = true;
     }
     else if(wrongTries === 6) {
         gameResult.textContent = 'You lose!';
+        submitButton.disabled = true;
+
     }
 }
 
