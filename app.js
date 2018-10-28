@@ -38,8 +38,15 @@ function wordGame() {
     selectedWord = randomWord();
     console.log(selectedWord);
 
-    
+    // Hide word and display '_' for each letter on page
+    for(var i = 0; i < selectedWord.length; i++) {
+        // Grab span by id
+        var span = document.getElementById('letter-' + i);
+        // Change text content of the span
+        // span.textContent = selectedWord[i];
+        console.log('selected word letter ', selectedWord[i]);
+        span.textContent = '_';
+             
+
+    }
 }
-
-
-
