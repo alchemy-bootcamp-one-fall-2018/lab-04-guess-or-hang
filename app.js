@@ -23,5 +23,14 @@ console.log(selectedWord);
 var wordArray = selectedWord.split('');
 console.log(wordArray);
 
+for(var i = 0; randomWord > i; i++) {
+    var randomWord = wordArray[i];
+    var display = '__';
+    if(randomWord) {
+        display = randomWord.join('');
+    }
+    document.getElementById('letter-' + i).innerText = display;
+}
+
 //generateWord();
 
