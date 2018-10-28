@@ -13,10 +13,11 @@ h1 {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-top: 0px;
+    width: 100vw;
 }
 
 img {
-    width: 70vp;
+    width: 100vp;
     max-width: 500px;
 }
 
@@ -57,7 +58,7 @@ input {
     margin-top: 20px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 375px) {
     body {
         width: 100vw;
     }
