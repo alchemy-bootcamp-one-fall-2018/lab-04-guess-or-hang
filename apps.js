@@ -35,7 +35,6 @@ function loadWord() {
     letterDisplay.textContent = blankJoin; 
 }
 
-
 function validate() {
     if(input.value === '') {
         alert('You must input a letter in the box');
