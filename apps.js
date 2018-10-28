@@ -44,6 +44,7 @@ function validate() {
         alert('You must input a letter');
         submitButton.disabled = true;
     }
+    submitButton.disabled = false;
 }
 
 function handleGuess() {
