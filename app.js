@@ -6,51 +6,83 @@
         
 //randomly select index
 var word = words[Math.floor(Math.random() * words.length)];        
-    
+console.log(word)    
+
 //set placeholder for letters
 var answerDisplay = word.split('');
 console.log(answerDisplay);
 
 //display number of dashes corresponding to number of letters
-var selectedLetter = [];
+var letterBlanks = [];
+
 for(var i = 0; i < word.length; i++) {
-    selectedLetter[i] = '_';
-    console.log(selectedLetter);
+    letterBlanks[i] = '_';
+    console.log(letterBlanks);
+    console.log('here')
 }
+
 var selectedWord = document.getElementById('selected-letter');
-selectedWord.textContent = selectedLetter.join(' ');
-
-
-//holds a mix of blank and solved letters
-var accurateGuesses = [];
-//holds all wrong guesses
-var nope = [];
-//holds the letters guessed
-var lettersGuessed = '';
-
+selectedWord.textContent = letterBlanks.join(' ');
+    
 //evaluate word for number of letters
-var numBlanks = 0;
+// var numBlanks = 0;
 numBlanks = selectedWord.length;
 
+// initiates array for chosen word
+var pickedWord = 'answerDisplay';
+console.log(answerDisplay)
 
-function checkLetters(letter) {
+//array for accurate guesses
+var accurateGuesses = [];
+//array for incorrect guesses
+ var incorrectGuesses = [];
+//array for all letters guessed
+var lettersGuessed = '';
+
+var letter = document.getElementById('choice');
+
+//setting allowed number of guesses
+numGuesses = 6;
+
+//making sure guesses are at zero
+accurateGuesses = [];
+incorrectGuesses = [];
+
+function validateLetters() {
+    
     var letterInWord = false;
 
-    for(var j = 0; j < numBlanks; j++) {
-        if(selectedWord[j] === letter) {
+    for (var j = 0; j < letterBlanks.length; j++) {
+        if (word [j] === letter) {
             letterInWord = true;
-            console.log('gothere');
         }
+        console.log(letter);
     }
-    if(letterInWord) {
-        for(var k = 0; k < numBlanks; k++) {
-            if(chosenWord[k] === letter) {
-                accurateGuesses[k] = letter;
+
+    if (letterInWord) {
+        for (var j = 0; j < numBlanks; j++) {
+            if (letterInWord[j] === letter) {
+                validateLetters[j] = letter;
             }
+            
         }
-        
     }
-}
+    console.log(letterInWord);
+}    
+
+
+    // }
+    // console.log(accurateGuesses)
+    // }
+    // if(answerDisplay) {
+    //     for(var k = 0; k < numBlanks; k++) {
+    //         if(chosenWord[k] === letter) {
+    //             accurateGuesses[k] = letter;
+    //         }
+    //     }
+        
+    // }
+
 
 //     console.log("There are " + word.length + " letters in the word");
 
@@ -77,4 +109,5 @@ function checkLetters(letter) {
 // function getRandomIndex(length) {
 //     //The maximum is exclusive and the minimum (0) is inclusive
 //     return Math.floor(Math.random() * length); 
+
 //images: -absolute positioning, flex box, Change img src (paint animator)
