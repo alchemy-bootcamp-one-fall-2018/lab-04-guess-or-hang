@@ -1,10 +1,11 @@
+/* exported clickButton */
 var winLoseContainer = document.getElementById('win-lose-container');
-
+var guessLettersForm = document.getElementById('guess-letters');
 
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 var wordLength = randomWord.length;
-var randomWordArray = randomWord.split("");
+var randomWordArray = randomWord.split('');
 var displayGuesses = [];
 var guessedLetter = 'i';
 var guessCount = 6;
@@ -16,7 +17,14 @@ for(var i = 0; i < wordLength; i++) {
 
 
 
-function clickButton() { 
+function clickButton() {
+    function getGuess() {
+        var elements = guessLettersForm.elements;
+        var guess = elements.textinput.value;
+        console.log(guess);
+    }
+    getGuess();
+/*
     function arrayContainsGuessedLetter(guess) {
         var letterIsInWord = false;
         letterIsInWord = (randomWordArray.indexOf(guess) > -1);
@@ -40,7 +48,7 @@ function clickButton() {
             for(var i = 0; i < letterLocations.length; i++) {
                 displayGuesses[letterLocations[i]] = guessedLetter;
             }
-            if(letterLocations === displayGuesses) {
+            if(randomWordArray === displayGuesses) {
                 gameIsDone = true;
                 winLoseContainer.textContent = 'You win!';
             }
@@ -53,7 +61,7 @@ function clickButton() {
             }
         }
 
-    }
+    } */
 }
 
 
