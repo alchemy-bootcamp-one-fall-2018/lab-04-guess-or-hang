@@ -35,7 +35,19 @@ function loadWord() {
     letterDisplay.textContent = blankJoin; 
 }
 
+function validate() {
+    if(input.value === '') {
+        alert('You must input a letter in the box');
+        submitButton.disabled = true;
+    }
+    if(input.value.charCodeAt(0)) {
+        alert('You must input a letter');
+        submitButton.disabled = true;
+    }
+}
+
 function handleGuess() {
+    validate();
     var guessedLetter = input.value.toLowerCase();  
     var wrongLetters = [];    
     var letterInWord = false; 
