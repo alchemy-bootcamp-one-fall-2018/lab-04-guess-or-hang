@@ -1,30 +1,46 @@
 /*exported enterGuess*/
 
+var lettersLong = document.getElementById('word-length');
+var blanksList = document.getElementById('empty-blanks');
+var correctGuesses = document.getElementById('guessed-correctly');
+var newBlanksList = document.getElementById('new-blanks');
+var tryAgain = document.getElementById('try-again');
+var incorrectGuesses = document.getElementById('incorrect-guesses');
+var gameOver = document.getElementById('game-over');
+
+
+
 var words = ['skiing', 'jogging', 'aerobics', 'cycling', 'paddling'];
-var rand = words[Math.floor(Math.random() * words.length)].split('');
+
+function randFunc() {
+    var rand = words[Math.floor(Math.random() * words.length)].split('');
+    return rand;
+
+}
+var rand = randFunc();
 
 function tryRandomWord() {
+    rand = randFunc();
     var emptyBlanks = [];
     var wordLength = rand.length;
     for(var i = 0; i < wordLength; i++) {
-        emptyBlanks.push('__');
-    }
-    console.log("your word is " + wordLength + " letters long");
-    console.log(emptyBlanks);
+        emptyBlanks.push(' __');
+    }  
+    lettersLong.textContent = 'your word is ' + wordLength + ' letters long';
+    blanksList.textContent = emptyBlanks;
     return emptyBlanks;
 }
+
 var blanks = tryRandomWord();
 var wrongGuesses = 0;
 
 
 function enterGuess() {
     var guessInputs = document.getElementById('userGuess').value.toLowerCase();
- //   if(typeof guessInputs === 'number') {
- //       alert('Please type a letter');
-    }
+    
     if(rand.includes(guessInputs)) {
         blanks.splice(rand.indexOf(guessInputs), 1, guessInputs);
-        console.log('you guessed correctly! Enter your next guess');
+        correctGuesses.textContent = 'you guessed correctly! Enter your next guess';
         console.log(blanks);
     
     } else if(wrongGuesses < 6) {
