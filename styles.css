@@ -1,0 +1,99 @@
+body {
+    background-color: aqua;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+
+}
+
+h1 {
+    font-size: 40px;
+
+}
+
+#guessesLeftText {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#image {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+}
+
+img {
+    width: 95%;
+    height: 90%;
+}
+
+#wordPrompt {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#wrongLetters {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#userMessage {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#myForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#button {
+    margin-top: 10px;
+    border: 2px solid black;
+    font-size: 30px;
+}
+
+#letter {
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (min-width: 500px) {
+
+    main {
+        display: flex;
+        height: 70vh;
+        justify-content: space-around;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    img {
+        width: 65%;
+        height: 100%;
+    }
+
+    #column1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #column2 {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+}
