@@ -46,69 +46,69 @@ function resetGuessLetter() {
 
 //Body Parts
 var head = document.getElementById('myCanvas');
-var ctx = head.getContext('2d');
-ctx.beginPath();
-ctx.arc(250, 100, 30, 0, 7);
-ctx.stroke();
+var headPart = head.getContext('2d');
+headPart.beginPath();
+headPart.arc(250, 100, 30, 0, 7);
+headPart.stroke();
 
 var bodyLine = document.getElementById('myCanvas');
-var ctx = bodyLine.getContext('2d');
-ctx.moveTo(250, 130);
-ctx.lineTo(250, 250);
-ctx.stroke();
+var bodyLinePart = bodyLine.getContext('2d');
+bodyLinePart.moveTo(250, 130);
+bodyLinePart.lineTo(250, 250);
+bodyLinePart.stroke();
 
 var leftArm = document.getElementById('myCanvas');
-var ctx = leftArm.getContext('2d');
-ctx.moveTo(250, 150);
-ctx.lineTo(180, 170);
-ctx.stroke();
+var leftArmPart = leftArm.getContext('2d');
+leftArmPart.moveTo(250, 150);
+leftArmPart.lineTo(180, 170);
+leftArmPart.stroke();
 
 var rightArm = document.getElementById('myCanvas');
-var ctx = rightArm.getContext('2d');
-ctx.moveTo(250, 150);
-ctx.lineTo(320, 170);
-ctx.stroke();
+var rightArmPart = rightArm.getContext('2d');
+rightArmPart.moveTo(250, 150);
+rightArmPart.lineTo(320, 170);
+rightArmPart.stroke();
 
 var leftLeg = document.getElementById('myCanvas');
-var ctx = leftLeg.getContext('2d');
-ctx.moveTo(250, 250);
-ctx.lineTo(180, 350);
-ctx.stroke();
+var leftLegPart = leftLeg.getContext('2d');
+leftLegPart.moveTo(250, 250);
+leftLegPart.lineTo(180, 350);
+leftLegPart.stroke();
 
 var rightLeg = document.getElementById('myCanvas');
-var ctx = rightLeg.getContext('2d');
-ctx.moveTo(250, 250);
-ctx.lineTo(320, 350);
-ctx.stroke();
+var rightLegPart = rightLeg.getContext('2d');
+rightLegPart.moveTo(250, 250);
+rightLegPart.lineTo(320, 350);
+rightLegPart.stroke();
 
 
 // Gallows
 var rope = document.getElementById('myCanvas');
-var ctx = rope.getContext('2d');
-ctx.moveTo(250, 70);
-ctx.lineTo(250, 30);
-ctx.stroke();
+var ropePart = rope.getContext('2d');
+ropePart.moveTo(250, 70);
+ropePart.lineTo(250, 30);
+ropePart.stroke();
 
 var topPart = document.getElementById('myCanvas');
-var ctx = topPart.getContext('2d');
-ctx.moveTo(250, 30);
-ctx.lineTo(100, 30);
-ctx.stroke();
+var topLine = topPart.getContext('2d');
+topLine.moveTo(250, 30);
+topLine.lineTo(100, 30);
+topLine.stroke();
 
 var sidePart = document.getElementById('myCanvas');
-var ctx = sidePart.getContext('2d');
-ctx.moveTo(100, 30);
-ctx.lineTo(100, 400);
-ctx.stroke();
+var sideLine = sidePart.getContext('2d');
+sideLine.moveTo(100, 30);
+sideLine.lineTo(100, 400);
+sideLine.stroke();
 
 var cornerPiece = document.getElementById('myCanvas');
-var ctx = cornerPiece.getContext('2d');
-ctx.moveTo(150, 30);
-ctx.lineTo(100, 80);
-ctx.stroke();
+var cornerLine = cornerPiece.getContext('2d');
+cornerLine.moveTo(150, 30);
+cornerLine.lineTo(100, 80);
+cornerLine.stroke();
 
 var bottomPart = document.getElementById('myCanvas');
-var ctx = bottomPart.getContext('2d');
-ctx.moveTo(50, 400);
-ctx.lineTo(320, 400);
-ctx.stroke();
+var bottomLine = bottomPart.getContext('2d');
+bottomLine.moveTo(50, 400);
+bottomLine.lineTo(320, 400);
+bottomLine.stroke();
