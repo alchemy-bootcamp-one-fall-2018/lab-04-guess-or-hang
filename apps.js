@@ -8,7 +8,7 @@ var randomWordArray = randomWord.split('');
 var displayCorrectGuesses = [];
 var displayAlreadyGuessed = document.getElementById('guessed display');
 var guessedLetter = 'i';
-var guessCount = 0;
+var guessCount = wordLength;
 
 for(var i = 0; i < wordLength; i++) {
     displayGuesses.push('_');
@@ -45,13 +45,13 @@ function getAllIndexes(array, value) {
     } else if(letterIsInWord != true){
         displayAlreadyGuessed += guessedLetter + ', ';
         console.log(displayAlreadyGuessed)
+        guessCount -= 1;
         
-
     }
 
+    //attempt to print the remaining guesses
     
     
-
 
     
     

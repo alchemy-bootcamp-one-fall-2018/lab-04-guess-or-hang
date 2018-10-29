@@ -9,45 +9,53 @@
 </head>
 <body>
     <h1>Guess or Hang Game</h1>
-    
-    <section id="column-one">
-        <section id="image-display">
-            <div id="image-container">
-                <img src="head.jpg" id="head" class="hidden">
-                <img src="body.jpg" id="body" class="hidden">
-                <img src="left-leg.jpg" id="left-leg" class="hidden">
-                <img src="both-legs.jpg" id="both-legs" class="hidden">
-                <img src="one-arm-with-legs.jpg" id="one-arm-with-legs" class="hidden">
-                <img src="all-parts.jpg" id = "all-parts" class="hidden">
-            </div>
-        </section>
-        <section id="letter-display">
-            <div id="letter-container">
-                <h4>letter display placeholder</h4>
-            </div>
-        </section>
-    </section>
-    
-    <section id="column-two">
-        <section id="guessed-display">
-            <h4>Already Guessed: </h4>
-        </section>
-        <section id="guesses-remaining-container">
-            <h4>Guesses Remaining: </h4>
-        </section>
+   
+    <section class="columns-container"> 
+        <div class="column-left">
+            <section id="image-display">
+                <div class="image-container">
+                    <img src="head.jpg" id="head" class="hidden">
+                    <img src="body.jpg" id="body" class="hidden">
+                    <img src="left-leg.jpg" id="left-leg" class="hidden">
+                    <img src="both-legs.jpg" id="both-legs" class="hidden">
+                    <img src="one-arm-with-legs.jpg" id="one-arm-with-legs" class="hidden">
+                    <img src="all-parts.jpg" id = "all-parts" class="hidden">
+                </div>
+            </section>
+            <section id="letter-display">
+                <div id="letter-container">
+                    <h4>The word:</h4>
+                    <p></p>
+                </div>
+            </section>
+        </div>
+        
+            
+        <div class = "column-right">
+            <section id="guessed-display">
+                <h4>Already Guessed: </h4>
+            </section>
+            <section id="guesses-remaining-container">
+                <h4>Guesses Remaining: </h4>
+            </section>
+        </div>
     </section>
 
     <section id="win-lose-container">
-        <h4>You win!</h4>
+            <h4>You win!</h4>
     </section>
+    
+    <section id="letter-inputs-container">
+        <form id="guess-letters"
+        onsubmit="event.preventDefault(); submitLetter();"
+        >
+            <label for="textinput">Guess a letter</label>
+            <input type="text" id="text-input" name="textinput">
+        </form>
+        <button onclick="clickButton()">Guess</button>
 
-    <form id="guess-letters"
-    onsubmit="event.preventDefault(); submitLetter();"
-    >
-        <label for="textinput">Guess a letter</label>
-        <input type="text" id="text-input" name="textinput">
-    </form>
-    <button onclick="clickButton()">Guess</button>
+    </section>
+    
 
 <script src = "words.js"></script>
 <script src="apps.js"></script>
