@@ -1,5 +1,7 @@
-/* global words */
 
+/* exported randoWord letter */
+
+/*
 // get a random number between 0-8!
 
 var guessMeLetters = [];
@@ -76,4 +78,5 @@ function afterGuess() {
     else if(guessCount === 0) {
         window.alert("You Lose!");
     }
-}
+} 
+*/
