@@ -1,0 +1,14 @@
+body{
+    text-align: center;
+    background-color: rgb(141, 42, 42);
+}
+
+img {
+    border: 10pt solid rgb(17, 7, 7);
+    text-align: left;
+    
+}
+
+#random-word-button {
+    padding: 10px;
+}

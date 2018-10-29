@@ -1,12 +1,12 @@
-/*exported enterGuess*/
-
 var lettersLong = document.getElementById('word-length');
 var blanksList = document.getElementById('empty-blanks');
 var correctGuesses = document.getElementById('guessed-correctly');
 var newBlanksList = document.getElementById('new-blanks');
 var tryAgain = document.getElementById('try-again');
 var incorrectGuesses = document.getElementById('incorrect-guesses');
+var nextGuess = document.getElementById('next-guess');
 var gameOver = document.getElementById('game-over');
+
 
 
 
@@ -30,29 +30,30 @@ function tryRandomWord() {
     blanksList.textContent = emptyBlanks;
     return emptyBlanks;
 }
-
 var blanks = tryRandomWord();
+
 var wrongGuesses = 0;
-
-
+//eslint-disable-next-line 
 function enterGuess() {
     var guessInputs = document.getElementById('userGuess').value.toLowerCase();
     
     if(rand.includes(guessInputs)) {
         blanks.splice(rand.indexOf(guessInputs), 1, guessInputs);
-        correctGuesses.textContent = 'you guessed correctly! Enter your next guess';
-        console.log(blanks);
+        correctGuesses.textContent = 'you guessed correctly!';
+        newBlanksList.textContent = '  ' + blanks + '  ';
+        nextGuess.textContent = 'Enter your next guess in the "Guess a letter" box above';
     
     } else if(wrongGuesses < 6) {
-        console.log('Try again!');
+        //eslint-disable-next-line
+        tryAgain.textContent = "That letter isn't in this word:(";
         wrongGuesses++;
-        console.log('Number of incorrect guesses: ' + wrongGuesses);
+        incorrectGuesses.textContent = 'Number of incorrect guesses: ' + wrongGuesses;
         var gallows = document.getElementById('firstMan');
         var drawStick = ['Images/StickMan0.png', 'Images/StickMan1.png', 'Images/StickMan2.png', 'Images/StickMan3.png', 'Images/StickMan4.png', 'Images/StickMan5.png', 'Images/StickMan6.png'];
         gallows.src = drawStick[wrongGuesses];
     } 
     if(wrongGuesses >= 6) {
-        console.log('GAME OVER!!!');
+        gameOver.textContent = 'GAME OVER!!!';
     }
        
 }
