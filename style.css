@@ -24,10 +24,7 @@ p {
     font-size: 15px; 
     margin: 20px;
 }
-#divCanvas {
-    /* margin: 0 auto; */
-    /* align-content: center; */
-}
+
 #myCanvas {
     border: 10px ridge gray;
     background: white;
@@ -54,7 +51,6 @@ p {
     color: white;
     display: flex;
     justify-content: center;
-    align-content: ;
     text-align: center;
     margin: 50px; 
 }

@@ -1,15 +1,15 @@
-
+/* eslint no-console: "off" */
 function tryButton() {
 
 }
 
-var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft']
+var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
 
 var guessLetterForm = document.getElementById('guess-letter-form');
 var firstLetter = document.getElementById('blanks');
 
 function getRandomWord(words) {
-    var wordIndex = Math.floor(Math.random() * words.length)
+    var wordIndex = Math.floor(Math.random() * words.length);
     return words[wordIndex];
 }
 
