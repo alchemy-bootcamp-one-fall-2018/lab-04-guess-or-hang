@@ -22,7 +22,7 @@ reset();
 function reset() {
     var randomMax = words.length - 1;
     word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
-    console.log(word);
+    // console.log(word);
     guessCount = 0;
     correctGuessCount = 0;
     dashes = ['___'];
@@ -60,7 +60,7 @@ function play() {
             gallows.innerHTML = imageSources[guessCount];
             msg = '<p class="blue">Guess Again</p>';
             guessCount++;
-            console.log(guessCount);
+            // console.log(guessCount);
         }
     
         correctGuesses.innerHTML = dashes.join(' ');
