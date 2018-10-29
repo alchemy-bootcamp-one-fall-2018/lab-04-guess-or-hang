@@ -94,7 +94,7 @@ These must be in place for your lab to be graded:
 
 * Selects random word **2pts**
 * Adjust "word guess" to right length and make correct guesses visibile **2pts**
-* Can guess a letter **2pt**
+* Can guess a letter, checks that hasn't been guessed **2pt**
 * Tracks guessed letters **1pt**
 * Tracks total guesses **1pt**
 * Gallows displays incorrect guesses **2pt**
