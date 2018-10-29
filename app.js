@@ -1,5 +1,5 @@
 /* global words */
-/* exported validateLetters pickedWord accurateGuesses incorrectGuesses lettersGuessed numGuesses letter */
+/* exported validateLetters pickedWord accurateGuesses incorrectGuesses lettersGuessed letter */
 'use strict';
 
 //placeholder for building hangman
@@ -45,7 +45,7 @@ var lettersGuessed = '';
 var letter = document.getElementById('choice');
 
 //setting allowed number of guesses
-numGuesses = 6;
+// numGuesses = 6;
 
 //making sure guesses are at zero
 accurateGuesses = [];
