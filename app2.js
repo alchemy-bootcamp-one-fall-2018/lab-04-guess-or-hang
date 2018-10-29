@@ -1,5 +1,5 @@
 /* global words */
-
+/* eslint no-console: "off" */
 /* exported loadWord guess */
 
 var word = words[Math.floor(Math.random() * words.length)]; // get a random word from array
