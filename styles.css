@@ -22,7 +22,7 @@ main #div-2 {
 }
 
 #div-3 {
-    background-color: blueviolet;
+    background-color: rgb(211, 199, 223);
 }
 
 #div-3 #canvas {
@@ -30,8 +30,10 @@ main #div-2 {
     margin: 0 auto;
 }
 
-#word-to-guess {
+#div-3 #word-to-guess {
     background-color: yellow;
+    display: block;
+    text-align: center;
 }
 
 #div-4 {

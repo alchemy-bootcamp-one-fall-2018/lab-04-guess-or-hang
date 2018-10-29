@@ -14,18 +14,17 @@
     <main class="flex-container">
         <div id="div-1">
             <section>
-                <!--<p id="word-length">Your word is +  "guessMe.length" letters long.</p>-->
                 <label for="guess">Guess the letter:</label>
                 <input type="text" id="guess-entry" placeholder="(a-z)" />
                 <button onclick="guessTheWord()" id="guess-button">Guess!</button>
                 <!-- <input type="submit" value="Go! onclick="guessTheWord()"-->
             </section>
-        </div>
-        <div id="div-2">
-            <section>
-                (message output)
-            </section>
-        </div>
+        <!--</div> -->
+        <!--<div id="div-2">-->
+        <!--   <section>   -->
+        <!--       (message output) -->
+        <!--    </section> -->
+        <!-- </div> -->
     </main>
     <div id="div-3">
         
@@ -33,6 +32,7 @@
         
         <section id="word-to-guess">
             Your word:
+            <h2 id="letter-blanks">_ _ _ _ _ _ _ _ _ _</h2> 
             <ul class="word-list">
                 <li class="hidden" id="letter-1">1</li>
                 <li class="hidden" id="letter-2">2</li>
@@ -49,7 +49,8 @@
     </div>
     <div id="div-4">
         <section id="letters-guessed">
-            <p>letters guessed here</p>
+            <p id="guesses-left">'Guesses Left: '</p> <span id="number-left">6</span>
+            <p>'Letters used: '</p> <span id="guesses-used"></span>;
         </section>
     </div>
     <script src="words.js"></script>
