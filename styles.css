@@ -1,45 +1,157 @@
-/* * { 
-    box-sizing: border-box;
-} */
+* {
+    font-family: Helvetica, sans-serif;
+    padding: 2px;
+}
 
+
+/* body > header text */
 header {
     text-align: center;
 }
+h1 {
+    font-size: 30px;
+    color: purple;
+}
+body {
+    margin: 0 auto;
+}
 
+
+/* --------  This is the div1 and div2 container for guess and message  ------- */
+/* body > main > div1 + div2 */
 main.flex-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    
+    padding: 0px;
 }
-
 main #div-1 {
-    background-color: green;
+    background-color: yellow;
+    margin: 0px;
+    width: 100%;
 }
-
+main #div-1 input {
+    width: 60px;
+    height: 28px;
+    font-size: 18px;
+    margin: 0 0 .25em 1em;
+    padding: 0px;
+}
+main #div-1 button {
+    background-color: lightblue;
+    width: 85px;
+    height: 40px;
+    font-size: 16px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+main #div-1 button:hover {
+    background-color: pink;
+}
+main #div-1 button:disabled {
+    background-color: lightgray;
+}
 main #div-2 {
-    background-color: gray;
+    background-color: lightblue; 
+    width: 100%;
+}
+main #div-2 button {
+    width: 85px;
+    height: 40px;
+    font-size: 16px;
+    margin-left: 10px;
+    border-radius: 10px;
 }
 
+
+/* --------  This is the div3 container for gallows  ------- */
+/* body > div3 */
 #div-3 {
     background-color: rgb(211, 199, 223);
+    padding: 5px 0px 0px 0px;
 }
-
+/* (gallows) */
 #div-3 #canvas {
     display: block;
     margin: 0 auto;
 }
-
-#div-3 #word-to-guess {
+/* (word to guess container) */
+#div-3 section#word-to-guess {
     background-color: yellow;
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.75em;
+    background-color: aqua;
+    color: black;
+}
+/* (word to guess with blanks) */
+#div-3 section ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2em;
+    background-color: aqua;
+    color: red;
+}
+#div-3 section ul li {
+    display: flex;
 }
 
+/*li {
+    color: red; /* MAKE ME TRANSPARENT */
+    /*border-bottom-color: black;
+    border-bottom-style: solid;
+    width: .5em;
+    margin: 0 5px 0 5px;
+}*/
+
+/* --------  This is the div4 container for letters guessed  ------- */
+/* body > div4 */
 #div-4 {
-    background-color: brown;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-around;
 }
 
-li.hidden {
+
+/* --------  Adds desktop 2-column display  ------- */
+@media screen and (min-width: 768px) {
+    #div-3 {
+        float: right;
+        width: 50%;
+        padding: 0px;
+    }
+    #div-4 {
+        float: left;
+        width: 50%;
+/*        padding-bottom: 20px;*/
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    main.flex-container {
+        float: left;
+        width: 50%;
+    }
+}
+
+/*li.hidden {
     display: none;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    width: .5em;
+    margin: 0 5px 0 5px;
+}*/
+
+.correct {
+    background-color: lime;
+  }
+  
+.incorrect {
+    background-color: fuchsia;
+  }
+
+.hidden {
+   display: none;
+}
+
+#reset-button:focus {
+   background-color: red;
 }
