@@ -12,6 +12,7 @@ var submitButton = document.getElementById('click');
 
 var wordArray = [];
 var blanks = [];
+var wrongLetters;
 var blankJoin;
 var wrongTries = 0;
 var correctGuess = 0;
@@ -36,26 +37,30 @@ function loadWord() {
 }
 
 function validate() {
+    // for(var a = 0; a < wrongLetters.length; a++) {
+    //     if(input === wrongLetters[a]) {
+    //         alert('You have already guessed this letter');
+    //         input.value = '';
+    //     }
+    // }
     if(input.value === '') {
-        alert('You must input a letter in the box');
-        submitButton.disabled = true;
-        //wrongTries = wrongTries + 0;
-        // wrongInput = true;
+        alert('You must input a letter in the box before clicking submit');
+        input.value = '';
     }
-    if(input.value.charCodeAt(0)) {
-        alert('You must input a letter');
-        submitButton.disabled = true;
-        //wrongTries = wrongTries + 0;
-        // wrongInput = true;
+    // if(_______________) {
+    //     alert('Input invalid: your input must be a letter');
+    //     input.value = ''; 
+    // }
+    else {
+        handleGuess();
     }
-    submitButton.disabled = false;
 }
-// var wrongInput = false;
 
 function handleGuess() {
+    wrongLetters = [];    
     var guessedLetter = input.value.toLowerCase();  
-    var wrongLetters = [];    
     var letterInWord = false; 
+
     
     for(var i = 0; i < wordArray.length; i++) {
         if(guessedLetter === wordArray[i]) {
@@ -76,9 +81,6 @@ function handleGuess() {
             if(i === (wordArray.length - 1)) {
                 wrongLetters.push(guessedLetter);
                 var tryIncrease = true;
-                // if(wrongInput === true) {
-                //     wrongTries = wrongTries + 0;
-                // }
                 if(tryIncrease === true) {
                     if(i === (wordArray.length - 1)) {
                         wrongTries += 1;
