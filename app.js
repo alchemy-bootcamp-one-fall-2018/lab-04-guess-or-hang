@@ -3,15 +3,7 @@
 /* eslint no-console: "off" */
 'use strict';
 
-/*  List of Variables to Used
-var guessNumber = 6;
-var guessedLetter = '';
-var guesses = document.getElementById('guessed-letters');
-var guessesRemaining = document.getElementById('guesses-remaining'); 
-var selectedWord;
-var checkWin;
 
-*/
 
 //  Global Variables
 
@@ -21,9 +13,9 @@ var guessedLetter = '';
 var selectedState;
 var stateLength;
 var checkWin;
-var guessNumber = 6;
-var guesses = document.getElementById('guessed-letters');
-var guessesRemaining = document.getElementById('guesses-remaining');
+// var guessNumber = 6;
+// var guesses = document.getElementById('guessed-letters');
+// var guessesRemaining = document.getElementById('guesses-remaining');
 
 
 
