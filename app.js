@@ -1,5 +1,5 @@
 /* global words */
-/* exported validateLetters pickedWord accurateGuesses incorrectGuessed lettersGuessed letter numGuesses */
+/* exported validateLetters pickedWord accurateGuesses incorrectGuesses lettersGuessed numGuesses letter */
 'use strict';
 
 //placeholder for building hangman
