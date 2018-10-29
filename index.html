@@ -19,12 +19,12 @@
         </section> 
         <div class="right-side">
             <section class="input-letters">
-                <form>
+                <form onsubmit="event.preventDefault(); validate()">
                     <label for="guess-box" class="label">Please put in your guess:</label>
                     <input maxlength="1" type="text" name="guess" id="guess" placeholder="A-Z" required>
+                    <button type="submit" id="click" >Submit</button>
                 </form>
                 <p id="blank-spaces" class="spaces"></p>  
-                <button type="submit" id="click" onclick="validate()">Submit</button>
             </section>
             <section class="guessed-letters">
                 <p>You have already guessed:</p>

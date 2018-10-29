@@ -42,6 +42,14 @@ function validate() {
         alert('You must input a letter in the box before clicking submit');
         input.value = '';
     }
+    else if(input.value.charCodeAt(0) < 65 || (input.value.charCodeAt(0) > 90 && input.value.charCodeAt(0) < 97) || input.value.charCodeAt(0) > 122) {
+        alert('You may only input a letter');
+        input.value = '';
+    }
+    // if(wrongLetters.includes(input)) {
+    //     alert('You have already guessed this letter');
+    //     input.value = '';
+    // }
     else {
         handleGuess();
     }
