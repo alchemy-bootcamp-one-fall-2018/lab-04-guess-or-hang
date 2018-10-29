@@ -47,9 +47,25 @@ function getAllIndexes(array, value) {
         console.log(displayAlreadyGuessed)
         guessCount -= 1;
         
+    function getAllIndexes(array, value) {
+        var indexes = []; 
+        for(var i = 0; i < array.length; i++) {
+            if(array[i] === value) {
+                indexes.push(i);
+            }
+        }
+        return indexes;
     }
 
-    //attempt to print the remaining guesses
+    if(letterIsInWord === true){
+        var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
+        for(var i = 0; i < letterLocations.length; i++) {
+            displayGuesses[letterLocations[i]] = guessedLetter;
+        }
+        console.log(displayGuesses, randomWord);
+    }
+
+   
     
     
 
