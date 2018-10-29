@@ -25,7 +25,7 @@ h2{
     display: inline-block;
 }
 
-#guessLetter, .correctBlock {
+#guessLetter {
     background-color: white;
     border: 2px solid black;
     width: 40px;
@@ -54,7 +54,7 @@ h2{
     padding: .5%;
     font-weight: bold;
     font-size: 25px;
-    margin-top: 2%;
+    margin-top: 10%;
 }
 
 #gallows {
@@ -62,19 +62,18 @@ h2{
     width: 176px;
     height: 226px;
     margin: auto;
-    margin-top: 2%;
 }
 
-.correctBlock {
-    background-color: pink;
+#image {
+    margin-top: 10%;
 }
 
 @media only screen and (min-width: 1024px) {
 
-    #stuff {
+    #guessSection {
         float: left;
         margin-left: 25%;
-        margin-top: 2%;
+        margin-top: 5%;
     }
 
     #image {

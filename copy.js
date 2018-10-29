@@ -1,62 +1,77 @@
 /* globals words */
+/* globals imageSources */
 /* exported play */
 
 'use strict';
 
-//put this in a function to call it once on page load, and on New Game button click.
-var randomMax = words.length - 1;
-var word = words[Math.floor(Math.random() * randomMax)].toLowerCase();
-console.log(word);
-var correctLetter = '    ______      ';
-var guessCount = 0;
-var dashes = '';
+
+var word;
+var inputBox = document.getElementById('guessLetter');
 var correctGuesses = document.getElementById('correctGuesses');
-var spaces = document.getElementById('spaces');
+var lettersGuessed = document.getElementById('lettersGuessed');
+var message = document.getElementById('message');
+var gallows = document.getElementById('image');
+var goButton = document.getElementById('goButton');
+var guessCount;
+var correctGuessCount;
+var letters;
+var dashes;
 
-for(var i = 0; i < word.length; i++){
-    dashes += '______      ';
-}
+reset();
 
-spaces.innerHTML = dashes;
-
-//Display line blanks for each letter of the word
-//change incorrectLetter to lettersGuessed?
-
-function play() {
-    var input = document.getElementById('guessLetter').value;
-    console.log('input:', input);
-    var message = document.getElementById('message');
-    //keep track of all letters guessed
+function reset() {
+    var randomMax = words.length - 1;
+    word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
+    // console.log(word);
+    guessCount = 1;
+    correctGuessCount = 0;
+    dashes = ['___'];
+    letters = '';
     
-    //clear text input
-
-    if(guessCount < 6) {
-
-        //add input to lettersGuessed var
-        //add input to lettersGuessed html
-        
-        if(word.includes(input)) {
-
-            //show all occurances of letter, in the right place.
-            correctLetter += '<span>' + input + '</span>';
-            console.log('correctLetter', correctLetter);
-            correctGuesses.innerHTML = correctLetter;
-
-            //send message to message
-            //place input in lettersGuessed
-        } else {
-            guessCount++;
-            //add body part to person
-            //send message to message
-            message.innerHTML = '<p class="red">Guess Again</p>';
-        }
-        if(correctLetter.length === word.length) {
-            //button displays "You Win! - New Game". Reset game
-        } 
-        console.log('guessCount:', guessCount);
+    for(var i = 0; i < word.length - 1; i++){
+        dashes.push('___');
     }
     
-    // change button to a restart, button becomes "You Lose - New Game". Display "The word was --".
+    correctGuesses.innerHTML = dashes.join(' ');
+    gallows.innerHTML = '<img id="gallows" src="0gallows.jpg">';
+    message.innerHTML = '';
+    lettersGuessed.innerHTML = '';
+    inputBox.value = '';
+    goButton.innerHTML = '<button class="go green" onclick="event.preventDefault(); play()">Go!</button>';
 }
 
-//more vertical spacing for desktop version
+function play() {
+    var input = inputBox.value.toUpperCase();
+    var msg = '';
+    if(guessCount < 6) {
+        if(letters.includes(input) && input !== '') {
+            msg = '<p class="blue">You already guessed that letter. Try again!</p>';
+        } else if(word.includes(input) && input !== ''){
+            letters += '     ' + input;
+            for(var j = 0; j < word.length; j++) {
+                if(input === word[j]) {
+                    dashes[j] = input;
+                    correctGuessCount++;
+                }       
+            }
+            msg = '<p class="blue">Correct!</p>';
+        } else {
+            letters += '     ' + input;
+            gallows.innerHTML = imageSources[guessCount - 1];
+            guessCount++;
+            msg = '<p class="blue">Guess Again</p>';
+        }
+    
+        correctGuesses.innerHTML = dashes.join(' ');
+        message.innerHTML = msg;
+        lettersGuessed.innerHTML = letters;
+
+        if(correctGuessCount === word.length) {
+            goButton.innerHTML = '<button class="go green" onclick="reset()">You Win! - New Game</button>';
+        } 
+    } else {
+        gallows.innerHTML = imageSources[imageSources.length - 1];
+        goButton.innerHTML = '<button class="go red" onclick="reset()">You Lose! - New Game</button>';
+        message.innerHTML = '<p class="blue">The word is ' + word + '</p>';
+    }  
+}
