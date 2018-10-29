@@ -1,0 +1,28 @@
+/* exported words */
+
+var words = [
+    'poach',
+    'braise',
+    'coddle',
+    'proof',
+    'whisk',
+    'ratatouille',
+    'beignet',
+    'crepe',
+    'omelette',
+    'frittata',
+    'muffin',
+    'ganache',
+    'rotisserie',
+    'stew',
+    'macaroon',
+    'macaroni',
+    'gnocchi',
+    'pasta',
+    'paella',
+    'baste',
+    'vermicelli',
+    'venison',
+    'salmon',
+    'truffle',
+];

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess or hang!</title>
+    <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+</head>
+<body>
+    <h1>Hangman</h1>
+    <section>
+        <span id="selected-letter">?</span>
+        <!-- Placeholder for hangman -->
+    </section>
+    <section>
+        <!-- Placeholder for word entry -->
+        <form  onsubmit="event.preventDefault()">
+            Guess a letter:<br>
+            <input type="text" name="letter" id="choice">
+            <br>
+            <button onclick= "validateLetters();">Check letters</button>
+        </form>
+        <!-- Form and button to submit choice -->
+        <!-- Reset button -->
+    </section>
+    <section>
+        <!-- Placeholder for displaying letters picked -->
+    </section>
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
