@@ -5,30 +5,8 @@ function tryButton() {
 
 var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft']
 
-// address by index, i.e. document.getElementById('letter-' + i)
-
-// wire button up to input
-
-// letter displays on blank
-
-// if letter is wrong display body part
-
-// if(guessIsWrong) {
-    // var elements = placeholder.elements;
-    // var submit = elements.guess;
-    // placeholder.textContent = '';
-    // }
-    
-    // Guess Letter - A form with an input and button for guessing a letter. You can use maxlength='1' attribute on the input to limit to one letter and required attribute to require at least one letter
-    // Or you can come up with a different UI paradigm!
-    
-    // Letters Guessed - A list of letters guessed so far (correct and incorrect)
-    
-    // Number of Guesses - Shows how many total guesses have been made
-    
-    // Message - A place to show messages (like win or lose)
 var guessLetterForm = document.getElementById('guess-letter-form');
-var firstLetter = document.getElementById('letter-0');
+var firstLetter = document.getElementById('blanks');
 
 function getRandomWord(words) {
     var wordIndex = Math.floor(Math.random() * words.length)
@@ -37,9 +15,9 @@ function getRandomWord(words) {
 
 function startGame() {
     var word = getRandomWord(wordList);
-    var blanks = document.getElementById('blanks')
+    var blanks = document.getElementById('blanks');
     for(var i = 0; i < word.length; i++) {
-        var letter = document.createElement("div");
+        var letter = document.createElement('div');
         letter.className = 'letter';
         letter.textContent = '__';
         blanks.appendChild(letter);
@@ -64,13 +42,6 @@ function resetGuessLetter() {
     submit.value = '';
 }
 
-
-
-// if letter is submitted
-// then display submitted letter
-// if() {
-
-// }
 
 
 //Body Parts
