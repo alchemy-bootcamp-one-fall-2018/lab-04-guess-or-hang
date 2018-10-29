@@ -85,12 +85,12 @@ function handleGuess() {
             }
         }
     }
-    
+
     if(correctGuess === wordArray.length) {
         gameResult.textContent = 'You win!';
         submitButton.disabled = true;
     }
-    else if(wrongTries === 6) {
+    else if(wrongTries === 7) {
         gameResult.textContent = 'You lose!';
         submitButton.disabled = true;
     }
