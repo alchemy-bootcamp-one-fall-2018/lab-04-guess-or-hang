@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" type="text/css" href="styles.css" >
+   <title>Lab 4: Hang Person Guessing Game</title>
+</head>
+<body onload="loadWord(); draw(); highlightInput();">
+   <header>
+       <h1>Hang Person Guessing Game</h1>
+   </header>
+   <main class="flex-container">
+       <div id="div-1">
+           <section>
+               <label for="guess">Guess the letter:</label>
+               <input id="letter" type="text" maxlength="1" value="" placeholder="(a-z)"/>
+               <button onclick="guess();" id="guess-button">Guess!</button>
+               <!-- <input type="text" id="guess-entry" placeholder="(a-z)" /> -->
+               <!-- <button onclick="guessTheWord()" id="guess-button">Guess!</button> -->
+           </section>
+       </div> 
+       <div id="div-2">
+       <button type="submit" class="hidden" id="reset-button" onclick="refreshPage();">Play Again</button>
+          <section>
+
+            <p id="total-count"></p>
+            <p id="total-correct-count"></p>
+            <p id="total-incorrect-count"></p>
+            <p id="result"></p> <!-- displays "Try again" message if lost -->
+          </section>
+       </div>
+   </main>
+   <div id="div-3">
+
+       <canvas id="canvas" width="215" height="215"></canvas>
+
+       <section id="word-to-guess">
+        <p id="guess"></p> <!-- houses the guessArray underscores -->
+<!--            Your word:
+           <h2 id="letter-blanks"> ___ ___ ___ _</h2>
+           <ul class="word-list">
+               <li class="hidden" id="letter-1">1</li>
+               <li class="hidden" id="letter-2">2</li>
+               <li class="hidden" id="letter-3">3</li>
+               <li class="hidden" id="letter-4">4</li>
+               <li class="hidden" id="letter-5">5</li>
+               <li class="hidden" id="letter-6">6</li>
+               <li class="hidden" id="letter-7">7</li>
+               <li class="hidden" id="letter-8">8</li>
+               <li class="hidden" id="letter-9">9</li>
+               <li class="hidden" id="letter-10">10</li>
+           </ul> -->
+       </section>
+   </div>
+   <div id="div-4">
+       <section id="letters-guessed">
+           <p id="guesses-left">Guesses Left:</p><span id="number-left"></span>
+           <p>Letters used:</p> <span id="guesses-used"></span>
+       </section>
+   </div>
+   <script src="person.js"></script>
+   <script src="words.js"></script>
+   <script src="app2.js"></script>
+  <script src="hangpost.js"></script>
+   <!-- <script src="app.js"></script> -->
+</body>
+</html>
