@@ -1,4 +1,5 @@
 /* eslint no-console: "off" */
+// eslint-disable-next-line
 function tryButton() {
 
 }
@@ -13,6 +14,7 @@ function getRandomWord(words) {
     return words[wordIndex];
 }
 
+// eslint-disable-next-line
 function startGame() {
     var word = getRandomWord(wordList);
     var blanks = document.getElementById('blanks');
@@ -24,6 +26,7 @@ function startGame() {
     }
 }
 
+// eslint-disable-next-line
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
     var guess = elements['guess-letter-id'].value;
