@@ -9,15 +9,16 @@
 </head>
 <body>
     <h1>Guess or Hang Game</h1>
+    
     <section id="column-one">
         <section id="image-display">
             <div id="image-container">
-                <img src="head.jpg" id="head">
-                <img src="body.jpg" id="body">
-                <img src="left-leg.jpg" id="left-leg">
-                <img src="both-legs.jpg" id="both-legs">
-                <img src="one-arm-with-legs.jpg" id="one-arm-with-legs">
-                <img src="all-parts.jpg" id = "all-parts">
+                <img src="head.jpg" id="head" class="hidden">
+                <img src="body.jpg" id="body" class="hidden">
+                <img src="left-leg.jpg" id="left-leg" class="hidden">
+                <img src="both-legs.jpg" id="both-legs" class="hidden">
+                <img src="one-arm-with-legs.jpg" id="one-arm-with-legs" class="hidden">
+                <img src="all-parts.jpg" id = "all-parts" class="hidden">
             </div>
         </section>
         <section id="letter-display">
@@ -29,10 +30,10 @@
     
     <section id="column-two">
         <section id="guessed-display">
-            <h4>Guessed letter placeholder</h4>
+            <h4>Already Guessed: </h4>
         </section>
         <section id="guesses-remaining-container">
-            <h4>Remaining letters placeholder</h4>
+            <h4>Guesses Remaining: </h4>
         </section>
     </section>
 
@@ -47,6 +48,8 @@
         <input type="text" id="text-input" name="textinput">
     </form>
     <button onclick="clickButton()">Guess</button>
-<script src="index.js"></script>
+
+<script src = "words.js"></script>
+<script src="apps.js"></script>
 </body>
 </html>
