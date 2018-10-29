@@ -16,13 +16,14 @@ var guessCount;
 var correctGuessCount;
 var letters;
 var dashes;
+var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 reset();
 
 function reset() {
     var randomMax = words.length - 1;
     word = words[Math.floor(Math.random() * randomMax)].toUpperCase();
-    // console.log(word);
+    console.log(word);
     guessCount = 0;
     correctGuessCount = 0;
     dashes = ['___'];
@@ -44,9 +45,9 @@ function play() {
     var input = inputBox.value.toUpperCase();
     var msg = '';
     if(guessCount < 6) {
-        if(letters.includes(input) && input !== '') {
+        if(letters.includes(input) && input !== '' && alphabet.includes(input)) {
             msg = '<p class="blue">You already guessed that letter. Try again!</p>';
-        } else if(word.includes(input) && input !== ''){
+        } else if(word.includes(input) && input !== '' && alphabet.includes(input)){
             letters += '     ' + input;
             for(var j = 0; j < word.length; j++) {
                 if(input === word[j]) {
@@ -55,12 +56,14 @@ function play() {
                 }       
             }
             msg = '<p class="blue">Correct!</p>';
-        } else {
+        } else if(alphabet.includes(input)){
             letters += '     ' + input;
             gallows.innerHTML = imageSources[guessCount];
             msg = '<p class="blue">Guess Again</p>';
             guessCount++;
             // console.log(guessCount);
+        } else {
+            msg = '<p class="blue">Invalid Input</p>';
         }
     
         correctGuesses.innerHTML = dashes.join(' ');
@@ -78,3 +81,6 @@ function play() {
         message.innerHTML = '<p class="blue">The word is ' + word + '</p>';
     }
 }
+
+// var a = 'a';
+// console.log(a + 1);
