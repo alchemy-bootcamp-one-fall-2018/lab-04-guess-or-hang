@@ -1,13 +1,14 @@
 body {
     text-align: center;
     font-family: Rajdhani;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0;
     padding-top: 0;
 }
+
 h1 {
     font-family: "amatic sc";
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: bold;
     background-color: lightgray;
     padding-top: 15px;
@@ -31,6 +32,9 @@ img {
     font-size: 8rem;
     font-family: "amatic sc";
     font-weight: bold;
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 #letters-guessed {
@@ -38,10 +42,9 @@ img {
 }
 
 .spaces {
-    font-size: 4.5rem;
+    font-size: 4rem;
     margin-top: -5px;
     margin-bottom: 15px;
-    
 }
 
 button {
@@ -63,20 +66,13 @@ input {
         display: flex;
         width: 100vw; 
     }  
-    /* img {
-        min-width: 300px;
-    } */
     .right-side {
         margin-left: 15%; 
     }
-    /* .right-side {
-        display: flex; */
-        /* // orientation: vertical;  */
-    /* } */
-    /* body {
-        width: 100vw; */
-    /* }
-    /* img {
-        float: left; 
-    } */
+    body {
+        font-size: 2rem;
+    }
+    h1 {
+        font-size: 6rem;
+    }
  }

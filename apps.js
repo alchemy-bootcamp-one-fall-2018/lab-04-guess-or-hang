@@ -1,5 +1,6 @@
 /* exported handleGuess loadWord validate */
 /* eslint-disable no-console */
+/* global words */
 'use strict'; 
 
 var letterDisplay = document.getElementById('blank-spaces');
@@ -37,20 +38,10 @@ function loadWord() {
 }
 
 function validate() {
-    // for(var a = 0; a < wrongLetters.length; a++) {
-    //     if(input === wrongLetters[a]) {
-    //         alert('You have already guessed this letter');
-    //         input.value = '';
-    //     }
-    // }
     if(input.value === '') {
         alert('You must input a letter in the box before clicking submit');
         input.value = '';
     }
-    // if(_______________) {
-    //     alert('Input invalid: your input must be a letter');
-    //     input.value = ''; 
-    // }
     else {
         handleGuess();
     }
@@ -60,7 +51,6 @@ function handleGuess() {
     wrongLetters = [];    
     var guessedLetter = input.value.toLowerCase();  
     var letterInWord = false; 
-
     
     for(var i = 0; i < wordArray.length; i++) {
         if(guessedLetter === wordArray[i]) {
@@ -95,6 +85,7 @@ function handleGuess() {
             }
         }
     }
+    
     if(correctGuess === wordArray.length) {
         gameResult.textContent = 'You win!';
         submitButton.disabled = true;
@@ -102,7 +93,6 @@ function handleGuess() {
     else if(wrongTries === 6) {
         gameResult.textContent = 'You lose!';
         submitButton.disabled = true;
-
     }
 }
 
