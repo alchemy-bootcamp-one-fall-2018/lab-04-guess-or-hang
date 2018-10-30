@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<div id="everything">
+
+    <body>
+        <h1>~ HANGMAN ~</h1>
+        
+        <div id="divCanvas" style="text-align: center;">
+                <canvas id="myCanvas" height="500" width="500">
+                </canvas>
+            </div>
+            
+            <p  style="text-align: center;">
+                <div id="blanks" class="blanks">
+                </div>
+            </p>
+
+            <div id="guessLetterCenter">
+                <form id="guess-letter-form" onsubmit="event.preventDefault(); checkGuessLetter();">
+                    <label id="guess-text-id" for="guess-letter-for">Guess Letter:</label>
+                    <input type="text" id="guess-letter-id" maxlength="1" name="guess" placeholder="Enter a letter">
+                    <br>
+                    <button id="submit" onclick="tryButton()">Submit Letter</button>
+                    
+                </form>
+                <button id="submit" onclick="startGame()">Start Game</button>
+                                
+            </div>
+
+        <script src="functionality.js"></script>
+    </body>
+</div>
+</html>
+</div>
