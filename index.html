@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Guess or Hang</title>
+</head>
+
+<body>
+    <header>
+        <h1>Guess or Hang</h1>
+    </header>
+    <section>
+        <img src="image1.png" alt="Children with balloons" />
+    </section>
+
+<!-- Button> -->
+    <section>
+        <button onclick="wordGame()">Click to Start</button>
+    </section>
+
+<!-- Word Population -->
+    <section>
+        <span id="letter-0"></span>
+        <span id="letter-1"></span>
+        <span id="letter-2"></span>
+        <span id="letter-3"></span>
+        <span id="letter-4"></span>
+        <span id="letter-5"></span>
+        <span id="letter-6"></span>
+        <span id="letter-7"></span>
+        <span id="letter-8"></span>
+        <span id="letter-9"></span>
+        <span id="letter-10"></span>
+        <span id="letter-11"></span>
+        <span id="letter-12"></span>
+    </section>
+
+
+<!-- Form to enter letter and button -->
+    <section>
+        <form>
+            <input type="text" id="guess-input" maxlength="1" required placeholder="Enter letter" />
+            <button id="guess-button" onclick="guessLetter()" disabled> Guess </button>
+        </form>
+    </section>
+
+
+<!-- List of letters guessed -->
+
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
+
+
+<!-- Message - pick another letter/win/loose -->
+    <section>
+        <p id="game-response">Pick Another Letter/ You Win </p>
+    </section>
+
+<!-- Message - guesses remaining -->
+    <section>
+        <p id="guesses-remaining">Guesses Remaining:</p>
+    </section>
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
