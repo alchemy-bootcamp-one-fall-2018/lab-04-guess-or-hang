@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess or Hang</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <section id="guesses">
+        <h1>GUESS or HANG</h1>
+        <p id="correctGuesses"></p>
+    </section>
+
+    <section id="image">
+        <img id="gallows" src="0gallows.jpg">
+    </section>
+
+    <div id="guessSection">
+            <h2>Guess a Letter</h2>
+            <label for="guessLetter"></label>
+            <input type="text" name="guessLetter" id="guessLetter" maxlength="1">
+    
+        <section>
+            <p id="message"></p>
+        </section>
+    
+        <section>
+            <h2>Letters Guessed:</h2>
+            <p id="lettersGuessed"></p>
+        </section>
+    </div>
+
+    
+    <section id="goButton">
+        <button class="go green" onclick="event.preventDefault(); play()">Go!</button>
+    </section>
+
+    <div id="test"></div>
+
+    <script src="words.js"></script>
+    <script src="images.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
