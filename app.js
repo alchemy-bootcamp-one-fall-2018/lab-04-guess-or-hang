@@ -17,6 +17,7 @@ var correctGuessCount;
 var letters;
 var dashes;
 var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var totalGuess = 0;
 
 reset();
 
@@ -28,6 +29,7 @@ function reset() {
     correctGuessCount = 0;
     dashes = ['___'];
     letters = '';
+    totalGuess = 0;
     
     for(var i = 0; i < word.length - 1; i++){
         dashes.push('___');
@@ -44,10 +46,12 @@ function reset() {
 function play() {
     var input = inputBox.value.toUpperCase();
     var msg = '';
+
     if(guessCount < 6) {
         if(letters.includes(input) && input !== '' && alphabet.includes(input)) {
             msg = '<p class="blue">You already guessed that letter. Try again!</p>';
         } else if(word.includes(input) && input !== '' && alphabet.includes(input)){
+            totalGuess++;
             letters += '     ' + input;
             for(var j = 0; j < word.length; j++) {
                 if(input === word[j]) {
@@ -57,14 +61,16 @@ function play() {
             }
             msg = '<p class="blue">Correct!</p>';
         } else if(alphabet.includes(input)){
+            totalGuess++;
             letters += '     ' + input;
             gallows.innerHTML = imageSources[guessCount];
             msg = '<p class="blue">Guess Again</p>';
             guessCount++;
-            // console.log(guessCount);
         } else {
             msg = '<p class="blue">Invalid Input</p>';
         }
+
+        msg += '<p class="blue">Total Guesses Made: ' + totalGuess + '</p>';
     
         correctGuesses.innerHTML = dashes.join(' ');
         message.innerHTML = msg;
