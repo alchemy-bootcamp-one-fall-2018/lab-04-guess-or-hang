@@ -1,19 +1,27 @@
-var lives = 6;
+(function () {
+    "use strict";
+    var availableLetters, words, guessInput, guess, guessButton, 
+    lettersGuessed, lettersMatched, output, man, letters, lives,
+     currentWord, numLettersMatched, messages;
+
+
 
 function setup() {
-    availableLetters = 'abcdefghijklmnopqrstuvwxyz';
-    var words = ['witch', 'candy', 'curse', 'spell', 'zombie', 'costume'];
-    var messages = {
+    availableLetters = "abcdefghijklmnopqrstuvwxyz";
+    lives = 6;
+    words = ["witch", "candy", "curse", "spell", "zombie", "costume"];
+    messages = {
         win: 'Great Job!',
-        lose: 'You lose!'
+        lose: 'You lose!',
     };
     
-    var lettersGuessed = ' ';
+    
+    var lettersGuessed = lettersMatched = '';
     var numLettersMatched = 0;
     var currentWord = words[Math.floor(Math.random() * words.length)];
-    var output = document.getElementById('output');
-    var man = document.getElementById('man');
-    var guessInput = document.getElementById('letter');
+    var output = document.getElementById("output");
+    var man = document.getElementById("man");
+    var guessInput = document.getElementById("letter");
 
     man.innerHTML = ' You have ' + lives + ' lives remaining';
     output.innerHTML = '';
@@ -24,6 +32,26 @@ function setup() {
     /* display letters in current word */
     var letters = document.getElementById('letters');
     letters.innerHTML = '<li class="current-word">Current word:</li>';
+
+    /* set up display of letters in current word */
+    var letters = document.getElementById("letters");
+    letters.innerHTML = '<li class="current-word">Current word:</li>';
+
+    var letter, i;
+    for (i = 0; i < currentWord.length; i++) {
+        letter = '<li class="letter letter' + currentWord.charAt(i).toUpperCase() + '">' + currentWord.charAt(i).toUpperCase() + '</li>';
+        letters.insertAdjacentHTML('beforeend', letter);
+    }
+
+    /* make #man and #output blank, create vars for later access */
+    var output = document.getElementById("output");
+    var man = document.getElementById("man");
+    var guessInput = document.getElementById("letter");
+
+    man.innerHTML = 'You have ' + lives + ' lives remaining';
+    output.innerHTML = '';
+
+    document.getElementById("letter").value = '';
 
     function gameOver(win) {
         if(win) {
