@@ -1,17 +1,21 @@
 
-#column-one{
-    width: 50%;
-    background-color: red;
-}
-#column-two{
-    width: 50%;
-    background-color: cyan;
-    float: right;
+
+
+.columns-container{
+    display: flex;
 }
 
-#letter-display{
-    background-color: blue;
+.column-left, .column-left{
+    flex: 50%;
+    padding: 10px;
 }
+
+
+
+#letter-display{
+    background-color: rgb(127, 127, 192);
+}
+
 
 #guessed-display{
     background-color: purple;
@@ -25,4 +29,7 @@ h1{
     text-align: center;
 }
 
+.hidden{
+    visibility: hidden;
+}
 
