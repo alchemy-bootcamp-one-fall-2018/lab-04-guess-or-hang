@@ -1,42 +1,71 @@
+/* exported clickButton */
+var winLoseContainer = document.getElementById('win-lose-container');
+var guessLettersForm = document.getElementById('guess-letters');
+
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
-var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
+var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 var wordLength = randomWord.length;
-var randomWordArray = randomWord.split("");
+var randomWordArray = randomWord.split('');
 var displayGuesses = [];
-var guessedLetter = 'i';
+var guessCount = 6;
+var gameIsDone = false;
+
+
 for(var i = 0; i < wordLength; i++) {
     displayGuesses.push('_');
 }
 
+function getGuess() {
+    var elements = guessLettersForm.elements;
+    var guess = elements.textinput.value;
+    return guess;
+}
 
+function arrayContainsGuessedLetter(guess) {
+    var letterIsInWord = false;
+    letterIsInWord = (randomWordArray.indexOf(guess) > -1);
+    return letterIsInWord;
+}
 
-function clickButton() { 
-    function arrayContainsGuessedLetter(guess) {
-        var letterIsInWord = false;
-        letterIsInWord = (randomWordArray.indexOf(guess) > -1);
-        return letterIsInWord;
-    }
-    var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
-
-    function getAllIndexes(array, value) {
-        var indexes = []; 
-        for(var i = 0; i < array.length; i++) {
-            if(array[i] === value) {
-                indexes.push(i);
-            }
+function getAllIndexes(array, value) {
+    var indexes = []; 
+    for(var i = 0; i < array.length; i++) {
+        if(array[i] === value) {
+            indexes.push(i);
         }
-        return indexes;
     }
+    return indexes;
+}
 
+function checkGuess(guessedLetter) {
+    var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
     if(letterIsInWord === true){
         var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
         for(var i = 0; i < letterLocations.length; i++) {
             displayGuesses[letterLocations[i]] = guessedLetter;
         }
-        console.log(displayGuesses, randomWord);
+        if(randomWordArray.toString() === displayGuesses.toString()) {
+            gameIsDone = true;
+            winLoseContainer.textContent = 'You win!';
+        }
+    }
+    if(letterIsInWord === false) {
+        guessCount = guessCount - 1;
+        if(guessCount === 0) {
+            gameIsDone = true;
+            winLoseContainer.textContent = 'You lose!';
+        }
+    }
+} 
+
+
+function clickButton() {
+    if(gameIsDone === false) {
+        var guess = getGuess();
+        checkGuess(guess);
+        console.log(guess, randomWordArray, displayGuesses);
     }
 }
-
 
 
 
