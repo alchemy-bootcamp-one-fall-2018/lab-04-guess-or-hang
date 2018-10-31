@@ -1,61 +1,37 @@
 /* exported clickButton */
 var winLoseContainer = document.getElementById('win-lose-container');
 var guessLettersForm = document.getElementById('guess-letters');
-/*"extends": "eslint:recommended"*/ 
-/*eslint no-undef: "error"*/
 
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 var wordLength = randomWord.length;
 var randomWordArray = randomWord.split('');
-var displayCorrectGuesses = [];
-var displayAlreadyGuessed = document.getElementById('guessed display');
-var guessedLetter = 'i';
-var guessCount = wordLength;
+var displayGuesses = [];
+var guessCount = 6;
+var gameIsDone = false;
+
 
 for(var i = 0; i < wordLength; i++) {
     displayGuesses.push('_');
 }
 
-function clickButton() { 
-    function arrayContainsGuessedLetter(guess) {
-        var letterIsInWord = false;
-        letterIsInWord = (randomWordArray.indexOf(guess) > -1);
-        return letterIsInWord;
-    }
-    var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
+function getGuess() {
+    var elements = guessLettersForm.elements;
+    var guess = elements.textinput.value;
+    return guess;
+}
+
+function arrayContainsGuessedLetter(guess) {
+    var letterIsInWord = false;
+    letterIsInWord = (randomWordArray.indexOf(guess) > -1);
+    return letterIsInWord;
+}
 
 function getAllIndexes(array, value) {
     var indexes = []; 
-
     for(var i = 0; i < array.length; i++) {
         if(array[i] === value) {
             indexes.push(i);
-        }
-    }
-    return indexes;
-}
-
-    //places correct guesses in the blank letter space
-    if(letterIsInWord === true){
-        var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
-       	        for(var i = 0; i < letterLocations.length; i++) {
-                    displayCorrectGuesses[letterLocations[i]] = guessedLetter;
-                //   console.log(displayCorrectGuesses, randomWord);
-        }
-
-    //attempt to print the list of already guessed incorrect letters
-    } else if(letterIsInWord != true){
-        displayAlreadyGuessed += guessedLetter + ', ';
-        console.log(displayAlreadyGuessed)
-        guessCount -= 1;
-        
-    function getAllIndexes(array, value) {
-        var indexes = []; 
-        for(var i = 0; i < array.length; i++) {
-            if(array[i] === value) {
-                indexes.push(i);
-            }
         }
     }
     return indexes;
@@ -81,19 +57,6 @@ function checkGuess(guessedLetter) {
         }
     }
 } 
-
-   
-    
-    
-
-    
-    
-
-
-   
-
-
-
 
 
 function clickButton() {
@@ -147,8 +110,4 @@ function clickButton() {
         // hide text input box
         // hide submit button
         // reveal reset button
-<<<<<<< HEAD:index.js
         //continueGame = 'false'
-=======
-        //continueGame = false
->>>>>>> 236ca96116336106dfd25fc68bc7953e6efbf6bd:apps.js
