@@ -1,3 +1,5 @@
+import words from './words.js';
+
 var lettersLong = document.getElementById('word-length');
 var blanksList = document.getElementById('empty-blanks');
 var correctGuesses = document.getElementById('guessed-correctly');
@@ -30,6 +32,7 @@ var blanks = tryRandomWord();
 var usedLetters = [];
 var wrongGuesses = 0;
 
+//eslint-disable-next-line
 function enterGuess() {
     var guessInputs = document.getElementById('userGuess').value.toLowerCase();
 
