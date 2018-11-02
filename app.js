@@ -1,82 +1,74 @@
-import words from './words.js';
+/* global words */
+/* exported enterGuess */
 
 var lettersLong = document.getElementById('word-length');
-var blanksList = document.getElementById('empty-blanks');
-var correctGuesses = document.getElementById('guessed-correctly');
-var newBlanksList = document.getElementById('new-blanks');
-var tryAgain = document.getElementById('try-again');
-var incorrectGuesses = document.getElementById('incorrect-guesses');
-var nextGuess = document.getElementById('next-guess');
+var letterDisplay = document.getElementById('letter-display');
+var guessMessage = document.getElementById('guess-message');
+var countMessage = document.getElementById('count-message');
 var gameOver = document.getElementById('game-over');
 var used = document.getElementById('used');
+var guessButton = document.getElementById('guessButton');
+var gallows = document.getElementById('firstMan');
+var images = [
+    'Images/StickMan0.png',
+    'Images/StickMan1.png',
+    'Images/StickMan2.png',
+    'Images/StickMan3.png',
+    'Images/StickMan4.png',
+    'Images/StickMan5.png',
+    'Images/StickMan6.png'
+];
+var letterPlaceholder = [];
+var usedLetters = [];
+var allowedGuesses = 0;
+gallows.src = images[0];
+
+var word = randFunc();
+lettersLong.textContent = 'Your word is ' + word.length + ' letters long';
 
 function randFunc() {
-    var rand = words[Math.floor(Math.random() * words.length)].split('');
-    return rand;
-
+    var randomWord = words[Math.floor(Math.random() * words.length)].split('');
+    for(let i = 0; i < randomWord.length; i++) {
+        letterPlaceholder.push('_');
+    }
+    return randomWord;
 }
-var rand = randFunc();
 
-function tryRandomWord() {
-    rand = randFunc();
-    var emptyBlanks = [];
-    var wordLength = rand.length;
-    for(var i = 0; i < wordLength; i++) {
-        emptyBlanks.push(' __');
-    }  
-    lettersLong.textContent = 'your word is ' + wordLength + ' letters long';
-    blanksList.textContent = emptyBlanks;
-    return emptyBlanks;
-}
-var blanks = tryRandomWord();
-var usedLetters = [];
-var wrongGuesses = 0;
-
-//eslint-disable-next-line
 function enterGuess() {
-    var guessInputs = document.getElementById('userGuess').value.toLowerCase();
+    var guessInputs = document.getElementById('userGuess');
+    var guess = guessInputs.value.toLowerCase();
 
-    if(usedLetters.includes(guessInputs)) {
+    if(usedLetters.includes(guess)) {
         alert('Letter already used!');
     }
-
-    else if(rand.includes(guessInputs)) {
-        blanks.splice(rand.indexOf(guessInputs), 1, guessInputs);
-        correctGuesses.textContent = 'you guessed correctly!';
-        newBlanksList.textContent = '  ' + blanks + '  ';
-        nextGuess.textContent = 'Enter your next guess in the "Guess a letter" box above';
-        usedLetters.push(guessInputs);
-
-    } else if(wrongGuesses < 6) {
-        //eslint-disable-next-line
-        tryAgain.textContent = "That letter isn't in this word:(";
-        wrongGuesses++;
-        incorrectGuesses.textContent = 'Number of incorrect guesses: ' + wrongGuesses;
-        var gallows = document.getElementById('firstMan');
-        var drawStick = ['Images/StickMan0.png', 'Images/StickMan1.png', 'Images/StickMan2.png', 'Images/StickMan3.png', 'Images/StickMan4.png', 'Images/StickMan5.png', 'Images/StickMan6.png'];
-        gallows.src = drawStick[wrongGuesses];
-        usedLetters.push(guessInputs);
+    else if(word.includes(guess)) {
+        for(let i = 0; i < word.length; i++) {
+            if(guess === word[i]) {
+                letterPlaceholder[i] = word[i];
+            }
+            letterDisplay.textContent = '  ' + letterPlaceholder + '  ';
+        }
+        usedLetters.push(guess);
+        guessMessage.textContent = 'Nice guess!';
+    }
+    else {
+        guessMessage.textContent = 'That letter isn\'t in this word:(';
+        allowedGuesses++;
+        countMessage.textContent = 'Number of guesses remaining: ' + (6 - allowedGuesses);
+        gallows.src = images[allowedGuesses];
+        usedLetters.push(guess);
 
     } 
-    if(wrongGuesses >= 6) {
+    if(allowedGuesses === 6) {
         gameOver.textContent = 'GAME OVER!!!';
+        guessButton.disabled = true;
     }
-    
-    used.textContent = usedLetters;
+    if(!letterPlaceholder.includes('_')) {
+        guessMessage.textContent = 'You win!';
+        countMessage.textContent = '';
+        guessButton.disabled = true;
+        letterDisplay.textContent = letterPlaceholder.join('').toUpperCase();
+    }
+    used.textContent = 'Guessed letters: ' + usedLetters;
+    guessInputs.value = '';
 }
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
