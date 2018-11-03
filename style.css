@@ -24,7 +24,11 @@ p {
     font-size: 15px; 
     margin: 20px;
 }
-
+#start-game {
+    padding: 10px 30px;
+    font-size: 15px; 
+    margin: 20px;
+}
 #myCanvas {
     border: 10px ridge gray;
     background: white;
