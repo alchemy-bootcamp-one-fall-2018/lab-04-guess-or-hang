@@ -14,9 +14,20 @@ function getRandomWord(words) {
     return words[wordIndex];
 }
 
+var word = '';
+
+function removeElement() {
+    // Removes an element from the document
+    var element = document.getElementById('blanks');
+    element.innerHTML = '';
+}
+
 // eslint-disable-next-line
 function startGame() {
-    var word = getRandomWord(wordList);
+    word = getRandomWord(wordList);
+    if(document.getElementsByClassName('letter')) {
+        removeElement();
+    }
     var blanks = document.getElementById('blanks');
     for(var i = 0; i < word.length; i++) {
         var letter = document.createElement('div');
@@ -33,7 +44,6 @@ function checkGuessLetter() {
     firstLetter.textContent = guess;
 
     console.log(guess);
-    // console.log('var direct line', document.getElementById('guessLetter').value);
     resetGuessLetter();
 }
 
