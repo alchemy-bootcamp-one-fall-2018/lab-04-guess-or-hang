@@ -4,7 +4,8 @@ function tryButton() {
 
 }
 
-var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
+// var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
+var wordList = ['hello'];
 
 var guessLetterForm = document.getElementById('guess-letter-form');
 var firstLetter = document.getElementById('blanks');
@@ -32,7 +33,7 @@ function startGame() {
     for(var i = 0; i < word.length; i++) {
         var letter = document.createElement('div');
         letter.className = 'letter';
-        letter.textContent = '__';
+        // letter.textContent = '';
         blanks.appendChild(letter);
     }
 }
@@ -41,9 +42,20 @@ function startGame() {
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
     var guess = elements['guess-letter-id'].value;
-    firstLetter.textContent = guess;
+    // firstLetter.textContent = guess;
+    for(var i = 0; i < word.length; i++) {
+        // if guess is equal to one or more of the letters in the word, display letters in correct position
+        // else don't do anything and display a body part
+        console.log(word[i]);
+        if(guess === word[i]) {
+            document.getElementById('blanks').children[i].textContent = guess;
 
-    console.log(guess);
+        } else {
+            console.log('you fail');
+        }
+    }
+
+    // console.log(guess);
     resetGuessLetter();
 }
 

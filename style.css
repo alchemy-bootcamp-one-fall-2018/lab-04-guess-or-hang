@@ -53,4 +53,6 @@ p {
 }
 .letter {
     margin: 0 5px;
+    border-bottom: 5px solid black;
+    min-width: 20px;
 }
