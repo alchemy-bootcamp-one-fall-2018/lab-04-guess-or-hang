@@ -1,15 +1,9 @@
 /* eslint no-console: "off" */
-// eslint-disable-next-line
-function tryButton() {
-
-}
-
-// var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
-var wordList = ['hello'];
+var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
 
 var guessLetterForm = document.getElementById('guess-letter-form');
-var firstLetter = document.getElementById('blanks');
 var submitButton = document.getElementById('submit');
+gallows();
 
 function getRandomWord(words) {
     var wordIndex = Math.floor(Math.random() * words.length);
@@ -27,11 +21,9 @@ function removeElement() {
 // eslint-disable-next-line
 function startGame() {
     word = getRandomWord(wordList);
-    // content.clearRect(0, 0, canvas.width, canvas.height);
     var myCanvas = document.getElementById('myCanvas');
-    var ctx = myCanvas.getContext('2d');
-    console.log(ctx);
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    // eslint-disable-next-line
+    myCanvas.width = myCanvas.width;
     gallows();
     submitButton.disabled = false;
     if(document.getElementsByClassName('letter')) {
@@ -45,9 +37,6 @@ function startGame() {
         blanks.appendChild(letter);
     }
 }
-
-
-//JORDAN'S IDEA
 
 var wrongGuessCount = 0;
 // eslint-disable-next-line
@@ -85,39 +74,16 @@ function checkGuessLetter() {
     if(wrongGuessCount === 6) {
         drawRightLeg();
         submitButton.disabled = true;
+
     }
     resetGuessLetter();
 }
-
-//MARIAH'S NOT FINISHED IDEA
-
-// function checkGuessLetter() {
-//     var elements = guessLetterForm.elements;
-//     var guess = elements['guess-letter-id'].value;
-//     // firstLetter.textContent = guess;
-    
-//     // var i = 0;
-//     if(word.includes(guess)) {
-//         console.log('something');
-//         for(var i = 0; i < word.length; i++) {
-//             document.getElementById('blanks').children[i].textContent = guess;
-//         }   
-//     } else {
-//         console.log('you fail');
-
-//     }
-//     // console.log(guess);
-//     resetGuessLetter();
-// }
-
-
 
 function resetGuessLetter() {
     var elements = guessLetterForm.elements;
     var submit = elements['guess-letter-id'];
     submit.value = '';
 }
-
 
 
 //Body Parts
