@@ -1,8 +1,8 @@
 /* exported clickButton */
 var winLoseContainer = document.getElementById('win-lose-container');
 var guessLettersForm = document.getElementById('guess-letters');
-let guessedLetterDisplay = document.getElementById('guessed-display');
-
+let guessedLetterDisplay = document.getElementById('letter-container');
+let wrongLetterDisplay = document.getElementById('guessed-display');
 
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
@@ -12,6 +12,7 @@ var displayGuesses = [];
 var guessCount = 0;
 var gameIsDone = false;
 let image = document.getElementById('gallows');
+let wrongLetters = [];
 
 
 
@@ -56,6 +57,8 @@ function checkGuess(guessedLetter) {
         }
     }
     if(letterIsInWord === false) {
+        wrongLetters.push(guessedLetter);
+        wrongLetterDisplay.textContent = wrongLetters;
         guessCount = guessCount + 1;
         image.src = './hangman-images/' + guessCount + '.jpg';
         if(guessCount === 6) {
@@ -69,6 +72,7 @@ function checkGuess(guessedLetter) {
 
 
 guessedLetterDisplay.textContent = displayGuesses;
+wrongLetterDisplay.textContent = 'Wrong letters here';
 
 function clickButton() {
     if(gameIsDone === false) {

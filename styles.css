@@ -1,25 +1,16 @@
-
-#column-one{
-    width: 50%;
-    background-color: red;
-}
-#column-two{
-    width: 50%;
-    background-color: cyan;
-    float: right;
-}
-
 #letter-display{
     background-color: blue;
+    color: white;
 }
+
+
 
 #guessed-display{
     background-color: purple;
+    color: white;
 }
 
-#guesses-remaining-container{
-    background-color: green;
-}
+
 
 h1{
     text-align: center;
