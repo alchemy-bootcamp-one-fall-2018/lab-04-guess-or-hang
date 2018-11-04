@@ -107,7 +107,14 @@ function guessLetter() {
         guessedLetter = guessedLetter + letterGuess;
         console.log('guessed letter', guessedLetter);
         
+    }
+
+    // Guessed letter is incorrect ==> decrement guesses remaining
+    else {
+        guessNumber--;
         guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
+        guessedLetter = guessedLetter + letterGuess;
+
     }
     guesses.textContent = guessedLetter.split('').join(', ');
 
