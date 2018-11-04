@@ -75,10 +75,10 @@ function checkGuess(guessedLetter) {
 guessedLetterDisplay.textContent = displayGuesses.join(' ');
 wrongLetterDisplay.textContent = ' ';
 
+// eslint-disable-next-line no-unused-vars
 function clickButton() {
     if(gameIsDone === false) {
         var guess = getGuess();
         checkGuess(guess);
-        console.log(guess, randomWordArray, displayGuesses);
     }
 }
