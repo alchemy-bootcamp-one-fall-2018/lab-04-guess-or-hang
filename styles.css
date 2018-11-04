@@ -36,3 +36,20 @@ label {
 img {
   width: 50%;
 }
+
+#game-response {
+  color: orangered;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+#guesses-remaining {
+  color:slateblue;
+  font-size: 1.25em;
+}
+
+#guessed-letters {
+  color: limegreen;
+  font-size: 1.25em;
+  font-weight: bold;
+}

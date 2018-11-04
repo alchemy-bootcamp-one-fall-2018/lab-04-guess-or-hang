@@ -10,27 +10,22 @@
 var selectedWord;
 var response = document.getElementById('game-response');
 var guessedLetter = '';
-
-
 var checkWin;
 var guessNumber;
 var guesses = document.getElementById('guessed-letters');
 var guessesRemaining = document.getElementById('guesses-remaining');
 
-
-
+// Select random word from words array
 function randomWord() {
     //The maximum is exclusive and the minimum (0) is inclusive
     var index = Math.floor(Math.random() * words.length); 
-    console.log('selected index', index);
     var selectedWord = words[index];
     console.log('selected word', selectedWord);
     return words[index];
 }
 
 
-
-
+// ***** Called function when 'Click to Start' button is clicked *****
 function wordGame() {
  
     //clear previous input box
@@ -41,6 +36,9 @@ function wordGame() {
     response.textContent = '';
     // clear guessed letters line
     guesses.textContent = '';
+    // reset to initial image
+    guessNumber = 7;
+    document.getElementById('image').src = 'image' + guessNumber + '.png';
 
     guessNumber = 6;
     checkWin = '';
@@ -49,7 +47,6 @@ function wordGame() {
 
     // get random word from words array
     selectedWord = randomWord().toLowerCase();
-    console.log(selectedWord);
 
     // Hide word and display '_' for each letter on page
     for(var i = 0; i < selectedWord.length; i++) {
@@ -57,19 +54,18 @@ function wordGame() {
         var span = document.getElementById('letter-' + i);
         // Change text content of the span
         // span.textContent = selectedWord[i];
-        console.log('selected word letter ', selectedWord[i]);
         span.textContent = '_';
         checkWin += '_';
     }
     checkWin = checkWin.split('');
     document.getElementById('guess-button').disabled = false;
-    console.log(checkWin);
 }
 
+// ***** Called function when 'Guess' button is clicked *****
 function guessLetter() {
     var letterGuess = document.getElementById('guess-input').value;
-    console.log ('From guess input box:', letterGuess);
     document.getElementById('guess-input').value = '';
+    response.textContent = '';
     
     // Alert user to enter a letter
     if(letterGuess.length !== 1) {
@@ -82,19 +78,18 @@ function guessLetter() {
     }
     // Guessed letter is correct
     else if(selectedWord.includes(letterGuess) === true) {
-        //  Display correct letter to page and put to Check Win
+        
+        //  Display correct letter to page and put to Check Win array
         for(var i = 0; i < selectedWord.length; i++) {
             if(letterGuess === selectedWord[i]) {
                 if(i === 0) {
-                    document.getElementById('letter-' + i).textContent = letterGuess.toUpperCase();
-                    console.log('Cap first letter', letterGuess.toUpperCase());}
+                    document.getElementById('letter-' + i).textContent = letterGuess.toUpperCase();}
                 else {
                     document.getElementById('letter-' + i).textContent = letterGuess;
                     
                 } 
                 checkWin[i] = letterGuess;
             
-                console.log('correct guessed letter & index', checkWin[i], i);
             }
        
         }
@@ -105,13 +100,12 @@ function guessLetter() {
             document.getElementById('guess-button').disabled = true;
         }
         guessedLetter = guessedLetter + letterGuess;
-        console.log('guessed letter', guessedLetter);
         
     }
 
     // Guessed letter is incorrect 
     else {
-        // ==> display pop balloon image
+        // ==> display popped balloon image
         document.getElementById('image').src = 'image' + guessNumber + '.png';
         
         // ==> decrement guesses remaining
@@ -119,10 +113,15 @@ function guessLetter() {
         guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
         guessedLetter = guessedLetter + letterGuess;
         
+        // ==> Check NO correct guesses made
+        if(guessNumber === 0) {
+            
+            response.textContent = 'Boo-hoo you popped all the balloons! You are NOT going to the Party!';
+            document.getElementById('guess-button').disabled = true;
+        }
 
     }
     guesses.textContent = guessedLetter.split('').join(', ');
-
 
 }
 
