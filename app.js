@@ -77,17 +77,32 @@ function guessLetter() {
         //  Display correct letter to page and put to Check Win
         for(var i = 0; i < selectedWord.length; i++) {
             if(letterGuess === selectedWord[i]) {
-                document.getElementById('letter-' + i).textContent = letterGuess;
+                if(i === 0) {
+                    document.getElementById('letter-' + i).textContent = letterGuess.toUpperCase();
+                    console.log('Cap first letter', letterGuess.toUpperCase());}
+                else {
+                    document.getElementById('letter-' + i).textContent = letterGuess;
+                    
+                } 
                 checkWin[i] = letterGuess;
+            
                 console.log('correct guessed letter & index', checkWin[i], i);
             }
+       
         }
+        
+        // Check if all letters correctly guessed
+        if(selectedWord === checkWin.join('')) {
+            response.textContent = 'Congratulations! You are going to the Party!';
+            document.getElementById('guess-button').disabled = true;
+        }
+        guessedLetter = guessedLetter + letterGuess;
+        console.log('guessed letter', guessedLetter);
+        
+        guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
     }
-    guessedLetter = guessedLetter + letterGuess;
-    console.log('guessed letter', guessedLetter);
-
-    guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
     guesses.textContent = guessedLetter.split('').join(', ');
+
 
 }
 
