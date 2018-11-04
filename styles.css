@@ -1,8 +1,15 @@
-#letter-display{
-    background-color: blue;
-    color: white;
+#letter-container{
+    border-color: blue;
+    text-align: center;
+    font-size: 5vw;
+    margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 #guessed-display{
@@ -10,9 +17,9 @@
     color: white;
 }
 
-
-
-h1{
-    text-align: center;
+img {
+    border-width: 3px;
+    border-color: black;
 }
+
 

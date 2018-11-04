@@ -71,13 +71,13 @@ function checkGuess(guessedLetter) {
 
 
 
-guessedLetterDisplay.textContent = displayGuesses;
+guessedLetterDisplay.textContent = displayGuesses.join(' ');
 wrongLetterDisplay.textContent = 'Wrong letters here';
 
 function clickButton() {
     if(gameIsDone === false) {
         var guess = getGuess();
         checkGuess(guess);
-        console.log(guess, randomWordArray, displayGuesses);
+        console.log(guess, randomWordArray, displayGuesses, test);
     }
 }
