@@ -34,15 +34,15 @@ function randomWord() {
 function wordGame() {
  
     //clear previous input box
-    for(var i = 0; i < 13; i++) {
-        document.getElementById('letter-' + i).textContent = ' ';
+    for(var j = 0; j < 13; j++) {
+        document.getElementById('letter-' + j).textContent = ' ';
     }
     // clear game response line
     response.textContent = '';
     // clear guessed letters line
     guesses.textContent = '';
 
-    guessNumber = 7;
+    guessNumber = 6;
     checkWin = '';
     guessedLetter = '';
     guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
@@ -109,11 +109,16 @@ function guessLetter() {
         
     }
 
-    // Guessed letter is incorrect ==> decrement guesses remaining
+    // Guessed letter is incorrect 
     else {
+        // ==> display pop balloon image
+        document.getElementById('image').src = 'image' + guessNumber + '.png';
+        
+        // ==> decrement guesses remaining
         guessNumber--;
         guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
         guessedLetter = guessedLetter + letterGuess;
+        
 
     }
     guesses.textContent = guessedLetter.split('').join(', ');
