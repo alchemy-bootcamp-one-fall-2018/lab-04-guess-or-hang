@@ -13,9 +13,9 @@ var guessedLetter = '';
 var selectedState;
 var stateLength;
 var checkWin;
-// var guessNumber = 6;
+var guessNumber;
 // var guesses = document.getElementById('guessed-letters');
-// var guessesRemaining = document.getElementById('guesses-remaining');
+var guessesRemaining = document.getElementById('guesses-remaining');
 
 
 
@@ -34,9 +34,10 @@ function randomWord() {
 function wordGame() {
  
 
-
+    guessNumber = 7;
     checkWin = '';
     guessedLetter = '';
+    guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
 
     // get random word from words array
     selectedWord = randomWord();
@@ -60,6 +61,7 @@ function wordGame() {
 function guessLetter() {
     var letterGuess = document.getElementById('guess-input').value;
     console.log ('From guess input box:', letterGuess);
+    document.getElementById('guess-input').value = '';
     
     // Alert user to enter a letter
     if(letterGuess.length !== 1) {
@@ -71,7 +73,7 @@ function guessLetter() {
         response.textContent = 'Letter already guessed. Pls pick another letter';
     }
     // Guessed letter is correct
-    else if(selectedWord.include(letterGuess) === true) {
+    else if(selectedWord.includes(letterGuess) === true) {
         //  Display correct letter to page and put to Check Win
         for(var i = 0; i < stateLength; i++) {
             if(letterGuess === selectedState[i]) {
@@ -81,5 +83,6 @@ function guessLetter() {
             }
         }
     }
+    guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
 }
 
