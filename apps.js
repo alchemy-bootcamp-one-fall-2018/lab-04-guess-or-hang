@@ -46,9 +46,9 @@ function checkGuess(guessedLetter) {
     var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
     if(letterIsInWord === true){
         var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
-        guessedLetterDisplay.textContent = displayGuesses;
         for(var i = 0; i < letterLocations.length; i++) {
             displayGuesses[letterLocations[i]] = guessedLetter;
+            guessedLetterDisplay.textContent = displayGuesses;
         }
         if(randomWordArray.toString() === displayGuesses.toString()) {
             gameIsDone = true;
@@ -65,6 +65,10 @@ function checkGuess(guessedLetter) {
     }
 } 
 
+
+
+
+guessedLetterDisplay.textContent = displayGuesses;
 
 function clickButton() {
     if(gameIsDone === false) {
