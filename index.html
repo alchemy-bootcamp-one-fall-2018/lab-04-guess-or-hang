@@ -24,8 +24,10 @@
                 </div>
             </p>
 
-            <p id="lose-game"></p>
-            <p id="win-game"></p>
+            <p id="lose-game" class="hidden">You Lost! Try Again.</p>
+            <p id="win-game" class="hidden">You Win! Congrats!</p>
+            <p id="wrong-letters"></p>
+            <p>You have <span id="guesses">_</span> wrong guesses left</p>
 
             <div id="guessLetterCenter">
                 <form id="guess-letter-form" onsubmit="event.preventDefault(); checkGuessLetter();">

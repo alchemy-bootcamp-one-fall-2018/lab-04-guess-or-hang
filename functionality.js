@@ -4,6 +4,7 @@ function tryButton() {
 }
 
 var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
+var wrongWordList = [];
 
 var guessLetterForm = document.getElementById('guess-letter-form');
 var submitButton = document.getElementById('submit');
@@ -25,10 +26,22 @@ function removeElement() {
 // eslint-disable-next-line
 function startGame() {
     word = getRandomWord(wordList);
+    wrongGuessCount = 0;
+    wrongWordList.length = 0;
+    guessesLeft();
+    console.log(word);
     var myCanvas = document.getElementById('myCanvas');
     // eslint-disable-next-line
     myCanvas.width = myCanvas.width;
     gallows();
+    console.log(wrongGuessCount);
+    var hiddenLose = document.getElementById('lose-game');
+    hiddenLose.classList.add('hidden');
+    var hiddenWin = document.getElementById('win-game');
+    hiddenWin.classList.add('hidden');
+    var hiddenWrongLetters = document.getElementById('wrong-letters');
+    hiddenWrongLetters.classList.add('hidden');
+
     submitButton.disabled = false;
     if(document.getElementsByClassName('letter')) {
         removeElement();
@@ -48,6 +61,11 @@ var wrongGuessCount = 0;
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
     var guess = elements['guess-letter-id'].value;
+
+    var hiddenWrongLetters = document.getElementById('wrong-letters');
+    hiddenWrongLetters.classList.remove('hidden');
+
+    console.log(guess);
     if(word.includes(guess)) {
         for(var i = 0; i < word.length; i++) {
             if(guess === word[i]) {
@@ -56,11 +74,16 @@ function checkGuessLetter() {
             }
             if(correctGuessCount === word.length) {
                 var winGame = document.getElementById('win-game');
-                winGame.textContent = 'You Win! Congrats!';
+                winGame.classList.remove('hidden');
             }
         }
     } else {
         wrongGuessCount++;
+        var wrongGuessLetter = document.getElementById('wrong-letters');
+        wrongWordList.push(guess);
+        console.log(wrongWordList);
+        wrongGuessLetter.textContent = 'Wrong Guesses: ' + wrongWordList;
+        guessesLeft();
     }
     if(wrongGuessCount === 1) {
         drawHead();
@@ -81,7 +104,7 @@ function checkGuessLetter() {
         drawRightLeg();
         submitButton.disabled = true;
         var loseGame = document.getElementById('lose-game');
-        loseGame.textContent = 'You Lost! Try Again.';
+        loseGame.classList.remove('hidden');
     }
     resetGuessLetter();
 }
@@ -90,6 +113,11 @@ function resetGuessLetter() {
     var elements = guessLetterForm.elements;
     var submit = elements['guess-letter-id'];
     submit.value = '';
+}
+
+function guessesLeft() {
+    var guesses = document.getElementById('guesses');
+    guesses.textContent = 6 - wrongGuessCount;
 }
 
 
