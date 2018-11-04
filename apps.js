@@ -1,7 +1,7 @@
 /* exported clickButton */
 var winLoseContainer = document.getElementById('win-lose-container');
 var guessLettersForm = document.getElementById('guess-letters');
-const guessedLetterDisplay = document.getElementById('letter-display');
+let guessedLetterDisplay = document.getElementById('guessed-display');
 
 
 var wordList = ['heart', 'puppy', 'kitten', 'octopus', 'platypus', 'diamond', 'gold', 'river'];
@@ -12,6 +12,8 @@ var displayGuesses = [];
 var guessCount = 0;
 var gameIsDone = false;
 let image = document.getElementById('gallows');
+
+
 
 
 for(var i = 0; i < wordLength; i++) {
@@ -44,6 +46,7 @@ function checkGuess(guessedLetter) {
     var letterIsInWord = arrayContainsGuessedLetter(guessedLetter);
     if(letterIsInWord === true){
         var letterLocations = getAllIndexes(randomWordArray, guessedLetter);
+        guessedLetterDisplay.textContent = displayGuesses;
         for(var i = 0; i < letterLocations.length; i++) {
             displayGuesses[letterLocations[i]] = guessedLetter;
         }
