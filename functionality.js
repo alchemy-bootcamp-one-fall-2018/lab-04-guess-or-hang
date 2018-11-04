@@ -1,4 +1,8 @@
-/* eslint no-console: "off" */
+// eslint-disable-next-line
+function tryButton() {
+
+}
+
 var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
 
 var guessLetterForm = document.getElementById('guess-letter-form');
@@ -38,23 +42,25 @@ function startGame() {
     }
 }
 
+var correctGuessCount = 0;
 var wrongGuessCount = 0;
 // eslint-disable-next-line
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
     var guess = elements['guess-letter-id'].value;
-    // firstLetter.textContent = guess;
     if(word.includes(guess)) {
-        console.log('cool');
         for(var i = 0; i < word.length; i++) {
-            console.log(word[i]);
             if(guess === word[i]) {
                 document.getElementById('blanks').children[i].textContent = guess;
-    
+                correctGuessCount++;
+            }
+            if(correctGuessCount === word.length) {
+                var winGame = document.getElementById('win-game');
+                winGame.textContent = 'You Win! Congrats!';
             }
         }
     } else {
-        wrongGuessCount ++;
+        wrongGuessCount++;
     }
     if(wrongGuessCount === 1) {
         drawHead();
@@ -74,7 +80,8 @@ function checkGuessLetter() {
     if(wrongGuessCount === 6) {
         drawRightLeg();
         submitButton.disabled = true;
-
+        var loseGame = document.getElementById('lose-game');
+        loseGame.textContent = 'You Lost! Try Again.';
     }
     resetGuessLetter();
 }
