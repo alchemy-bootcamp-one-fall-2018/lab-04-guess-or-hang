@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Butcherman" rel="stylesheet">
-    <link rel="stylesheet" href="jei-jen.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title> The Hanged Man</title>
 </head>
 <body>
-    <h1>Halloween Hang Man</h1> 
-    <form id="halloween-hangman">
-        <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter"/>
-        <input id="Guess" name="Guess" type="submit" value="Guess"/>
-        <button id="Restart" name="Restart" type="button" onclick="showImage  ()">Restart</button>
-    
-
+    <h1>The Hanged Man</h1>
+    <form id="hangman">
+        <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter" />
+        <input id="guess" name="guess" type="submit" value="Guess" />
+        <button id="restart" name="restart" type="button">Restart</button>
+    </form>
     <ul id="letters"></ul>
     <p id="man"></p>
     <p id="output" class="output"></p>
+    
+    <img src="img/beg.png" alt="hangman tarot">
 
-
-<div class="image">
-    <img id="beg" src="img/beg.png" alt="beginning"/>
-    <img id="head" src="img/head.png" alt="beginning"/>
-    <img id="one-arm" src="img/one-arm.png" alt="beginning"/>
-    <img id="no-body" src="img/no-body.png" alt="beginning"/>
-    <img id="no-leg" src="img/no-leg.png" alt="beginning"/>
-    <img id="one-leg" src="img/one-leg.png" alt="beginning"/>
-    <img id="dead" src="img/dead.png" alt="beginning"/>
-</div>
-</form>
-    <script src="jei-jen.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
