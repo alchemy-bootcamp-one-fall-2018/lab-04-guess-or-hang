@@ -29,12 +29,10 @@ function startGame() {
     wrongGuessCount = 0;
     wrongWordList.length = 0;
     guessesLeft();
-    console.log(word);
     var myCanvas = document.getElementById('myCanvas');
     // eslint-disable-next-line
     myCanvas.width = myCanvas.width;
     gallows();
-    console.log(wrongGuessCount);
     var hiddenLose = document.getElementById('lose-game');
     hiddenLose.classList.add('hidden');
     var hiddenWin = document.getElementById('win-game');
@@ -65,7 +63,6 @@ function checkGuessLetter() {
     var hiddenWrongLetters = document.getElementById('wrong-letters');
     hiddenWrongLetters.classList.remove('hidden');
 
-    console.log(guess);
     if(word.includes(guess)) {
         for(var i = 0; i < word.length; i++) {
             if(guess === word[i]) {
@@ -81,7 +78,6 @@ function checkGuessLetter() {
         wrongGuessCount++;
         var wrongGuessLetter = document.getElementById('wrong-letters');
         wrongWordList.push(guess);
-        console.log(wrongWordList);
         wrongGuessLetter.textContent = 'Wrong Guesses: ' + wrongWordList;
         guessesLeft();
     }
