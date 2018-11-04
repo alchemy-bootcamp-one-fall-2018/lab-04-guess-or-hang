@@ -10,11 +10,11 @@
 var selectedWord;
 var response = document.getElementById('game-response');
 var guessedLetter = '';
-var selectedState;
-var stateLength;
+
+
 var checkWin;
 var guessNumber;
-// var guesses = document.getElementById('guessed-letters');
+var guesses = document.getElementById('guessed-letters');
 var guessesRemaining = document.getElementById('guesses-remaining');
 
 
@@ -40,7 +40,7 @@ function wordGame() {
     guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
 
     // get random word from words array
-    selectedWord = randomWord();
+    selectedWord = randomWord().toLowerCase();
     console.log(selectedWord);
 
     // Hide word and display '_' for each letter on page
@@ -75,14 +75,19 @@ function guessLetter() {
     // Guessed letter is correct
     else if(selectedWord.includes(letterGuess) === true) {
         //  Display correct letter to page and put to Check Win
-        for(var i = 0; i < stateLength; i++) {
-            if(letterGuess === selectedState[i]) {
+        for(var i = 0; i < selectedWord.length; i++) {
+            if(letterGuess === selectedWord[i]) {
                 document.getElementById('letter-' + i).textContent = letterGuess;
                 checkWin[i] = letterGuess;
-                console.log('correct guessed letter ', checkWin[i]);
+                console.log('correct guessed letter & index', checkWin[i], i);
             }
         }
     }
+    guessedLetter = guessedLetter + letterGuess;
+    console.log('guessed letter', guessedLetter);
+
     guessesRemaining.textContent = 'Guesses remaining: ' + guessNumber;
+    guesses.textContent = guessedLetter.split('').join(', ');
+
 }
 
