@@ -33,6 +33,14 @@ function randomWord() {
 
 function wordGame() {
  
+    //clear previous input box
+    for(var i = 0; i < 13; i++) {
+        document.getElementById('letter-' + i).textContent = ' ';
+    }
+    // clear game response line
+    response.textContent = '';
+    // clear guessed letters line
+    guesses.textContent = '';
 
     guessNumber = 7;
     checkWin = '';
