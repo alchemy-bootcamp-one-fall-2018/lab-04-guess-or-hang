@@ -50,6 +50,7 @@ function checkGuess(guessedLetter) {
         for(var i = 0; i < letterLocations.length; i++) {
             displayGuesses[letterLocations[i]] = guessedLetter;
             guessedLetterDisplay.textContent = displayGuesses;
+            guessedLetterDisplay.textContent = displayGuesses.join(' ');
         }
         if(randomWordArray.toString() === displayGuesses.toString()) {
             gameIsDone = true;
@@ -58,7 +59,7 @@ function checkGuess(guessedLetter) {
     }
     if(letterIsInWord === false) {
         wrongLetters.push(guessedLetter);
-        wrongLetterDisplay.textContent = wrongLetters;
+        wrongLetterDisplay.textContent = wrongLetters.join(' ');
         guessCount = guessCount + 1;
         image.src = './hangman-images/' + guessCount + '.jpg';
         if(guessCount === 6) {
@@ -72,12 +73,12 @@ function checkGuess(guessedLetter) {
 
 
 guessedLetterDisplay.textContent = displayGuesses.join(' ');
-wrongLetterDisplay.textContent = 'Wrong letters here';
+wrongLetterDisplay.textContent = ' ';
 
 function clickButton() {
     if(gameIsDone === false) {
         var guess = getGuess();
         checkGuess(guess);
-        console.log(guess, randomWordArray, displayGuesses, test);
+        console.log(guess, randomWordArray, displayGuesses);
     }
 }

@@ -12,14 +12,20 @@ body {
 }
 
 
-#guessed-display{
-    background-color: purple;
-    color: white;
-}
-
 img {
     border-width: 3px;
     border-color: black;
 }
 
+h1 {
+    width: 100%;
+    background-color: lightsteelblue;
+    text-align: center;
+}
 
+#wrong-letters {
+    width: 150px;
+    text-align: center;
+    margin-top: 50px;
+    display: inline-block;
+}
