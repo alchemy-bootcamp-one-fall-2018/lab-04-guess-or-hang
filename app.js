@@ -37,8 +37,8 @@ function wordGame() {
     // clear guessed letters line
     guesses.textContent = '';
     // reset to initial image
-    guessNumber = 7;
-    document.getElementById('image').src = 'image' + guessNumber + '.png';
+    document.getElementById('image').src = 'image7.png';
+
 
     guessNumber = 6;
     checkWin = '';
