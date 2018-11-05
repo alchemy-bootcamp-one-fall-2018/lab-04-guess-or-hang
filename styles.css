@@ -1,0 +1,55 @@
+button, input {
+  font-size: 1.5em;
+}
+#start-button {
+  border-radius: 50px;
+  background-color: orange;
+  color: red;
+}
+
+#guess-button {
+  border-radius: 20px;
+  background-color: fuchsia;
+  color: lightblue;
+  outline:none;
+}
+#guess-word {
+  font-size:2em;
+}
+
+input {
+  border: 2px solid lawngreen;
+  width: 25%;
+  outline:none;
+}
+
+h1 {
+  color: limegreen;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 1em;
+}
+
+img {
+  width: 50%;
+}
+
+#game-response {
+  color: orangered;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+#guesses-remaining {
+  color:slateblue;
+  font-size: 1.25em;
+}
+
+#guessed-letters {
+  color: limegreen;
+  font-size: 1.25em;
+  font-weight: bold;
+}
