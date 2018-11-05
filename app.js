@@ -96,7 +96,7 @@ function guessLetter() {
         
         // Check if all letters correctly guessed
         if(selectedWord === checkWin.join('')) {
-            response.textContent = 'Congratulations! You are going to the Party!';
+            response.textContent = 'Yippee you saved ' + guessNumber + ' balloons! You are going to the Party!';
             document.getElementById('guess-button').disabled = true;
         }
         guessedLetter = guessedLetter + letterGuess;
