@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess or Hang Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Guess or Hang Game</h1>
+    <section id="column-one">
+        <section id="image-display">
+            <div id="image-container">
+                <img id="gallows" src="./hangman-images/0.jpg">
+            </div>
+        </section>
+        <section id="letter-display">
+            <div >
+                <h4 id="letter-container">current guess</h4>
+            </div>
+        </section>
+    </section>
+    
+    <section id="wrong-letters">
+        <label for="guessed-display"><strong>Wrong letters</strong></label>
+        <h4 id="guessed-display"></h4>
+    </section>
+    
+    <section id="win-lose-container">
+        <h4></h4>
+    </section>
+
+    <form id="guess-letters"
+    onsubmit="event.preventDefault(); submitLetter();"
+    >
+        <label for="textinput">Guess a letter</label>
+        <input type="text" id="text-input" name="textinput">
+        <button onclick="clickButton()">Guess</button>
+    </form>
+<script src="apps.js"></script>
+</body>
+</html>

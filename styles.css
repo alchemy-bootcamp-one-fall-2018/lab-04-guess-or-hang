@@ -1,0 +1,31 @@
+#letter-container{
+    border-color: blue;
+    text-align: center;
+    font-size: 5vw;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+img {
+    border-width: 3px;
+    border-color: black;
+}
+
+h1 {
+    width: 100%;
+    background-color: lightsteelblue;
+    text-align: center;
+}
+
+#wrong-letters {
+    width: 150px;
+    text-align: center;
+    margin-top: 50px;
+    display: inline-block;
+}
