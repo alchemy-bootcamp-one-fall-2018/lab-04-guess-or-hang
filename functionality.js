@@ -1,9 +1,5 @@
-// eslint-disable-next-line
-function tryButton() {
-
-}
-
-var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
+/* exported startGame checkGuessLetter */
+/* global wordList*/
 var wrongWordList = [];
 
 var guessLetterForm = document.getElementById('guess-letter-form');
@@ -18,20 +14,15 @@ function getRandomWord(words) {
 var word = '';
 
 function removeElement() {
-    // Removes an element from the document
     var element = document.getElementById('blanks');
     element.innerHTML = '';
 }
 
-// eslint-disable-next-line
 function startGame() {
     word = getRandomWord(wordList);
     wrongGuessCount = 0;
     wrongWordList.length = 0;
     guessesLeft();
-    var myCanvas = document.getElementById('myCanvas');
-    // eslint-disable-next-line
-    myCanvas.width = myCanvas.width;
     gallows();
     var hiddenLose = document.getElementById('lose-game');
     hiddenLose.classList.add('hidden');
@@ -48,14 +39,13 @@ function startGame() {
     for(var i = 0; i < word.length; i++) {
         var letter = document.createElement('div');
         letter.className = 'letter';
-        // letter.textContent = '';
         blanks.appendChild(letter);
     }
 }
 
 var correctGuessCount = 0;
 var wrongGuessCount = 0;
-// eslint-disable-next-line
+
 function checkGuessLetter() {
     var elements = guessLetterForm.elements;
     var guess = elements['guess-letter-id'].value;
