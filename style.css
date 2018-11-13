@@ -24,7 +24,11 @@ p {
     font-size: 15px; 
     margin: 20px;
 }
-
+#start-game {
+    padding: 10px 30px;
+    font-size: 15px; 
+    margin: 20px;
+}
 #myCanvas {
     border: 10px ridge gray;
     background: white;
@@ -53,4 +57,16 @@ p {
 }
 .letter {
     margin: 0 5px;
+    border-bottom: 5px solid black;
+    min-width: 20px;
+}
+#win-game {
+    background-color: darkgoldenrod;
+    color: black;
+}
+#lose-game {
+    background-color: maroon;
+}
+.hidden {
+    display: none;
 }

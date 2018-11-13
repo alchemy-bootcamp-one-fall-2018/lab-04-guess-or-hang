@@ -24,19 +24,25 @@
                 </div>
             </p>
 
+            <p id="lose-game" class="hidden">You Lost! Try Again.</p>
+            <p id="win-game" class="hidden">You Win! Congrats!</p>
+            <p id="wrong-letters"></p>
+            <p>You have <span id="guesses">_</span> wrong guesses left</p>
+
             <div id="guessLetterCenter">
                 <form id="guess-letter-form" onsubmit="event.preventDefault(); checkGuessLetter();">
                     <label id="guess-text-id" for="guess-letter-for">Guess Letter:</label>
                     <input type="text" id="guess-letter-id" maxlength="1" name="guess" placeholder="Enter a letter">
                     <br>
-                    <button id="submit" onclick="tryButton()">Submit Letter</button>
+                    <button id="submit">Submit Letter</button>
                     
                 </form>
-                <button id="submit" onclick="startGame()">Start Game</button>
+                <button id="start-game" onclick="startGame()">Start Game</button>
                                 
             </div>
 
         <script src="functionality.js"></script>
+        <script src="words.js"></script>
     </body>
 </div>
 </html>
